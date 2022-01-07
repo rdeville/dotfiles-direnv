@@ -1,0 +1,925 @@
+#!/usr/bin/env bash
+# """Activate the directory environment
+#
+# SYNOPSIS:
+#   source /path/to/activate_direnv
+#
+# DESCRIPTION:
+#   This script can be :
+#
+#     - Sourced manually, like for python virtual environment, with the
+#       following command:
+#       ```
+#       source /path/to/.direnv/activate_direnv
+#       ```
+#
+#     - Sourced automatically by `direnv` using file `.envrc`, see thee
+#       description in the header of file `.envrc`.
+#
+#   Script will parse the file `.envrc.ini`, build associative arrays for each
+#   modules described in this file and load corresponding modules.
+#
+#   Finally, script will unset every temporary variable and methods that are not
+#   required once directory environment is loaded to avoid spoiling shell
+#   environment.
+#
+# """
+
+activate_direnv()
+{
+  # """Activate directory environment by loading modules
+  #
+  # Check if script is called manuall or using `direnv`, set global variables
+  # related to directory environment folder (such as `DIRENV_ROOT`.)
+  #
+  # Call the script `lib/parse_ini_file.sh` to parse the file `.envrc.ini` to
+  # build associative arrays.
+  #
+  # From these associative arrays, ensure that module have not been modified, if
+  # modules have been modified, warn the user and safely exit. Else load
+  # corresponding modules.
+  #
+  # Finally, unset variables and methods not required once directory environment
+  # is loaded to avoid spoiling the user shell.
+  #
+  # Globals:
+  #   None
+  #
+  # Arguments:
+  #   None
+  #
+  # Output:
+  #   Log informations
+  #
+  # Returns:
+  #   0 if directory environment is correctly loaded
+  #   1 if something when wrong during loading directory environment
+  #
+  # """
+
+  # shellcheck disable=SC2034
+  #   - SC2034: var appears unused, Verify use (or export if used externally)
+  direnv_log()
+  {
+    # """Print debug message in colors depending on message severity on stderr
+    #
+    # Echo colored log depending on user provided message severity. Message
+    # severity are associated to following color output:
+    #
+    #   - `DEBUG` print in the fifth colors of the terminal (usually magenta)
+    #   - `INFO` print in the second colors of the terminal (usually green)
+    #   - `WARNING` print in the third colors of the terminal (usually yellow)
+    #   - `ERROR` print in the third colors of the terminal (usually red)
+    #
+    # If no message severity is provided, severity will automatically be set to
+    # INFO.
+    #
+    # Globals:
+    #   None
+    #
+    # Arguments:
+    #   $1: string, message severity or message content
+    #   $@: string, message content
+    #
+    # Output:
+    #   Log informations colored
+    #
+    # Returns:
+    #   None
+    #
+    # """
+
+    # Store color prefixes in variable to ease their use.
+    # Base on only 8 colors to ensure portability of color when in tty
+    local e_normal="\e[0m"     # Normal (usually white fg & transparent bg)
+    local e_bold="\e[1m"       # Bold
+    local e_underline="\e[4m"  # Underline
+    local e_debug="\e[0;34m"   # Fifth term color (usually magenta fg)
+    local e_info="\e[0;32m"    # Second term color (usually green fg)
+    local e_warning="\e[0;33m" # Third term color (usually yellow fg)
+    local e_error="\e[0;31m"   # First term color (usually red fg)
+
+    # Store preformated colored prefix for log message
+    local error="${e_bold}${e_error}[ERROR]${e_normal}${e_error}"
+    local warning="${e_bold}${e_warning}[WARNING]${e_normal}${e_warning}"
+    local info="${e_bold}${e_info}[INFO]${e_normal}${e_info}"
+    local debug="${e_bold}${e_debug}[INFO]${e_normal}${e_debug}"
+
+    local color_output="e_error"
+    local msg_severity
+    local msg
+
+    # Not using ${1^^} to ensure portability when using ZSH
+    msg_severity=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+
+    if [[ "${msg_severity}" =~ ^(error|time|warning|info|debug)$ ]]
+    then
+      # Shift arguments by one such that $@ start from the second arguments
+      shift
+      # Place the content of variable which name is defined by ${msg_severity}
+      # For instance, if `msg_severity` is INFO, then `prefix` will have the same
+      # value as variable `info`.
+      prefix="${!msg_severity}"
+      color_output="e_${msg_severity}"
+    else
+      prefix="${info}"
+    fi
+    color_output="${!color_output}"
+
+    # Concat all remaining arguments in the message content and apply markdown
+    # like syntax.
+    msg_content=$(echo "$*" | \
+      sed -e "s/ \*\*/ \\${e_bold}/g" \
+          -e "s/\*\*\./\\${e_normal}\\${color_output}./g" \
+          -e "s/\*\* /\\${e_normal}\\${color_output} /g" \
+          -e "s/ \_\_/ \\${e_underline}/g" \
+          -e "s/\_\_\./\\${e_normal}\\${color_output}./g" \
+          -e "s/\_\_ /\\${e_normal}\\${color_output} /g")
+    msg="${prefix} ${msg_content}${e_normal}"
+
+    # Print message
+    echo -e "${msg}" 1>&2
+  }
+
+  get_methods_list()
+  {
+    # """Parse file passed as argument to export list of methods
+    #
+    # Parse a file and return the list of "first-level" methods, i.e. methods
+    # which name is not idented. For instance, this metod is not a "first-level"
+    # method.
+    #
+    # Globals:
+    #   None
+    #
+    # Arguments:
+    #   $1: string, path to the file to parse
+    #
+    # Output:
+    #   Multiline string with all the "first-level" methods, one per line
+    #
+    # Returns:
+    #   0 if file has "first-level" methods
+    #   1 if file does not have "first-level" methods
+    #
+    # """
+
+    local file_path=$1
+
+    grep -E "^[a-zA-Z0-9_]*\(\)" "${file_path}" | cut -d ":" -f 2
+  }
+
+  unset_methods()
+  {
+    # """Unset methods if defined from list of methods provided as arguments
+    #
+    # Globals:
+    #   None
+    #
+    # Arguments:
+    #   $1: multiline string, list of methods to unset, one method per line
+    #
+    # Output:
+    #   None
+    #
+    # Returns:
+    #   0 if file has "first-level" methods
+    #   1 if file does not have "first-level" methods
+    #
+    # """
+
+    local methods_list=$1
+    local i_method
+
+    while read -r i_method
+    do
+      # Remove parenthesis `()` if present in the method name
+      i_method=${i_method//\(\)/}
+      if command -v "${i_method}" > /dev/null 2>&1
+      then
+        unset -f "${i_method}"
+      fi
+    done <<< "${methods_list}"
+  }
+
+  unset_modules()
+  {
+    # """Unset modules from list of already loaded modules
+    #
+    # The process to unset modules is compose of two part:
+    #
+    #   - Unset methods defined in the module
+    #   - Unset associative array related to this module
+    #
+    # Globals:
+    #   DIRENV_TEMP_FOLDER
+    #   DIRENVRC_MODULE_FOLDER
+    #
+    # Arguments:
+    #   None
+    #
+    # Output:
+    #   None
+    #
+    # Returns:
+    #   None
+    #
+    # """
+
+    local i_module
+    local file_list
+
+    if [[ -f "${DIRENV_TEMP_FOLDER}/.loaded_modules" ]]
+    then
+      while read -r i_module
+      do
+        if [[ "${i_module}" =~ : ]]
+        then
+          # Extract module name if there is module sub configuration in
+          # `.envrc.ini`, like for `openstack` module.
+          # Remove everything after the first `:`.
+          i_module=${i_module%:*}
+        fi
+        file_list="${DIRENVRC_MODULE_FOLDER}/${i_module}.sh"
+        unset_methods "$(get_methods_list "${file_list}")"
+        # Deallocate module associative array
+        unset "${i_module}"
+      done <<< "$(cat "${DIRENV_TEMP_FOLDER}/.loaded_modules")"
+    fi
+  }
+
+  unset_all_methods_and_vars()
+  {
+    # """Unset all methods and variables set to load directory environment
+    #
+    # The process to unset all methods and variables is composed of two part:
+    #
+    #   - Unset methods and variables defined by modules
+    #   - Unset methods defined by library scripts
+    #
+    # Globals:
+    #   DIRENV_ROOT
+    #   DIRENV_LOG_FOLDER
+    #   DIRENVRC_LIB_FOLDER
+    #   DIRENVRC_SRC_FOLDER
+    #   DIRENVRC_SHA1_FOLDER
+    #   DIRENVRC_MODULE_FOLDER
+    #   DIRENV_BIN_FOLDER
+    #   DIRENV_SHA1_FOLDER
+    #   DIRENV_TEMP_FOLDER
+    #   DIRENV_CONFIG_PATH
+    #   DIRENV_INI_SEP
+    #
+    # Arguments:
+    #   None
+    #
+    # Output:
+    #   None
+    #
+    # Returns:
+    #   None
+    #
+    # """
+
+    local i_file
+
+    unset_modules
+    for i_file in "${DIRENVRC_LIB_FOLDER}"/*.sh \
+                  "${DIRENVRC_FOLDER}/direnvrc"
+    do
+      unset_methods "$(get_methods_list "${i_file}")"
+    done
+
+    unset DIRENVRC_FOLDER
+    unset DIRENVRC_LIB_FOLDER
+    unset DIRENVRC_SRC_FOLDER
+    unset DIRENVRC_SHA1_FOLDER
+    unset DIRENVRC_MODULE_FOLDER
+    unset DIRENVRC_TEMPLATE_FOLDER
+
+    unset DIRENV_LOG_FOLDER
+    unset DIRENV_SHA1_FOLDER
+    unset DIRENV_BIN_FOLDER
+    unset DIRENV_TEMP_FOLDER
+    unset DIRENV_CONFIG_PATH
+    unset DIRENV_INI_SEP
+  }
+
+  check_sha1()
+  {
+    # """Ensure the SHA1 of a file is valid
+    #
+    # Ensure the SHA1 of a file provided as argument corresponding the value of
+    # a previously computed SHA1 to ensure the file has not been modified.
+    #
+    # Globals:
+    #   DIRENV_ROOT
+    #   DIRENV_SHA1_FOLDER
+    #
+    # Arguments:
+    #   $1: string, path to the file to test
+    #
+    # Output:
+    #   Log message to inform user SHA does not correspond
+    #
+    # Returns:
+    #   0 if SHA1 is valid
+    #   1 if SHA1 is not valid
+    #
+    # """
+
+    local file="$1"
+    local sha1_file
+
+    if [[ "${file}" =~ .envrc.ini ]]
+    then
+      sha1_file="${DIRENV_ROOT}/.direnv/.sha1/$(basename "${file}").sha1"
+    else
+      # Replace every occurrences of `${DIRENVRC_FOLDER}` with
+      # `${DIRENVRC_SHA1_FOLDER}` in variable `${file}`
+      sha1_file="${file//${DIRENVRC_FOLDER}/${DIRENVRC_SHA1_FOLDER}}.sha1"
+    fi
+
+    if [[ "$(sha1sum "${file}" | cut -d " " -f 1 )" != "$(cat "${sha1_file}")" ]]
+    then
+      # Remove every before the last occurrence of `${DIRENV_ROOT}`
+      # - SC2295: Expansion inside ${..} need to be quoted separately, otherwise
+      #           they match patterns.
+      # shellcheck disable=SC2295
+      file=${file/${HOME}/\~}
+      # shellcheck disable=SC2295
+      file=${file##*${DIRENV_ROOT}\/}
+      # Remove every occurrences of `${DIRENV_ROOT`
+      # - SC2295: Expansion inside ${..} need to be quoted separately, otherwise
+      #           they match patterns.
+      # shellcheck disable=SC2295
+      sha1_file=${sha1_file/${HOME}/\~}
+      # shellcheck disable=SC2295
+      sha1_file=${sha1_file##*${DIRENV_ROOT}\/}
+      # Not using `direnv_log`, because script may not be loaded at this step.
+      direnv_log "ERROR" "SHA1 of **\`${file}\`** differs from **\`${sha1_file}\`**."
+      return 1
+    fi
+  }
+
+  set_direnv()
+  {
+    # """Set required global variables
+    #
+    # Check from which binary is called the script, depending on the way, set
+    # global variables that will be used by directory environment scripts if
+    # main scripts (i.e. `.envrc` and `activate_direnv`) have valid SH1.
+    #
+    # Globals:
+    #   DIRENV_ROOT
+    #   DIRENV_LOG_FOLDER
+    #   DIRENVRC_LIB_FOLDER
+    #   DIRENVRC_SRC_FOLDER
+    #   DIRENV_BIN_FOLDER
+    #   DIRENVRC_SHA1_FOLDER
+    #   DIRENV_TEMP_FOLDER
+    #   DIRENVRC_MODULE_FOLDER
+    #   DIRENV_CONFIG_PATH
+    #   DIRENV_INI_SEP
+    #
+    # Arguments:
+    #   None
+    #
+    # Output:
+    #   None
+    #
+    # Returns:
+    #   0 if SHA1 of scripts are valid
+    #   1 if SHA1 of scripts are not valid
+    #
+    # """
+
+    local config_file_name=".envrc.ini"
+    local old_direnv_root
+
+    if grep -q "source_up=[Tt]rue" ${config_file_name}
+    then
+      old_direnv_root=${PWD}
+      source_up
+      export DIRENV_ROOT=${old_direnv_root}
+      unset old_direnv_root
+    fi
+    export DIRENV_ROOT="${PWD}"
+
+    export DIRENV_LOG_FOLDER="${DIRENV_ROOT}/.direnv/log"
+    export DIRENV_SHA1_FOLDER="${DIRENV_ROOT}/.direnv/.sha1"
+    export DIRENV_BIN_FOLDER="${DIRENV_ROOT}/.direnv/bin"
+    export DIRENV_TEMP_FOLDER="${DIRENV_ROOT}/.direnv/tmp"
+    export DIRENV_CONFIG_PATH="${DIRENV_ROOT}/${config_file_name}"
+    export DIRENV_INI_SEP="%%%%"
+
+    # Create local only folder
+    for i_dir in "${DIRENV_LOG_FOLDER}" "${DIRENV_SHA1_FOLDER}" \
+                 "${DIRENV_BIN_FOLDER}" "${DIRENV_TEMP_FOLDER}"
+    do
+      if ! [[ -d ${i_dir} ]]
+      then
+        echo -e "${e_info}[INFO] Create directory ${i_dir//${DIRENV_ROOT}\/}.${e_normal}"
+        mkdir -p "${i_dir}"
+      fi
+    done
+
+    # If user is reloading the directory environment, clean the temporary file
+    # listing loaded module to avoid issues when deactivating directory
+    # environment
+    if [[ -f "${DIRENV_TEMP_FOLDER}/.loaded_modules" ]]
+    then
+      rm -f "${DIRENV_TEMP_FOLDER}/.loaded_modules"
+    fi
+  }
+
+  load_module()
+  {
+    # """Load specific module
+    #
+    # Check if module script exists, if not, print an error. Else, check if
+    # SHA1 of module script is valid, if not, print an error.
+    # If everything is correct, load the module.
+    #
+    # Globals:
+    #   DIRENV_TEMP_FOLDER
+    #   DIRENV_MODULE_FOLDER
+    #   DIRENV_CONFIG_PATH
+    #
+    # Arguments:
+    #   $1: string, name of the module from `.envrc.ini`
+    #
+    # Output:
+    #   Log message if something went wrong
+    #
+    # Returns:
+    #   0 if module is correctly loaded
+    #   1 if module can not be loaded
+    #
+    # """
+    local i_module=$1
+
+    # Extract module name if there is module sub configuration in
+    # `.envrc.ini`, like for `openstack` module.
+    # Remove everything after the first `:`.
+    i_module=${i_module%:*}
+    if ! [[ -e "${DIRENVRC_MODULE_FOLDER}/${i_module}.sh" ]]
+    then
+      direnv_log "ERROR" "Module **${i_module}** does not exists !"
+      direnv_log "ERROR" "Please review file **${DIRENV_CONFIG_PATH//${HOME}/\~}** to remove or comment it."
+      return 1
+    fi
+    check_sha1 "${DIRENVRC_MODULE_FOLDER}/${i_module}.sh" || return 1
+    # shellcheck source=modules/export_var.sh
+    source "${DIRENVRC_MODULE_FOLDER}/${i_module}.sh"
+    direnv_log "INFO" "Loading module **${i_module}**."
+    ${i_module} || error="true"
+    if ! [[ -f "${DIRENV_TEMP_FOLDER}/.loaded_modules" ]] \
+        || ! grep -q "${i_module}" "${DIRENV_TEMP_FOLDER}/.loaded_modules"
+    then
+      echo "${i_module}" >> "${DIRENV_TEMP_FOLDER}/.loaded_modules"
+    fi
+  }
+
+  load_config_file()
+  {
+    # """Load the configuration file
+    #
+    # Ensure the configuration file `.envrc.ini` exists. If not print and error
+    # and exit. Else ensure that `.envrc.ini has not been modified, if
+    # `.envrc.ini` has been modified, print an error and exit.
+    # If everything is right, parse the configuration file `.envrc.ini`
+    #
+    # Globals:
+    #   DIRENV_SHA1_FOLDER
+    #
+    # Arguments:
+    #   $1: string, path to the configuration file
+    #
+    # Output:
+    #   Error message if something went wrong
+    #
+    # Returns:
+    #   0 if the configuration file has been loaded.
+    #   1 if there is an error with the configuration file.
+    #
+    # """
+
+    parse_ini_file()
+    {
+      # """Parse a simple `.ini` file and stre values in associative arrays.
+      #
+      # Parse line by line a `.ini` file, if a section tag is encountered, create an
+      # associative array from the name of the section and store each key, value
+      # pair in this associative array.
+      #
+      # For instances:
+      #
+      # ```ini
+      # [section_name]
+      # ##  Comment
+      # key_1 = foo
+      # key_2 = bar
+      # ```
+      #
+      # Will result on the creation of the bash associative array `${section_name}`
+      # with two key,value pair accessible as shown below:
+      #
+      # ```bash
+      # echo ${section_name[key_1]}
+      # # Will echo foo
+      # echo ${section_name[key_2]}
+      # # Will echo bar
+      # ```
+      #
+      # Globals:
+      #   DIRENV_INI_SEP
+      #
+      # Arguments:
+      #   $0: string, path to the `.ini` config file to parse
+      #
+      # Output:
+      #   None
+      #
+      # Returns:
+      #   None
+      #
+      # """
+
+      parse_ini_section()
+      {
+        # """Parse a simple `.ini` file and stre values in associative arrays.
+        #
+        # Parse line by line a `.ini` file, if a section tag is encountered, create an
+        # associative array from the name of the section and store each key, value
+        # pair in this associative array.
+        # Space ` ` in section name will be replaced by underscore `_`.
+        #
+        # For instances:
+        #
+        # ```ini
+        # [section name]
+        # ##  Comment
+        # key_1 = foo
+        # key_2 = bar
+        # ```
+        #
+        # Will result on the creation of the bash associative array `${section_name}`
+        # with two key,value pair accessible as shown below:
+        #
+        # ```bash
+        # echo ${section_name[key_1]}
+        # ##  Will echo foo
+        # echo ${section_name[key_2]}
+        # ##  Will echo bar
+        # ```
+        #
+        # Globals:
+        #   DIRENV_INI_SEP
+        #
+        # Arguments:
+        #   $0: string, path to the `.ini` config file to parse
+        #
+        # Output:
+        #   None
+        #
+        # Returns:
+        #   None
+        #
+        # """
+
+        local line="$1"
+        local module_name
+
+        module_name="$(echo "${line}" | sed -e "s/\[//g" -e "s/\]//g" -e "s/ /_/g")"
+        direnv_modules+=("${module_name}")
+      }
+
+      parse_ini_value()
+      {
+        # """Parse line key, value provided as argument from an `.ini` file
+        #
+        # Parse a single line provided as first argument from an `.ini`, i.e. of the
+        # following form:
+        #
+        # ```ini
+        # ##  This is a comment
+        # key=value
+        # key =value
+        # key= value
+        # key = value
+        # ```
+        #
+        # Others form are not supported !
+        # Once the line is parse, if value start with `cmd:`, this means that value
+        # is obtain from a command provided, execute the command to have the value.
+        # store the pair key, value into the associative
+        # array corresponding to the section provided as second argument.
+        #
+        # If there already exist an entry for the key in the associative array, the
+        # new value will be concatenate with the old value using `${DIRENV_INI_SEP}`
+        # as separator to be able to easily split the string later in the
+        # corresponding module.
+        #
+        # Globals:
+        #   DIRENV_INI_SEP
+        #
+        # Arguments:
+        #   $1: string, line to parse
+        #   $2: string, name of the module where key, value will be stored
+        #
+        # Output:
+        #   None
+        #
+        # Returns:
+        #   None
+        #
+        # """
+        local line="$1"
+        local last_module_name="$2"
+        local key
+        local value
+        local var_access
+        local cmd_regexp='^cmd:'
+        local var_regexp='\$\{.*\}'
+
+        # Remove space before `=`
+        line=${line// =/=}
+        # Remove space after `=`
+        line=${line//= /=}
+        # Remove everything after the first =
+        key="${line%=*}"
+        # Remove everything before the first =
+        value="${line#*=}"
+
+        if [[ "${value}" =~ ${cmd_regexp} ]]
+        then
+          # Remove first string `cmd:` from the value
+          cmd=${value/cmd:/}
+          value=$( eval "${cmd}" )
+        elif [[ "${value}" =~ ${var_regexp} ]]
+        then
+          # Escape in value variable
+          value=${value//\$/\\\$}
+        fi
+
+        if [[ "${last_module_name}" =~ : ]]
+        then
+          # Remove everything after the ":" in the module name, usefull for storing
+          # multiple configuration for a single section, like for openstack module
+          # and generate key based on the module configuration
+          key="${last_module_name#*:},${key}"
+          last_module_name="${last_module_name%:*}"
+        fi
+
+        # Check if pair key, val does not already exists
+        var_access="echo \"\${${last_module_name}[${key}]}\""
+        # shellcheck disable=SC2116
+        #   - SC2116: Useless echo ?
+        curr_var_value="$(eval "$( echo "${var_access}" )" )"
+        if [[ -n "${curr_var_value}" ]]
+        then
+          value="${curr_var_value}${DIRENV_INI_SEP}${value}"
+        fi
+
+        # Store the pair key, value into the corresponding associative array.
+        #   - SC2116: Useless echo ?
+        # shellcheck disable=SC2116
+        eval "$(echo "${last_module_name}[${key}]=\"${value}\"")"
+      }
+
+      parse_ini_line()
+      {
+        # """Determine if a line define a section or a pair key, value
+        #
+        # Determine if line provided as argument define a section, then call method
+        # `parse_ini_section`, else if line determine a pair key, value, call method
+        # `parse_ini_value`.
+        #
+        # Globals:
+        #   None
+        #
+        # Arguments:
+        #   $1: string, line to parse
+        #   $2: string, name of the last section (i.e. module) parsed
+        #
+        # Output:
+        #   None
+        #
+        # Returns:
+        #   None
+        #
+        # """
+        local line="$1"
+        local last_module_name="$2"
+        local regexp="^\[.*\]"
+
+        if [[ "${line}" =~ ${regexp} ]]
+        then
+          parse_ini_section "${line}"
+        elif [[ "${line}" =~ [a-zA_Z0_9_]*= ]]
+        then
+          parse_ini_value "${line}" "${last_module_name}"
+        fi
+      }
+
+      # Content of the main method
+      local filename="$1"
+      local last_module_size=0
+      local last_module_name=""
+
+      while read -r line
+      do
+        # If line is not empty and is not a comment
+        if ! [[ "${line}" =~ ^# ]] && [[ -n "${line}" ]]
+        then
+          parse_ini_line "${line}" "${last_module_name}"
+
+          # If last parsed line define a new module, create corresponding
+          # associative array
+          if [[ "${#direnv_modules[@]}" -ne "${last_module_size}" ]]
+          then
+            last_module_size=${#direnv_modules[@]}
+            last_module_name=${direnv_modules[-1]}
+            # Remove everythin after the first `:`
+            declare -A -g "${last_module_name%:*}"
+          fi
+        fi
+      done <<< "$(cat "${filename}")"
+    }
+
+    local config_file_path="$1"
+    local config_file_sha1
+
+    config_file_sha1="${DIRENV_SHA1_FOLDER}/$(basename "${config_file_path}").sha1"
+
+    if ! [[ -f "${config_file_path}" ]]
+    then
+      direnv_log "ERROR" "File **${config_file_path}** does not exists."
+      return 1
+    else
+      if ! [[ -f "${config_file_sha1}" ]]
+      then
+        sha1sum "${config_file_path}" | cut -d " " -f 1 > "${config_file_sha1}"
+      else
+        if ! check_sha1 "${config_file_path}"
+        then
+          direnv_log "ERROR" "If you modify **${config_file_path}**."
+          direnv_log "ERROR" "Please remove **${config_file_sha1}**."
+          direnv_log "ERROR" "And reactivate direnv."
+          return 1
+        fi
+      fi
+      direnv_log "DEBUG" "Loading **${config_file_path//${HOME}/\~}**."
+      parse_ini_file "${config_file_path}" || return 1
+    fi
+  }
+
+  deactivate_modules()
+  {
+    # """Deactivate already module
+    #
+    # Methods called when initialization of directory environment went wrong.
+    # For each already loaded modules, i.e. modules listed in
+    # ${DIRENV_TEMP_FOLDER}/.loaded_modules, call the deactivate method of the
+    # module.
+    # Finally, remove the file ${DIRENV_TEMP_FOLDER}/.loaded_modules.
+    #
+    # Globals:
+    #   DIRENV_MODULE_FOLDER
+    #   DIRENV_TEMP_FOLDER
+    #
+    # Arguments:
+    #   $1: string, name of the module from `.envrc.ini`
+    #
+    # Output:
+    #   Log message if something went wrong
+    #
+    # Returns:
+    #   0 if module is correctly loaded
+    #   1 if module can not be loaded
+    #
+    # """
+    local loaded_modules="${DIRENV_TEMP_FOLDER}/.loaded_modules"
+
+    if [[ -n "$1" ]]
+    then
+      loaded_modules=$1
+    fi
+
+    if [[ -f "${loaded_modules}" ]]
+    then
+      while read -r i_module
+      do
+        # shellcheck source=modules/export_var.sh
+        source "${DIRENVRC_MODULE_FOLDER}/${i_module}.sh"
+        direnv_log "INFO" "Deactivating module **${i_module}**."
+        if command -v "deactivate_${i_module}" &> /dev/null
+        then
+          deactivate_"${i_module}"
+        fi
+      done <<< "$(cat "${loaded_modules}")"
+      if [[ -z "$1" ]]
+      then
+        rm -f "${loaded_modules}"
+      fi
+    fi
+  }
+
+  safe_exit()
+  {
+    # """Safely exit the activation of directory environment in case of error
+    #
+    # Safely exit the activate of the directory environment if something went
+    # wrong during the initilization. This is done by deactivating modules, then
+    # unset all methods and variables.
+    #
+    # Globals:
+    #   None
+    #
+    # Arguments:
+    #   None
+    #
+    # Output:
+    #   Log message telling user an error occurs
+    #
+    # Returns:
+    #   1 in any case to indicate an error occurs
+    #
+    # """
+    local config_file_name=".envrc.ini"
+    local parent_env
+
+    direnv_log "ERROR" "An error occurs while loading direnv."
+
+    if grep -q "source_up=[Tt]rue" ${config_file_name}
+    then
+      cd .. || return 1
+      parent_env=$(find_up .envrc)
+      parent_env=$(dirname "${parent_env}")
+      deactivate_modules "${parent_env}/.direnv/tmp/.loaded_modules"
+      cd "${DIRENV_ROOT}" || return 1
+    fi
+
+    deactivate_modules
+    unset_all_methods_and_vars
+
+    return 1
+  }
+
+  # Main method content
+  local i_module
+  local direnv_modules=()
+  local error="false"
+
+  local DIRENVRC_FOLDER="${HOME}/.config/direnv"
+  local DIRENVRC_SHA1_FOLDER="${DIRENVRC_FOLDER}/.sha1"
+  local DIRENVRC_MODULE_FOLDER="${DIRENVRC_FOLDER}/modules"
+  #   - SC2034: VAR appears unused
+  # shellcheck disable=SC2034
+  local DIRENVRC_SRC_FOLDER="${DIRENVRC_FOLDER}/src"
+  #   - SC2034: VAR appears unused
+  # shellcheck disable=SC2034
+  local DIRENVRC_TEMPLATE_FOLDER="${DIRENVRC_FOLDER}/templates"
+
+  # Ensure this script has not been modified
+  check_sha1 "${DIRENVRC_FOLDER}/direnvrc" || return 1
+
+  # Init direnv variables
+  set_direnv || return 1
+
+  # Parse configuration file
+  load_config_file "${DIRENV_CONFIG_PATH}" || return 1
+
+  # Load every module listed in configuration file
+  for i_module in "${direnv_modules[@]}"
+  do
+    if ! [[ "${i_module}" =~ : ]] && ! [[ "${i_module}" =~ DEFAULT ]]
+    then
+      load_module "${i_module}" || error="true"
+    fi
+  done
+
+   # If an error occurs, safely exit
+   if [[ "${error}" == "true" ]]
+   then
+     safe_exit
+     return 1
+   fi
+
+   # Unset now useless method and variables
+   if [[ -z "${old_direnv_root}" ]]
+   then
+     unset_all_methods_and_vars
+   fi
+
+   unset PS1
+}
+
+# make `direnv` silent
+#export DIRENV_LOG_FORMAT=
+
+# ------------------------------------------------------------------------------
+# VIM MODELINE
+# vim: ft=bash: foldmethod=indent
+# ------------------------------------------------------------------------------
