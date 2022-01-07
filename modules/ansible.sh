@@ -146,7 +146,7 @@ ansible()
     do
       if ! [[ -e "${DIRENV_BIN_FOLDER}/${i_script%%.*}" ]]
       then
-        ln -s "${DIRENV_SRC_FOLDER}/${i_script}" \
+        ln -s "${DIRENVRC_SRC_FOLDER}/${i_script}" \
               "${DIRENV_BIN_FOLDER}/${i_script%%.*}"
       fi
     done
@@ -236,7 +236,7 @@ ansible()
 
 
   local default_config="${ansible[default]}"
-  local template_file="${DIRENV_TEMPLATE_FOLDER}/ansible.template.cfg"
+  local template_file="${DIRENVRC_TEMPLATE_FOLDER}/ansible.template.cfg"
   local inventory
 
   install_ansible_script

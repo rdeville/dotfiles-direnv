@@ -347,12 +347,14 @@ activate_direnv()
       #           they match patterns.
       # shellcheck disable=SC2295
       file=${file/${HOME}/\~}
+      # shellcheck disable=SC2295
       file=${file##*${DIRENV_ROOT}\/}
       # Remove every occurrences of `${DIRENV_ROOT`
       # - SC2295: Expansion inside ${..} need to be quoted separately, otherwise
       #           they match patterns.
       # shellcheck disable=SC2295
       sha1_file=${sha1_file/${HOME}/\~}
+      # shellcheck disable=SC2295
       sha1_file=${sha1_file##*${DIRENV_ROOT}\/}
       # Not using `direnv_log`, because script may not be loaded at this step.
       direnv_log "ERROR" "SHA1 of **\`${file}\`** differs from **\`${sha1_file}\`**."
@@ -394,7 +396,6 @@ activate_direnv()
 
     local config_file_name=".envrc.ini"
     local old_direnv_root
-    local script_path
 
     if grep -q "source_up=[Tt]rue" ${config_file_name}
     then
@@ -419,7 +420,7 @@ activate_direnv()
       if ! [[ -d ${i_dir} ]]
       then
         echo -e "${e_info}[INFO] Create directory ${i_dir//${DIRENV_ROOT}\/}.${e_normal}"
-        mkdir -p ${i_dir}
+        mkdir -p "${i_dir}"
       fi
     done
 
@@ -469,7 +470,7 @@ activate_direnv()
       return 1
     fi
     check_sha1 "${DIRENVRC_MODULE_FOLDER}/${i_module}.sh" || return 1
-    # shellcheck source=./modules/direnv_management.sh
+    # shellcheck source=modules/export_var.sh
     source "${DIRENVRC_MODULE_FOLDER}/${i_module}.sh"
     direnv_log "INFO" "Loading module **${i_module}**."
     ${i_module} || error="true"
@@ -682,8 +683,8 @@ activate_direnv()
         fi
 
         # Store the pair key, value into the corresponding associative array.
-        # shellcheck disable=SC2116
         #   - SC2116: Useless echo ?
+        # shellcheck disable=SC2116
         eval "$(echo "${last_module_name}[${key}]=\"${value}\"")"
       }
 
@@ -810,7 +811,7 @@ activate_direnv()
     then
       while read -r i_module
       do
-        # shellcheck source=./modules/direnv_management.sh
+        # shellcheck source=modules/export_var.sh
         source "${DIRENVRC_MODULE_FOLDER}/${i_module}.sh"
         direnv_log "INFO" "Deactivating module **${i_module}**."
         if command -v "deactivate_${i_module}" &> /dev/null
@@ -853,11 +854,11 @@ activate_direnv()
 
     if grep -q "source_up=[Tt]rue" ${config_file_name}
     then
-      cd ..
+      cd .. || return 1
       parent_env=$(find_up .envrc)
-      parent_env=$(dirname ${parent_env})
+      parent_env=$(dirname "${parent_env}")
       deactivate_modules "${parent_env}/.direnv/tmp/.loaded_modules"
-      cd ${DIRENV_ROOT}
+      cd "${DIRENV_ROOT}" || return 1
     fi
 
     deactivate_modules
@@ -872,9 +873,13 @@ activate_direnv()
   local error="false"
 
   local DIRENVRC_FOLDER="${HOME}/.config/direnv"
-  local DIRENVRC_SRC_FOLDER="${DIRENVRC_FOLDER}/src"
   local DIRENVRC_SHA1_FOLDER="${DIRENVRC_FOLDER}/.sha1"
   local DIRENVRC_MODULE_FOLDER="${DIRENVRC_FOLDER}/modules"
+  #   - SC2034: VAR appears unused
+  # shellcheck disable=SC2034
+  local DIRENVRC_SRC_FOLDER="${DIRENVRC_FOLDER}/src"
+  #   - SC2034: VAR appears unused
+  # shellcheck disable=SC2034
   local DIRENVRC_TEMPLATE_FOLDER="${DIRENVRC_FOLDER}/templates"
 
   # Ensure this script has not been modified

@@ -59,7 +59,7 @@ deps =
   -r./requirements.dev.txt
 commands =
   # Linter bash script using shellcheck
-  bash -c 'shellcheck -s bash -x *.sh */*.sh deactivate_direnv activate_direnv .envrc'
+  bash -c 'shellcheck -s bash -x */*.sh direnvrc .envrc'
   # Check bash docstrings
   bash -c 'DIRENV_ROOT="$(pwd)" ./tools/generate_source_docs.sh --dry-run'
 

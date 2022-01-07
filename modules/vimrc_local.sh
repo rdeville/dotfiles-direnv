@@ -169,7 +169,7 @@ vimrc_local()
   local vim_gitlab_project_id="${vimrc_local[vim_gitlab_project_id]}"
   local vim_gitlab_alter="${vimrc_local[vim_gitlab_alter]:=true}"
   local vim_gitlab_debug="${vimrc_local[vim_gitlab_debug]:=false}"
-  local template_file="${DIRENV_TEMPLATE_FOLDER}/vimrc.local.template"
+  local template_file="${DIRENVRC_TEMPLATE_FOLDER}/vimrc.local.template"
   local output_file="${DIRENV_ROOT}/.vimrc.local"
 
   eval_vimrc_local_var

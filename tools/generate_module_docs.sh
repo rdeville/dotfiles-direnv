@@ -16,7 +16,6 @@
 
 # Output folder
 DIRENV_MODULE_FOLDER="${DIRENV_ROOT}/modules"
-DIRENV_DEBUG_LEVEL="DEBUG"
 
 # shellcheck disable=SC2034
 #   - SC2034: var appears unused, Verify use (or export if used externally)

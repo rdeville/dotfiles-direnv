@@ -113,7 +113,8 @@ keepass()
 
     if ! [[ -e "${DIRENV_BIN_FOLDER}/keepass" ]]
     then
-      ln -s "${DIRENV_SRC_FOLDER}/keepass.sh" "${DIRENV_BIN_FOLDER}/keepass"
+      ln -s "${DIRENVRC_SRC_FOLDER}/keepass.sh" \
+            "${DIRENV_BIN_FOLDER}/keepass"
     fi
   }
 

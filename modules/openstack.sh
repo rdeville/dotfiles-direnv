@@ -236,7 +236,8 @@ openstack()
 
     if ! [[ -e "${DIRENV_BIN_FOLDER}/select_openstack" ]]
     then
-      ln -s "${DIRENV_SRC_FOLDER}/select_openstack.sh" "${DIRENV_BIN_FOLDER}/select_openstack"
+      ln -s "${DIRENVRC_SRC_FOLDER}/select_openstack.sh" \
+            "${DIRENV_BIN_FOLDER}/select_openstack"
     fi
   }
 
