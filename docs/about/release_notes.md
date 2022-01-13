@@ -10,6 +10,12 @@ Modified content will be overwritten when updating
 
 ## 🔖 v1.0
 
+!!! info "🔖 v1.1.2"
+
+    ### 🔖 v1.1.2 <small>13/01/2021</small>
+
+      * 🔧 Recompute SHA1 of modified files
+
 !!! info "🔖 v1.1.1"
 
     ### 🔖 v1.1.1 <small>13/01/2021</small>
