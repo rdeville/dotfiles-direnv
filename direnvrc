@@ -732,7 +732,7 @@ activate_direnv()
       # could have been initialized when sourcing up direnv.
       for i_module in "${XDG_CONFIG_DIR:-${HOME}/.config}/direnv/modules/"*.sh
       do
-        unset "$(basename ${i_module%%.sh})"
+        unset "$(basename "${i_module%%.sh}")"
       done
 
       while read -r line

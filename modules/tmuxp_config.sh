@@ -123,7 +123,7 @@ check_source_exist()
     direnv_log "ERROR" "Valid values are:"
     for i_file in "${template_dir}/"*.yaml
     do
-      direnv_log "ERROR" "  - **$(basename ${i_file%%.yaml})**."
+      direnv_log "ERROR" "  - **$(basename "${i_file%%.yaml}")**."
     done
     return 1
   fi
@@ -147,8 +147,8 @@ check_tmuxp_config_exist()
   #   0: If tmuxp configuration file already exists.
   #
   # """
-  local config_filename=$1
-  if ! [[ -f "${tmuxp_configdir}/$1.yaml" ]]
+  local config_filename="$1"
+  if ! [[ -f "${tmuxp_configdir}/${config_filename}.yaml" ]]
   then
     return 1
   fi
@@ -209,7 +209,7 @@ setup_tmuxp_config()
   if ! [[ -d "${tmuxp_configdir}" ]]
   then
     direnv_log "INFO" "Creating directory **${tmuxp_configdir}**."
-    mkdir -p ${tmuxp_configdir}
+    mkdir -p "${tmuxp_configdir}"
   fi
 
   if [[ "${config_type}" == "project" ]]
@@ -305,9 +305,10 @@ tmuxp_config()
   #   0 if the module is correctly loaded
   #
   # """
-
+  #   - SC2154: Variable is referenced but not assigned
+  # shellcheck disable=SC2154
   local tmuxp_configdir="${tmuxp_config[TMUXP_CONFIGDIR]:=${HOME}/.config/tmuxp}"
-  local tmuxp_session_name="${tmuxp_config[tmuxp_session_name]:=$(basename ${DIRENV_ROOT})}"
+  local tmuxp_session_name="${tmuxp_config[tmuxp_session_name]:=$(basename "${DIRENV_ROOT}")}"
   local tmuxp_project="${tmuxp_config[tmuxp_project]:=""}"
   local tmuxp_template="${tmuxp_config[tmuxp_template]:=""}"
 

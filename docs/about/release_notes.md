@@ -10,6 +10,13 @@ Modified content will be overwritten when updating
 
 ## 🔖 v1.0
 
+!!! info "🔖 v1.1.0"
+
+    ### 🔖 v1.1.0 <small>13/01/2021</small>
+
+      * ✨ Add `tmux_config` module to automatically start tmux session in
+        detached state.
+
 !!! info "🔖 v1.0.0"
 
     ### 🔖 v1.0.0 <small>07/01/2021</small>
