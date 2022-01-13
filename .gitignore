@@ -1,7 +1,8 @@
 # Project Specific Gitignore
 
 .vimrc.local
-.tmuxinator.yml
+.tmuxinator.y*ml
+.tmuxp.y*ml
 .old/
 .tmp/
 docs/versions.json
