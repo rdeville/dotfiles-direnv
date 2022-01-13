@@ -22,6 +22,7 @@ environment, for instance module `ansible` will only execute task related to
 | [path_management](path_management.md) | Update `PATH` variable with user defined folder |
 | [python_management](python_management.md) | Setup a complete python virtual environment |
 | [taskwarrior](taskwarrior.md) | Setup taskwarrior variable to ease use of taskwarrior |
+| [tmuxp_config](tmuxp_config.md) | Export tmuxp var and/or set `tmuxp.yaml` file to start tmux session |
 | [vimrc_local](vimrc_local.md) | Setup a `.vimrc.local` file at the root of the directory |
 
 </center>

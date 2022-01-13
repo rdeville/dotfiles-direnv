@@ -35,7 +35,7 @@ environment.
  Check if script is called manuall or using `direnv`, set global variables
  related to directory environment folder (such as `DIRENV_ROOT`.)
  
- Call the script `lib/parse_ini_file.sh` to parse the file `.envrc.ini` to
+ Call the method `parse_ini_file` to parse the file `.envrc.ini` to
  build associative arrays.
  
  From these associative arrays, ensure that module have not been modified, if

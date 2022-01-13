@@ -187,6 +187,19 @@ requirements_type=dev
 # Specify the path to the taskwarrior config file
 TASKWARRIOR_TASKRC=${DIRENV_ROOT}/.taskrc
 
+# tmuxp module
+# ------------------------------------------------------------------------------
+# Start a tmux session from tmuxp config in detached states
+[tmuxp_config]
+# Location where tmuxp file are stored
+TMUXP_CONFIGDIR="${XDG_CONFIG_DIR:-${HOME}/.config/}tmuxp/"
+# Name of the session
+tmuxp_session_name="cmd: dirname ${DIRENV_ROOT}"
+# Template to use (copy and symlink)
+#tmuxp_template="default"
+# Project to use (run an instance)
+tmuxp_project="default"
+
 # vimrc_local module
 # ------------------------------------------------------------------------------
 # Write a `.vimrc.local` file at the root of the directory
