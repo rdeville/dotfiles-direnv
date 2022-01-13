@@ -137,7 +137,7 @@ generate_doc()
   cat <<EOM > "${module_index}"
 # Modules
 
-Modules are part of \`direnv_template\` which run tasks related to a specific
+Modules are part of \`direnv\` which run tasks related to a specific
 environment, for instance module \`ansible\` will only execute task related to
 \`ansible\`, etc.
 

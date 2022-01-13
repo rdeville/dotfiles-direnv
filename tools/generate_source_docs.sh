@@ -456,7 +456,7 @@ generate_method_docs()
   local toc_depth="##"
 
   # Extract the method name
-  method_name="$(grep -E ".*\(\)$" <<<"${method_doc}" | sed "s/^ *//g")"
+  method_name="$(grep -E '[A-Za-z_]+\(\)' <<<"${method_doc}" | sed "s/^ *//g")"
 
   # Extract only the docstring without the comment prefix `#`
   # shellcheck disable=SC2026
@@ -585,7 +585,7 @@ generate_doc()
       method_content=$(sed -n -e "/^${i_method_name}/,/# \"\"\"$/"p "${i_node}")
     fi
     full_doc+="$(generate_method_docs "${method_content}")"
-  done <<<"$(grep -E '[a-zA-Z_]\(\)' "${i_node}")"
+  done <<<"$(grep -E '[A-Za-z_]+\(\)' "${i_node}")"
 
   if [[ "${DRY_RUN}" == "false" ]]
   then

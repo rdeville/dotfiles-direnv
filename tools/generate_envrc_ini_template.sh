@@ -120,7 +120,7 @@ generate_envrc_ini()
   #
   # """
 
-  local output_file=${DIRENV_ROOT}/templates/envrc.template.ini
+  local output_file="${DIRENV_ROOT}/templates/envrc.ini.template"
 
   cat <<EOM > "${output_file}"
 # DIRENV MODULE CONFIGURATION

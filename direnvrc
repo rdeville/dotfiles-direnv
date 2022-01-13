@@ -32,7 +32,7 @@ activate_direnv()
   # Check if script is called manuall or using `direnv`, set global variables
   # related to directory environment folder (such as `DIRENV_ROOT`.)
   #
-  # Call the script `lib/parse_ini_file.sh` to parse the file `.envrc.ini` to
+  # Call the method `parse_ini_file` to parse the file `.envrc.ini` to
   # build associative arrays.
   #
   # From these associative arrays, ensure that module have not been modified, if
@@ -728,6 +728,13 @@ activate_direnv()
       local last_module_size=0
       local last_module_name=""
 
+      # Unset every possible associative array, i.e. every module array, that
+      # could have been initialized when sourcing up direnv.
+      for i_module in "${XDG_CONFIG_DIR:-${HOME}/.config}/direnv/modules/"*.sh
+      do
+        unset "$(basename ${i_module%%.sh})"
+      done
+
       while read -r line
       do
         # If line is not empty and is not a comment
@@ -764,8 +771,8 @@ activate_direnv()
       else
         if ! check_sha1 "${config_file_path}"
         then
-          direnv_log "ERROR" "If you modify **${config_file_path}**."
-          direnv_log "ERROR" "Please remove **${config_file_sha1}**."
+          direnv_log "ERROR" "If you modify **${config_file_path/${HOME}/\~}**."
+          direnv_log "ERROR" "Please remove **${config_file_sha1/${HOME}/\~}**."
           direnv_log "ERROR" "And reactivate direnv."
           return 1
         fi
@@ -813,7 +820,7 @@ activate_direnv()
       do
         # shellcheck source=modules/export_var.sh
         source "${DIRENVRC_MODULE_FOLDER}/${i_module}.sh"
-        direnv_log "INFO" "Deactivating module **${i_module}**."
+        direnv_log "WARNING" "Deactivating module **${i_module}**."
         if command -v "deactivate_${i_module}" &> /dev/null
         then
           deactivate_"${i_module}"
