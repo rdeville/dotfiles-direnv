@@ -10,6 +10,12 @@ Modified content will be overwritten when updating
 
 ## 🔖 v1.0
 
+!!! info "🔖 v1.1.1"
+
+    ### 🔖 v1.1.1 <small>13/01/2021</small>
+
+      * 📝 Fix broken link in README.md
+
 !!! info "🔖 v1.1.0"
 
     ### 🔖 v1.1.0 <small>13/01/2021</small>

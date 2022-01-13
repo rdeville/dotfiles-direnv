@@ -85,10 +85,10 @@ leaving the folder any exported variables will be automatically unloaded.
 
 The complete description of this repos, as well as many more information such as
 use of modules, description of the configuration file, etc., is available on a
-dedicated website, see [Direnv Template Online
+dedicated website, see [Direnv Online
 Documentation][online_doc].
 
-If [Direnv Template Online Documentation][online_doc] is not
+If [Direnv Online Documentation][online_doc] is not
 accessible, you can render the online documentation locally on your computer,
 see section [Render documentation locally](#render-documentation-locally)
 
@@ -159,4 +159,4 @@ You can now browse the full documentation by visiting
 
 <!-- END MKDOCS TEMPLATE -->
 
-[online_doc]: https://docs.romaindeville.fr/rdeville.public/my_dotfiles/direnv/index.html
+[online_doc]: https://docs.romaindeville.fr/my_dotfiles/direnv/index.html
