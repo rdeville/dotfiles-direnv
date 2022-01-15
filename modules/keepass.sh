@@ -111,10 +111,10 @@ keepass()
     #
     # """
 
-    if ! [[ -e "${DIRENV_BIN_FOLDER}/keepass" ]]
+    if ! [[ -e "${DIRENV_BIN_FOLDER}/mykeepass" ]]
     then
       ln -s "${DIRENVRC_SRC_FOLDER}/keepass.sh" \
-            "${DIRENV_BIN_FOLDER}/keepass"
+            "${DIRENV_BIN_FOLDER}/mykeepass"
     fi
   }
 

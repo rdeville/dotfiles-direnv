@@ -10,6 +10,13 @@ Modified content will be overwritten when updating
 
 ## 🔖 v1.0
 
+!!! info "🔖 v1.1.3"
+
+    ### 🔖 v1.1.3 <small>15/01/2021</small>
+
+      * 🐛 Fix bug in `keepass` module which leaded to infinite source loop when
+        using `source_up=true`
+
 !!! info "🔖 v1.1.2"
 
     ### 🔖 v1.1.2 <small>13/01/2021</small>
