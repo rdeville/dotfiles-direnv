@@ -108,11 +108,40 @@ activate_direnv()
     local color_output="e_error"
     local msg_severity
     local msg
+    local direnv_debug_level="warning"
+    local regexp=""
+    local show_msg="false"
 
     # Not using ${1^^} to ensure portability when using ZSH
     msg_severity=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+    direnv_debug_level=$(echo "${DIRENV_DEBUG_LEVEL}" | tr '[:upper:]' '[:lower:]')
 
-    if [[ "${msg_severity}" =~ ^(error|time|warning|info|debug)$ ]]
+    case "${DIRENV_DEBUG_LEVEL}" in
+      debug)
+        [[ "${msg_severity}" =~ ^(time|debug|info|warning|error)$ ]] && show_msg="true"
+        ;;
+      info)
+        [[ "${msg_severity}" =~ ^(info|warning|error)$ ]] && show_msg="true"
+        ;;
+      warning)
+        [[ "${msg_severity}" =~ ^(warning|error)$ ]] && show_msg="true"
+        ;;
+      error)
+        [[ "${msg_severity}" =~ ^error$ ]] && show_msg="true"
+        ;;
+      time)
+        [[ "${msg_severity}" =~ ^(error|warning|time)$ ]] && show_msg="true"
+        ;;
+      warning)
+        [[ "${msg_severity}" =~ ^(warning|error)$ ]] && show_msg="true"
+        ;;
+    esac
+
+    if [[ "${show_msg}" != "true" ]]
+    then
+      return 1
+    fi
+    if [[ "${msg_severity}" =~ ^(time|debug|info|warning|error)$ ]]
     then
       # Shift arguments by one such that $@ start from the second arguments
       shift
