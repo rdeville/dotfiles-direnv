@@ -132,7 +132,7 @@ activate_direnv()
       time)
         [[ "${msg_severity}" =~ ^(error|warning|time)$ ]] && show_msg="true"
         ;;
-      warning)
+      *)
         [[ "${msg_severity}" =~ ^(warning|error)$ ]] && show_msg="true"
         ;;
     esac
@@ -684,8 +684,8 @@ activate_direnv()
         if [[ "${value}" =~ ${cmd_regexp} ]]
         then
           # Remove first string `cmd:` from the value
-          cmd=${value/cmd:/}
-          value=$( eval "${cmd}" )
+          cmd=${value/cmd:[ ]/}
+        value=$(eval "${cmd}" )
         elif [[ "${value}" =~ ${var_regexp} ]]
         then
           # Escape in value variable
@@ -917,6 +917,9 @@ activate_direnv()
   #   - SC2034: VAR appears unused
   # shellcheck disable=SC2034
   local DIRENVRC_TEMPLATE_FOLDER="${DIRENVRC_FOLDER}/templates"
+  #   - SC2034: VAR appears unused
+  # shellcheck disable=SC2034
+  local DIRENV_DEBUG_LEVEL="warning"
 
   # Ensure this script has not been modified
   check_sha1 "${DIRENVRC_FOLDER}/direnvrc" || return 1
