@@ -448,7 +448,7 @@ activate_direnv()
     do
       if ! [[ -d ${i_dir} ]]
       then
-        echo -e "${e_info}[INFO] Create directory ${i_dir//${DIRENV_ROOT}\/}.${e_normal}"
+        direnv_log "INFO" "Create directory ${i_dir//${DIRENV_ROOT}\/}.${e_normal}"
         mkdir -p "${i_dir}"
       fi
     done
