@@ -129,31 +129,6 @@ check_source_exist()
   fi
 }
 
-check_tmuxp_config_exist()
-{
-  # """Check if tmuxp configuration file already exists
-  #
-  # Globals:
-  #   None
-  #
-  # Arguments:
-  #   $1: String, name of the tmuxp configuration file.
-  #
-  # Output:
-  #   None
-  #
-  # Returns:
-  #   1: If tmuxp configuration file does not exists.
-  #   0: If tmuxp configuration file already exists.
-  #
-  # """
-  local config_filename="$1"
-  if ! [[ -f "${tmuxp_configdir}/${config_filename}.yaml" ]]
-  then
-    return 1
-  fi
-}
-
 check_mutually_exclusive_var()
 {
   # """Check if mutually exclusive variable are not set in .envrc.ini
@@ -247,12 +222,17 @@ process_tmuxp()
   #   None
   #
   # """
-  local session_name=$1
-  local filename=$2
-  if ! check_tmuxp_config_exist "${session_name}"
+  local session_name=$2
+  local filename=$1
+  if ! [[ -f "${tmuxp_configdir}/${session_name}.yaml" ]]
   then
     check_source_exist "${filename}" || return 1
-    setup_tmuxp_config "project"
+    if [[ -n "${tmuxp_project}" ]]
+    then
+      setup_tmuxp_config "project"
+    else
+      setup_tmuxp_config "template"
+    fi
   fi
   if ! [[ -f "${DIRENV_ROOT}/.tmuxp.yml" ]]
   then
@@ -265,9 +245,9 @@ process_tmuxp()
     if [[ -n "${tmuxp_project}" ]]
     then
       tmuxp_start_directory=${DIRENV_ROOT} tmuxp load . -d -s "${tmuxp_session_name}"
-    elif [[ -n "${tmuxp_template}" ]]
-    then
-      tmuxp load . -d -s "${tmuxp_session_name}"
+#    elif [[ -n "${tmuxp_template}" ]]
+#    then
+#      tmuxp load . -d -s "${tmuxp_session_name}"
     fi
   else
     direnv_log "INFO" "Tmux session **'${tmuxp_session_name}'** already started."
