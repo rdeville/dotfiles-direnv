@@ -90,7 +90,10 @@ go_management()
 
   for i_bin in "${GOPATH}"/bin/*
   do
-    ln -s "${i_bin}" "${DIRENV_BIN_FOLDER}/"
+    if ! [[ -e "${DIRENV_BIN_FOLDER}/$(basename ${i_bin})" ]]
+    then
+      ln -s "${i_bin}" "${DIRENV_BIN_FOLDER}/"
+    fi
   done
 }
 
