@@ -36,15 +36,6 @@ CMD_ANOTHER_NAME="echo 'value'"
 # Specify variable name and value to export
 VAR_NAME="value"
 
-# Folder module
-# ------------------------------------------------------------------------------
-# Ensure new folders exists
-[folders]
-# Specify folders which must exist, if not they will be created. Path
-# relative to `DIRENV_ROOT`.
-new=tmp/folder_1
-new=tmp/folder_2
-
 # Go management module
 # ------------------------------------------------------------------------------
 # Update GOPATH to install go modules locally
@@ -73,13 +64,6 @@ KEEPASS_NAME=Perso
 # not set, will find for file with kube_config in their name and take the first
 # result.
 KUBECONFIG=path/to/kube_config
-
-# Molecule module
-# ------------------------------------------------------------------------------
-# Set molecule environment variable
-[molecule]
-# Explicitly tell molecule to show all log
-MOLECULE_NO_LOG=1
 
 # Openstack module
 # ------------------------------------------------------------------------------
@@ -153,15 +137,6 @@ OS_IDENTITY_API_VERSION=3
 # Value of openstack variable OS_USER_DOMAIN_NAME in openrc.sh
 OS_USER_DOMAIN_NAME=domain_name
 
-# Packer module
-# ------------------------------------------------------------------------------
-# Set packer environment variable
-[packer]
-# Activate packer log
-PACKER_LOG=1
-# Set where packer log will be outputed
-PACKER_LOG_PATH=path/to/packer.log
-
 # Path management module
 # ------------------------------------------------------------------------------
 # Update the variable `PATH`
@@ -210,21 +185,6 @@ tmuxp_session_name="cmd: dirname ${DIRENV_ROOT}"
 #tmuxp_template="default"
 # Project to use (run an instance)
 tmuxp_project="default"
-
-# vimrc_local module
-# ------------------------------------------------------------------------------
-# Write a `.vimrc.local` file at the root of the directory
-[vimrc_local]
-# Gitlab API access token
-vim_gitlab_token=cmd: cat my_file_with_api_token
-# URL to your gitlab server
-vim_gitlab_server=https://my.gitlab.tld
-# ID of your project in your gitlab server
-vim_gitlab_project_id=12345
-# (optional) Should the plugin send altering requests to the server? (default `true`)
-vim_gitlab_alter=true
-# (optional) Print debug message (default `false`)
-vim_gitlab_debug=false
 
 # ------------------------------------------------------------------------------
 # VIM MODELINE
