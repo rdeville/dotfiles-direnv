@@ -128,6 +128,9 @@ generate_envrc_ini()
 # DESCRIPTION:
 #   Configuration file parsed during activation of direnv (either using \`direnv\`
 #   or when sourcing \`.direnv/activate_direnv\`)'
+[DEFAULT]
+source_up=True
+
 
 EOM
 

@@ -6,6 +6,7 @@
 [DEFAULT]
 source_up=True
 
+
 # Ansible module
 # ------------------------------------------------------------------------------
 # Set ansible environment variable
@@ -19,6 +20,14 @@ default_config="config_name_1"
 ANSIBLE_CONFIG="/path/to/ansible.cfg"
 # Path to inventory file or folder
 inventory="${DIRENV_ROOT}/inventory"
+
+# export module
+# ------------------------------------------------------------------------------
+# Export arbitrary variables
+[custom_cmd]
+# Specify variable name and value to export
+CMD_NAME="echo 'value'"
+CMD_ANOTHER_NAME="echo 'value'"
 
 # export module
 # ------------------------------------------------------------------------------

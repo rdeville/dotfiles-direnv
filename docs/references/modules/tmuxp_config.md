@@ -119,23 +119,6 @@ tmuxp_project="default"
  - 1: If name is not valid
  - 0: If name is valid
 
-## check_tmuxp_config_exist()
-
- **Check if tmuxp configuration file already exists**
- 
-
-
- **Arguments**
-
- | Arguments | Description |
- | :-------- | :---------- |
- | `$1` |  String, name of the tmuxp configuration file. |
-
- **Returns**
-
- - 1: If tmuxp configuration file does not exists.
- - 0: If tmuxp configuration file already exists.
-
 ## check_mutually_exclusive_var()
 
  **Check if mutually exclusive variable are not set in .envrc.ini**

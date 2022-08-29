@@ -11,6 +11,7 @@ environment, for instance module `ansible` will only execute task related to
 | Module Name | Description |
 | :---------- | :---------- |
 | [ansible](ansible.md) | Setup ansible configuration file and tree architecture |
+| [custom_cmd](custom_cmd.md) | Export arbitrary variables |
 | [export_var](export_var.md) | Export arbitrary variables |
 | [folders](folders.md) | Ensure specified folder exists, if not create them. |
 | [go_management](go_management.md) | Export GO variables to install go modules locally |

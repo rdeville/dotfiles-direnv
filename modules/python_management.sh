@@ -224,13 +224,13 @@ python_management()
 
       # Catch python major
       installed_python_int_version=$(python3 -V 2>&1 \
-        | grep -Po '(?<=Python )(.+)' | cut -d "." -f 1)
+        | cut -d " " -f 2 | cut -d "." -f 1)
       # Catch python minor
       installed_python_int_version+=$(python3 -V 2>&1 \
-        | grep -Po '(?<=Python )(.+)' | cut -d "." -f 2)
+        | cut -d " " -f 2 | cut -d "." -f 2)
       # Catch python patch
-      installed_python_int_version+=$(printf "%02d" "$(python3 -V 2>&1 \
-        | grep -Po '(?<=Python )(.+)' | cut -d "." -f 3)")
+      installed_python_int_version+="$(printf "%02d" "$(python3 -V 2>&1 \
+        | cut -d " " -f 2 | cut -d "." -f 3)")"
 
       if [[ "${installed_python_int_version}" -lt "${python_int_version}" ]]
       then

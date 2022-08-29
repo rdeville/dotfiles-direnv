@@ -75,12 +75,12 @@ go_management()
   local go_modules
   local i_bin
   local i_module
-  export GOPATH="${go[GOPATH]:-"${DIRENV_ROOT}/.direnv/tmp/go"}"
+  export GOPATH="${go_management["GOPATH"]:="${DIRENV_ROOT}/.direnv/tmp/go"}"
   mkdir -p "${GOPATH}"/{bin,pkg,src}
 
-  if [[ -n "${go[modules]}" ]]
+  if [[ -n "${go_management[modules]}" ]]
   then
-    IFS="${DIRENV_INI_SEP}" read -ra go_modules <<< "${go[modules]}"
+    IFS="${DIRENV_INI_SEP}" read -ra go_modules <<< "${go_management[modules]}"
     for i_module in "${go_modules[@]}"
     do
       # TODO @rdeville: Write go module management
