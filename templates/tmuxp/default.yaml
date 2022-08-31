@@ -14,13 +14,15 @@ start_directory: "${tmuxp_start_directory:=./}"
 windows:
   - window_name: " "
     focus: True
-    layout: main-vertical
+    layout: main-horizontal
     options:
-      main-pane-height: 50
+      main-pane-height: 60
     panes:
       - focus: true
         shell_command:
           - vim +"CocCommand explorer"
+      - null
+      - null
   - window_name: " "
     panes:
       - focus: true
