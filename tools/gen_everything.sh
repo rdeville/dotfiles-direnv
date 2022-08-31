@@ -19,6 +19,7 @@ OLD_PWD=${PWD}
 
 cd "$(dirname ${SCRIPTPATH})" || exit 1
 
+./tools/compute_sha1.sh
 # shellcheck disable=SC2231
 for i_gen in ./tools/generate_*.sh
 do

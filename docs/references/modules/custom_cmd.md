@@ -12,7 +12,7 @@ Parameters in `.envrc.ini` are:
 
 | Name        | Description                              |
 | :---------- | :----------------------------            |
-| `CMD`  | Commands to execute |
+| `CMD`       | Commands to execute                      |
 
 </center>
 
@@ -27,11 +27,11 @@ Command to execute
 Corresponding entry in `.envrc.ini.template` are:
 
 ```ini
-# export module
+# Custom command module
 # ------------------------------------------------------------------------------
-# Export arbitrary variables
+# Execute arbitrary command
 [custom_cmd]
-# Specify variable name and value to export
+# Specify command to execute, variable name does not matter.
 CMD_NAME="echo 'value'"
 CMD_ANOTHER_NAME="echo 'value'"
 ```
@@ -40,9 +40,9 @@ CMD_ANOTHER_NAME="echo 'value'"
 
 ## custom_cmd()
 
- **Custom CMD**
+ **Custom command**
  
- Export variables
+ Execute command
 
 
  **Output**
@@ -51,7 +51,7 @@ CMD_ANOTHER_NAME="echo 'value'"
 
  **Returns**
 
- - 1 if required variables are not set or if database can not be unlocked
+ - 1 if a command failed
  - 0 if everything is right and database can be unlocked
 
 ## deactivate_export_var()

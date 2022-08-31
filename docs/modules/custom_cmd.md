@@ -11,7 +11,7 @@ Parameters in `.envrc.ini` are:
 
 | Name        | Description                              |
 | :---------- | :----------------------------            |
-| `CMD`  | Commands to execute |
+| `CMD`       | Commands to execute                      |
 
 </center>
 
@@ -26,11 +26,11 @@ Command to execute
 Corresponding entry in `.envrc.ini.template` are:
 
 ```ini
-# export module
+# Custom command module
 # ------------------------------------------------------------------------------
-# Export arbitrary variables
+# Execute arbitrary command
 [custom_cmd]
-# Specify variable name and value to export
+# Specify command to execute, variable name does not matter.
 CMD_NAME="echo 'value'"
 CMD_ANOTHER_NAME="echo 'value'"
 ```

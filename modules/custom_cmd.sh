@@ -10,7 +10,7 @@
 #
 # | Name        | Description                              |
 # | :---------- | :----------------------------            |
-# | `CMD`  | Commands to execute |
+# | `CMD`       | Commands to execute                      |
 #
 #   </center>
 #
@@ -25,11 +25,11 @@
 #   Corresponding entry in `.envrc.ini.template` are:
 #
 #   ```ini
-#   # export module
+#   # Custom command module
 #   # ------------------------------------------------------------------------------
-#   # Export arbitrary variables
+#   # Execute arbitrary command
 #   [custom_cmd]
-#   # Specify variable name and value to export
+#   # Specify command to execute, variable name does not matter.
 #   CMD_NAME="echo 'value'"
 #   CMD_ANOTHER_NAME="echo 'value'"
 #   ```
@@ -38,9 +38,9 @@
 
 custom_cmd()
 {
-  # """Custom CMD
+  # """Custom command
   #
-  # Export variables
+  # Execute command
   #
   # Arguments:
   #   None
@@ -49,7 +49,7 @@ custom_cmd()
   #   Log information
   #
   # Returns:
-  #   1 if required variables are not set or if database can not be unlocked
+  #   1 if a command failed
   #   0 if everything is right and database can be unlocked
   #
   # """
@@ -60,6 +60,10 @@ custom_cmd()
   do
     cmd="${custom_cmd[${i_key}]}"
     eval "${cmd}"
+    if [[ $? -ne 0 ]]
+    then
+      return 1
+    fi
   done
 }
 

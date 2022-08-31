@@ -63,6 +63,93 @@
 #
 # """
 
+update_add_path()
+{
+  # """Update `PATH` to include new folders
+  #
+  #   Update `PATH` variable to include either `.direnv/bin` and/or user defined
+  #   folders.
+  #
+  # Globals:
+  #   PATH
+  #   _OLD_VIRTUAL_PATH
+  #   _DIRENV_OLD_PATH
+  #
+  # Arguments:
+  #   None
+  #
+  # Output:
+  #   None
+  #
+  # Returns:
+  #   None
+  #
+  # """
+
+  local add_direnv_to_path="true"
+
+  # If python module loaded previously with virtual environment, gather old_path
+  if [[ -n "${_OLD_VIRTUAL_PATH}" ]]
+  then
+      old_path=${_OLD_VIRTUAL_PATH}
+  fi
+
+  # Add `.direnv/bin` to `PATH`
+  if [[ "${add_direnv_to_path}" == "true" ]]
+  then
+    if [[ -z "${old_path}" ]]
+    then
+      old_path=${PATH}
+    fi
+    export PATH="${DIRENV_ROOT}/.direnv/bin:${PATH}"
+  fi
+
+  # Export `PATH` from its previous state.
+  if [[ -n "${old_path}" ]]
+  then
+    export _DIRENV_OLD_PATH="${old_path}"
+  fi
+}
+
+
+update_del_path()
+{
+  # """Restore `PATH` to exclude new folders
+  #
+  # Restore `PATH` variable to its previous state and unset variables storing
+  # old `PATH`
+  #
+  # Globals:
+  #   PATH
+  #   _OLD_VIRTUAL_PATH
+  #   _DIRENV_OLD_PATH
+  #
+  # Arguments:
+  #   None
+  #
+  # Output:
+  #   None
+  #
+  # Returns:
+  #   None
+  #
+  # """
+
+  local old_path
+
+  # If python module not already unloaded, gather its old path value
+  if [[ -n "${_OLD_VIRTUAL_PATH}" ]]
+  then
+    old_path=${_OLD_VIRTUAL_PATH}
+  else
+    old_path=${_DIRENV_OLD_PATH}
+  fi
+
+  export PATH=${old_path}
+  unset _DIRENV_OLD_PATH
+}
+
+
 keepass()
 {
   # """Install keepass wrapper and export keepass variable required for wrapper
@@ -184,9 +271,9 @@ keepass()
 
   # shellcheck disable=SC2154
   #   - SC2514: keepass is referenced but not assigned
-  local keepass_db=${keepass[KEEPASS_DB]}
-  local keepass_keyfile=${keepass[KEEPASS_KEYFILE]}
-  local keepass_name=${keepass[KEEPASS_NAME]:-${keepass_db}}
+  local keepass_db="${keepass[KEEPASS_DB]}"
+  local keepass_keyfile="${keepass[KEEPASS_KEYFILE]}"
+  local keepass_name="${keepass[KEEPASS_NAME]:-${keepass_db}}"
 
   # shellcheck disable=SC2089
   #   - SC2089: Quotes\Backslash will be treated litteraly
@@ -232,6 +319,7 @@ keepass()
   export KEEPASS_KEYFILE=${keepass_keyfile}
   export KEEPASS_NAME=${keepass_name}
   install_keepass_script
+  update_add_path
 }
 
 
@@ -260,6 +348,7 @@ deactivate_keepass()
   unset KEEPASS_DB
   unset KEEPASS_NAME
   unset KEEPASS_KEYFILE
+  update_del_path
 }
 
 # ------------------------------------------------------------------------------

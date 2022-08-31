@@ -14,6 +14,9 @@ start_directory: "${tmuxp_start_directory:=./}"
 windows:
   - window_name: " "
     focus: True
+    layout: main-vertical
+    options:
+      main-pane-height: 50
     panes:
       - focus: true
         shell_command:

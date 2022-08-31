@@ -21,11 +21,11 @@ ANSIBLE_CONFIG="/path/to/ansible.cfg"
 # Path to inventory file or folder
 inventory="${DIRENV_ROOT}/inventory"
 
-# export module
+# Custom command module
 # ------------------------------------------------------------------------------
-# Export arbitrary variables
+# Execute arbitrary command
 [custom_cmd]
-# Specify variable name and value to export
+# Specify command to execute, variable name does not matter.
 CMD_NAME="echo 'value'"
 CMD_ANOTHER_NAME="echo 'value'"
 
@@ -178,13 +178,13 @@ TASKWARRIOR_TASKRC=${DIRENV_ROOT}/.taskrc
 # Start a tmux session from tmuxp config in detached states
 [tmuxp_config]
 # Location where tmuxp file are stored
-TMUXP_CONFIGDIR="${XDG_CONFIG_DIR:-${HOME}/.config/}tmuxp/"
+# TMUXP_CONFIGDIR=${HOME}/.config/tmuxp/
 # Name of the session
-tmuxp_session_name="cmd: dirname ${DIRENV_ROOT}"
+tmuxp_session_name=cmd: dirname ${DIRENV_ROOT}
 # Template to use (copy and symlink)
-#tmuxp_template="default"
+tmuxp_template=default
 # Project to use (run an instance)
-tmuxp_project="default"
+#tmuxp_project=default
 
 # ------------------------------------------------------------------------------
 # VIM MODELINE

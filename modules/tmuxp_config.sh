@@ -17,7 +17,7 @@
 #
 #   | Name                    | Description                                                                                     |
 #   | :---------------------- | :----------------------------------------------------------------------------------             |
-#   | `TMUXP_CONFIGDIR`       | Directory location where to look/store tmuxp configurations.                                    |
+#   | `TMUXP_CONFIGDIR`       | Root directory location where to look/store tmuxp configurations.                               |
 #   | `tmuxp_session_name`    | (optional) Name of the tmux session (default set to dirname).                                   |
 #   | `tmuxp_template`        | (optional) Name of the tmuxp configuration template to copy (default set to default)[^1]        |
 #   | `tmuxp_project`         | (optional) Specify the name of the tmuxp file and the tmux session (default set to default)[^1] |
@@ -83,13 +83,13 @@
 #   # Start a tmux session from tmuxp config in detached states
 #   [tmuxp_config]
 #   # Location where tmuxp file are stored
-#   TMUXP_CONFIGDIR="${XDG_CONFIG_DIR:-${HOME}/.config/}tmuxp/"
+#   # TMUXP_CONFIGDIR=${HOME}/.config/tmuxp/
 #   # Name of the session
-#   tmuxp_session_name="cmd: dirname ${DIRENV_ROOT}"
+#   tmuxp_session_name=cmd: dirname ${DIRENV_ROOT}
 #   # Template to use (copy and symlink)
-#   #tmuxp_template="default"
+#   tmuxp_template=default
 #   # Project to use (run an instance)
-#   tmuxp_project="default"
+#   #tmuxp_project=default
 #   ```
 #
 # """
@@ -194,13 +194,12 @@ setup_tmuxp_config()
     cp "${template_dir}/${filename}.yaml" "${tmuxp_configdir}/${filename}.yaml"
   elif [[ "${config_type}" == "template" ]]
   then
-    filename="${tmuxp_session_name}"
     direnv_log "INFO" "Installing project file **${filename}** in ${tmuxp_configdir}."
     sed \
       -e "s|^session_name: .*$|session_name: ${tmuxp_session_name}|g" \
       -e "s|^start_directory: .*$|start_directory: ${DIRENV_ROOT/${HOME}/\~}|g" \
       "${template_dir}/${tmuxp_template}.yaml" \
-      > "${tmuxp_configdir}/${filename}.yaml"
+      > "${tmuxp_configdir}/tmuxp.yaml"
   fi
 }
 
@@ -224,7 +223,9 @@ process_tmuxp()
   # """
   local session_name=$2
   local filename=$1
-  if ! [[ -f "${tmuxp_configdir}/${session_name}.yaml" ]]
+
+  local tmuxp_configdir="${tmuxp_configdir}${DIRENV_ROOT/${HOME}}"
+  if ! [[ -f "${tmuxp_configdir}/tmuxp.yaml" ]]
   then
     check_source_exist "${filename}" || return 1
     if [[ -n "${tmuxp_project}" ]]
@@ -237,7 +238,7 @@ process_tmuxp()
   if ! [[ -f "${DIRENV_ROOT}/.tmuxp.yml" ]]
   then
     direnv_log "INFO" "Create symlink to ${DIRENV_ROOT/${HOME/\~}}"
-    ln -s "${tmuxp_configdir}/${session_name}.yaml" "${DIRENV_ROOT}/.tmuxp.yml"
+    ln -s "${tmuxp_configdir}/tmuxp.yaml" "${DIRENV_ROOT}/.tmuxp.yml"
   fi
   if ! tmux ls &> /dev/null || ! tmux ls | grep "^${tmuxp_session_name}:" -q &> /dev/null
   then
@@ -287,7 +288,7 @@ tmuxp_config()
   # """
   #   - SC2154: Variable is referenced but not assigned
   # shellcheck disable=SC2154
-  local tmuxp_configdir="${tmuxp_config[TMUXP_CONFIGDIR]:=${HOME}/.config/tmuxp}"
+  local tmuxp_configdir="${tmuxp_config[TMUXP_CONFIGDIR]:=${HOME}/.local/share/direnv}"
   local tmuxp_session_name="${tmuxp_config[tmuxp_session_name]:=$(basename "${DIRENV_ROOT}")}"
   local tmuxp_project="${tmuxp_config[tmuxp_project]:=""}"
   local tmuxp_template="${tmuxp_config[tmuxp_template]:=""}"

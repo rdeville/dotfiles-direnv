@@ -18,7 +18,7 @@ Parameters in `.envrc.ini` are:
 
 | Name                    | Description                                                                                     |
 | :---------------------- | :----------------------------------------------------------------------------------             |
-| `TMUXP_CONFIGDIR`       | Directory location where to look/store tmuxp configurations.                                    |
+| `TMUXP_CONFIGDIR`       | Root directory location where to look/store tmuxp configurations.                               |
 | `tmuxp_session_name`    | (optional) Name of the tmux session (default set to dirname).                                   |
 | `tmuxp_template`        | (optional) Name of the tmuxp configuration template to copy (default set to default)[^1]        |
 | `tmuxp_project`         | (optional) Specify the name of the tmuxp file and the tmux session (default set to default)[^1] |
@@ -84,11 +84,11 @@ Corresponding entry in `.envrc.ini.template` are:
 # Start a tmux session from tmuxp config in detached states
 [tmuxp_config]
 # Location where tmuxp file are stored
-TMUXP_CONFIGDIR="${XDG_CONFIG_DIR:-${HOME}/.config/}tmuxp/"
+# TMUXP_CONFIGDIR=${HOME}/.config/tmuxp/
 # Name of the session
-tmuxp_session_name="cmd: dirname ${DIRENV_ROOT}"
+tmuxp_session_name=cmd: dirname ${DIRENV_ROOT}
 # Template to use (copy and symlink)
-#tmuxp_template="default"
+tmuxp_template=default
 # Project to use (run an instance)
-tmuxp_project="default"
+#tmuxp_project=default
 ```

@@ -65,6 +65,32 @@ KEEPASS_NAME=Perso
 
 
 
+## update_add_path()
+
+ **Update `PATH` to include new folders**
+ 
+   Update `PATH` variable to include either `.direnv/bin` and/or user defined
+   folders.
+
+ **Globals**
+
+ - `PATH`
+ - `_OLD_VIRTUAL_PATH`
+ - `_DIRENV_OLD_PATH`
+
+## update_del_path()
+
+ **Restore `PATH` to exclude new folders**
+ 
+ Restore `PATH` variable to its previous state and unset variables storing
+ old `PATH`
+
+ **Globals**
+
+ - `PATH`
+ - `_OLD_VIRTUAL_PATH`
+ - `_DIRENV_OLD_PATH`
+
 ## keepass()
 
  **Install keepass wrapper and export keepass variable required for wrapper**
