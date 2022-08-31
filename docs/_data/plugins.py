@@ -462,6 +462,7 @@ def set_repo_name(env: dict, repo_slug: str) -> None:
             else:
                 env.conf["repo_name"] = env.variables[repo_slug]["name"]
 
+
 def set_repo_url(env: dict, repo_slug: str) -> None:
     """Update content of the `repo_url` key in `env.conf`.
 

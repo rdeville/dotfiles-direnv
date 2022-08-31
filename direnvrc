@@ -670,7 +670,6 @@ activate_direnv()
         local value
         local var_access
         local cmd_regexp='^cmd:'
-        local var_regexp='\$\{.*\}'
 
         # Remove space before `=`
         line=${line// =/=}

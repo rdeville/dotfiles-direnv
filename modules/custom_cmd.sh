@@ -60,6 +60,7 @@ custom_cmd()
   do
     cmd="${custom_cmd[${i_key}]}"
     eval "${cmd}"
+    # shellcheck disable=SC2181
     if [[ $? -ne 0 ]]
     then
       return 1

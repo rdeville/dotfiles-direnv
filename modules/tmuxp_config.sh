@@ -221,7 +221,6 @@ process_tmuxp()
   #   None
   #
   # """
-  local session_name=$2
   local filename=$1
 
   local tmuxp_configdir="${tmuxp_configdir}${DIRENV_ROOT/${HOME}}"

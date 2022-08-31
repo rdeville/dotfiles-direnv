@@ -14,10 +14,10 @@
 # """
 
 
-SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+SCRIPTPATH="$( cd -- "$(dirname "$0")" || exit 1 >/dev/null 2>&1 ; pwd -P )"
 OLD_PWD=${PWD}
 
-cd "$(dirname ${SCRIPTPATH})" || exit 1
+cd "$(dirname "${SCRIPTPATH}")" || exit 1
 
 ./tools/compute_sha1.sh
 # shellcheck disable=SC2231
