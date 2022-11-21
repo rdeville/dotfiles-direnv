@@ -683,8 +683,8 @@ activate_direnv()
         if [[ "${value}" =~ ${cmd_regexp} ]]
         then
           # Remove first string `cmd:` from the value
-          cmd=${value/cmd:[ ]/}
-          value=$(eval "${cmd}" )
+          cmd="${value/cmd:[ ]/}"
+          value=$(eval ${cmd})
         fi
 
         if [[ "${last_module_name}" =~ : ]]
