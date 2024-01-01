@@ -623,7 +623,7 @@ build_doc()
   for i_node in "$@"
   do
     # Build absolute path of the node
-    abs_path="${DIRENV_ROOT}/${i_node}"
+    abs_path="${XDG_CONFIG_HOME:-${HOME}/.config}/direnv/${i_node}"
 
     if [[ -f "${abs_path}" ]]
     then

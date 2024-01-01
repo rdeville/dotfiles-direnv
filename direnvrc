@@ -9,6 +9,7 @@
 #
 #     - Sourced manually, like for python virtual environment, with the
 #       following command:
+#
 #       ```
 #       source /path/to/.direnv/activate_direnv
 #       ```
@@ -24,6 +25,8 @@
 #   environment.
 #
 # """
+
+DIRENV_CACHE="${XDG_CACHE_HOME:-${HOME}/.cache}/direnv"
 
 activate_direnv()
 {
@@ -57,118 +60,86 @@ activate_direnv()
   #
   # """
 
-  # shellcheck disable=SC2034
-  #   - SC2034: var appears unused, Verify use (or export if used externally)
-  direnv_log()
-  {
-    # """Print debug message in colors depending on message severity on stderr
-    #
-    # Echo colored log depending on user provided message severity. Message
-    # severity are associated to following color output:
-    #
-    #   - `DEBUG` print in the fifth colors of the terminal (usually magenta)
-    #   - `INFO` print in the second colors of the terminal (usually green)
-    #   - `WARNING` print in the third colors of the terminal (usually yellow)
-    #   - `ERROR` print in the third colors of the terminal (usually red)
-    #
-    # If no message severity is provided, severity will automatically be set to
-    # INFO.
-    #
-    # Globals:
-    #   None
-    #
-    # Arguments:
-    #   $1: string, message severity or message content
-    #   $@: string, message content
-    #
-    # Output:
-    #   Log informations colored
-    #
-    # Returns:
-    #   None
-    #
-    # """
+  local DEBUG_LEVEL=${DIRENV_DEBUG_LEVEL}
+  source <(curl -s https://framagit.org/-/snippets/7183/raw/main/_log.sh)
+  # #   - SC2034: var appears unused, Verify use (or export if used externally)
+  # _log()
+  # {
+  #   # """Print debug message in colors depending on message severity on stderr
+  #   #
+  #   # Echo colored log depending on user provided message severity. Message
+  #   # severity are associated to following color output:
+  #   #   - `DEBUG` print in the fifth colors of the terminal (usually magenta)
+  #   #   - `INFO` print in the second colors of the terminal (usually green)
+  #   #   - `WARNING` print in the third colors of the terminal (usually yellow)
+  #   #   - `ERROR` print in the third colors of the terminal (usually red)
+  #   # If no message severity is provided, severity will automatically be set to
+  #   # INFO.
+  #   #
+  #   # Arguments:
+  #   #   $1: string, message severity or message content
+  #   #   $@: string, message content
+  #   #
+  #   # Output:
+  #   #   Log informations colored to stderr (to avoid catching by parent call)
+  #   #
+  #   # """
+  #   _get_level(){
+  #     local array=("error" "warning" "info" "debug" "time")
+  #     local value=$(echo $1 | tr '[:upper:]' '[:lower:]')
 
-    # Store color prefixes in variable to ease their use.
-    # Base on only 8 colors to ensure portability of color when in tty
-    local e_normal="\e[0m"     # Normal (usually white fg & transparent bg)
-    local e_bold="\e[1m"       # Bold
-    local e_underline="\e[4m"  # Underline
-    local e_debug="\e[0;34m"   # Fifth term color (usually magenta fg)
-    local e_info="\e[0;32m"    # Second term color (usually green fg)
-    local e_warning="\e[0;33m" # Third term color (usually yellow fg)
-    local e_error="\e[0;31m"   # First term color (usually red fg)
+  #     for idx in "${!array[@]}"; do
+  #       if [[ "${array[$idx]}" = "${value}" ]]; then
+  #         echo "${idx}";
+  #         return
+  #       fi
+  #     done
+  #     echo "-1"
+  #     return 1
+  #   }
 
-    # Store preformated colored prefix for log message
-    local error="${e_bold}${e_error}[ERROR]${e_normal}${e_error}"
-    local warning="${e_bold}${e_warning}[WARNING]${e_normal}${e_warning}"
-    local info="${e_bold}${e_info}[INFO]${e_normal}${e_info}"
-    local debug="${e_bold}${e_debug}[INFO]${e_normal}${e_debug}"
 
-    local color_output="e_error"
-    local msg_severity
-    local msg
-    local direnv_debug_level="warning"
-    local regexp=""
-    local show_msg="false"
+  #   # Store color prefixes in variable to ease their use.
+  #   declare -A color
+  #   # Base on only 8 colors to ensure portability of color when in tty
+  #   color["normal"]="\e[0m"     # Normal (usually white fg & transparent bg)
+  #   color["bold"]="\e[1m"       # Bold
+  #   color["underline"]="\e[4:3m"  # Underline
+  #   color["debug"]="\e[34m"   # Fifth term color (usually magenta fg)
+  #   color["info"]="\e[32m"    # Second term color (usually green fg)
+  #   color["warning"]="\e[33m" # Third term color (usually yellow fg)
+  #   color["error"]="\e[31m"   # First term color (usually red fg)
 
-    # Not using ${1^^} to ensure portability when using ZSH
-    msg_severity=$(echo "$1" | tr '[:upper:]' '[:lower:]')
-    direnv_debug_level=$(echo "${DIRENV_DEBUG_LEVEL}" | tr '[:upper:]' '[:lower:]')
 
-    case "${DIRENV_DEBUG_LEVEL}" in
-      debug)
-        [[ "${msg_severity}" =~ ^(time|debug|info|warning|error)$ ]] && show_msg="true"
-        ;;
-      info)
-        [[ "${msg_severity}" =~ ^(info|warning|error)$ ]] && show_msg="true"
-        ;;
-      warning)
-        [[ "${msg_severity}" =~ ^(warning|error)$ ]] && show_msg="true"
-        ;;
-      error)
-        [[ "${msg_severity}" =~ ^error$ ]] && show_msg="true"
-        ;;
-      time)
-        [[ "${msg_severity}" =~ ^(error|warning|time)$ ]] && show_msg="true"
-        ;;
-      *)
-        [[ "${msg_severity}" =~ ^(warning|error)$ ]] && show_msg="true"
-        ;;
-    esac
+  #   local severity_lower=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+  #   local severity_upper=$(echo "$1" | tr '[:lower:]' '[:upper:]')
+  #   local prefix="${color["bold"]}${color[$severity_lower]}[${severity_upper}]${color["normal"]}${color[$severity_lower]}"
+  #   local color_output="${color[$severity_lower]}"
+  #   local msg_level=$(_get_level "${severity_lower}")
+  #   local curr_level=$(_get_level "${DIRENV_DEBUG_LEVEL}")
+  #   local msg=""
 
-    if [[ "${show_msg}" != "true" ]]
-    then
-      return 1
-    fi
-    if [[ "${msg_severity}" =~ ^(time|debug|info|warning|error)$ ]]
-    then
-      # Shift arguments by one such that $@ start from the second arguments
-      shift
-      # Place the content of variable which name is defined by ${msg_severity}
-      # For instance, if `msg_severity` is INFO, then `prefix` will have the same
-      # value as variable `info`.
-      prefix="${!msg_severity}"
-      color_output="e_${msg_severity}"
-    else
-      prefix="${info}"
-    fi
-    color_output="${!color_output}"
-
-    # Concat all remaining arguments in the message content and apply markdown
-    # like syntax.
-    msg_content=$(echo "$*" | \
-      sed -e "s/ \*\*/ \\${e_bold}/g" \
-          -e "s/\*\*\./\\${e_normal}\\${color_output}./g" \
-          -e "s/\*\* /\\${e_normal}\\${color_output} /g" \
-          -e "s/ \_\_/ \\${e_underline}/g" \
-          -e "s/\_\_\./\\${e_normal}\\${color_output}./g" \
-          -e "s/\_\_ /\\${e_normal}\\${color_output} /g")
-    msg="${prefix} ${msg_content}${e_normal}"
-
-    # Print message
-    echo -e "${msg}" 1>&2
-  }
+  #   if [[ ${curr_level} -ge ${msg_level} ]]
+  #   then
+  #     # Concat all remaining arguments in the message content and apply markdown
+  #     # like syntax.
+  #     # Regex will find all pattern of the form **(string)** or __(string)__ and
+  #     # apply formating, respectively bold and underline.
+  #     # Note: (string) cannot have output pattern (** or __) in them, this is
+  #     # specified by '[^\*\*]' and '[^__]' in group selection.
+  #     shift
+  #     msg_content=$(echo "$*" | \
+  #       sed -r \
+  #           -e "s/\*\*([^\*\*]*)\*\*/\\${color["bold"]}\1\\${color["normal"]}\\${color_output}/g" \
+  #           -e "s/__([^__].*)__/\\${color["underline"]}\1\\${color["normal"]}\\${color_output}/g" \
+  #         )
+  #     msg="${prefix} ${msg_content}${color["normal"]}"
+  #     # Print message
+  #     echo -e "${msg}" 1>&2
+  #     return
+  #   fi
+  #   return
+  # }
 
   get_methods_list()
   {
@@ -273,7 +244,7 @@ activate_direnv()
         unset_methods "$(get_methods_list "${file_list}")"
         # Deallocate module associative array
         unset "${i_module}"
-      done <<< "$(cat "${DIRENV_TEMP_FOLDER}/.loaded_modules")"
+      done <<< "$(cat "${DIRENV_TEMP_FOLDER}/loaded_modules")"
     fi
   }
 
@@ -289,12 +260,9 @@ activate_direnv()
     # Globals:
     #   DIRENV_ROOT
     #   DIRENV_LOG_FOLDER
-    #   DIRENVRC_LIB_FOLDER
     #   DIRENVRC_SRC_FOLDER
     #   DIRENVRC_SHA1_FOLDER
     #   DIRENVRC_MODULE_FOLDER
-    #   DIRENV_BIN_FOLDER
-    #   DIRENV_SHA1_FOLDER
     #   DIRENV_TEMP_FOLDER
     #   DIRENV_CONFIG_PATH
     #   DIRENV_INI_SEP
@@ -313,8 +281,8 @@ activate_direnv()
     local i_file
 
     unset_modules
-    for i_file in "${DIRENVRC_LIB_FOLDER}"/*.sh \
-                  "${DIRENVRC_FOLDER}/direnvrc"
+    for i_file in "${XDG_CONFIG_HOME:-${HOME}/.config}/direnv/lib/"*.sh \
+                  "${XDG_CONFIG_HOME:-${HOME}/.config}/direnv/direnvrc"
     do
       unset_methods "$(get_methods_list "${i_file}")"
     done
@@ -327,8 +295,6 @@ activate_direnv()
     unset DIRENVRC_TEMPLATE_FOLDER
 
     unset DIRENV_LOG_FOLDER
-    unset DIRENV_SHA1_FOLDER
-    unset DIRENV_BIN_FOLDER
     unset DIRENV_TEMP_FOLDER
     unset DIRENV_CONFIG_PATH
     unset DIRENV_INI_SEP
@@ -343,13 +309,12 @@ activate_direnv()
     #
     # Globals:
     #   DIRENV_ROOT
-    #   DIRENV_SHA1_FOLDER
     #
     # Arguments:
     #   $1: string, path to the file to test
     #
     # Output:
-    #   Log message to inform user SHA does not correspond
+    #   Log message to inform user SHA does not correspond to expected value
     #
     # Returns:
     #   0 if SHA1 is valid
@@ -359,17 +324,22 @@ activate_direnv()
 
     local file="$1"
     local sha1_file
+    local tmp_file
 
     if [[ "${file}" =~ .envrc.ini ]]
     then
-      sha1_file="${DIRENV_ROOT}/.direnv/.sha1/$(basename "${file}").sha1"
+      local sha1_cache_tree="${DIRENV_ROOT/${HOME}/}"
+      sha1_file="${XDG_CACHE_HOME:-${HOME}/.cache}/direnv${DIRENV_ROOT/${HOME}/}/$(basename "${file}" | sed -e "s/^\.//").sha1"
     else
-      # Replace every occurrences of `${DIRENVRC_FOLDER}` with
+      # Replace every occurrences of `${XDG_CONFIG_HOME:-${HOME}/.config}/direnv` with
       # `${DIRENVRC_SHA1_FOLDER}` in variable `${file}`
-      sha1_file="${file//${DIRENVRC_FOLDER}/${DIRENVRC_SHA1_FOLDER}}.sha1"
+      sha1_file="${XDG_CONFIG_HOME:-${HOME}/.config}/direnv/direnv.sha1"
+      tmp_file="/tmp/$(uuidgen).sha1"
+      cat "${sha1_file}" | sed "s|  |  ${XDG_CONFIG_DIR:-${HOME}/.config}/direnv/|"  > "${tmp_file}"
+      sha1_file="${tmp_file}"
     fi
 
-    if [[ "$(sha1sum "${file}" | cut -d " " -f 1 )" != "$(cat "${sha1_file}")" ]]
+    if ! sha1sum -c "${sha1_file}" &> /dev/null
     then
       # Remove every before the last occurrence of `${DIRENV_ROOT}`
       # - SC2295: Expansion inside ${..} need to be quoted separately, otherwise
@@ -384,9 +354,9 @@ activate_direnv()
       # shellcheck disable=SC2295
       sha1_file=${sha1_file/${HOME}/\~}
       # shellcheck disable=SC2295
-      sha1_file=${sha1_file##*${DIRENV_ROOT}\/}
+      sha1_file=${sha1_file##*${XDG_CACHE_HOME:-${HOME}/.cache}/direnv}
       # Not using `direnv_log`, because script may not be loaded at this step.
-      direnv_log "ERROR" "SHA1 of **\`${file}\`** differs from **\`${sha1_file}\`**."
+      _log "ERROR" "SHA1 of **\`${file}\`** differs from **\`${sha1_file}\`**."
       return 1
     fi
   }
@@ -402,9 +372,7 @@ activate_direnv()
     # Globals:
     #   DIRENV_ROOT
     #   DIRENV_LOG_FOLDER
-    #   DIRENVRC_LIB_FOLDER
     #   DIRENVRC_SRC_FOLDER
-    #   DIRENV_BIN_FOLDER
     #   DIRENVRC_SHA1_FOLDER
     #   DIRENV_TEMP_FOLDER
     #   DIRENVRC_MODULE_FOLDER
@@ -426,7 +394,7 @@ activate_direnv()
     local config_file_name=".envrc.ini"
     local old_direnv_root
 
-    if grep -q "source_up=[Tt]rue" ${config_file_name}
+    if grep -q "source_up=[Tt]rue" "${PWD}/${config_file_name}"
     then
       old_direnv_root=${PWD}
       source_up
@@ -434,21 +402,21 @@ activate_direnv()
       unset old_direnv_root
     fi
     export DIRENV_ROOT="${PWD}"
-
-    export DIRENV_LOG_FOLDER="${DIRENV_ROOT}/.direnv/log"
-    export DIRENV_SHA1_FOLDER="${DIRENV_ROOT}/.direnv/.sha1"
-    export DIRENV_BIN_FOLDER="${DIRENV_ROOT}/.direnv/bin"
-    export DIRENV_TEMP_FOLDER="${DIRENV_ROOT}/.direnv/tmp"
+    export DIRENV_BIN_FOLDER="${DIRENV_CACHE}/bin"
+    export DIRENV_CACHE_ROOT="${PWD/${HOME}/${DIRENV_CACHE}}"
+    export DIRENV_LOG_FOLDER="${DIRENV_CACHE_ROOT}/log"
+    export DIRENV_TEMP_FOLDER="${DIRENV_CACHE_ROOT}/tmp"
     export DIRENV_CONFIG_PATH="${DIRENV_ROOT}/${config_file_name}"
     export DIRENV_INI_SEP="%%%%"
 
     # Create local only folder
-    for i_dir in "${DIRENV_LOG_FOLDER}" "${DIRENV_SHA1_FOLDER}" \
-                 "${DIRENV_BIN_FOLDER}" "${DIRENV_TEMP_FOLDER}"
+    for i_dir in "${DIRENV_LOG_FOLDER}" \
+                 "${DIRENV_BIN_FOLDER}" \
+                 "${DIRENV_TEMP_FOLDER}"
     do
       if ! [[ -d ${i_dir} ]]
       then
-        direnv_log "INFO" "Create directory ${i_dir//${DIRENV_ROOT}\/}.${e_normal}"
+        _log "INFO" "Create directory ${i_dir//${DIRENV_ROOT}\/}.${e_normal}"
         mkdir -p "${i_dir}"
       fi
     done
@@ -456,9 +424,9 @@ activate_direnv()
     # If user is reloading the directory environment, clean the temporary file
     # listing loaded module to avoid issues when deactivating directory
     # environment
-    if [[ -f "${DIRENV_TEMP_FOLDER}/.loaded_modules" ]]
+    if [[ -f "${DIRENV_TEMP_FOLDER}/loaded_modules" ]]
     then
-      rm -f "${DIRENV_TEMP_FOLDER}/.loaded_modules"
+      rm -f "${DIRENV_TEMP_FOLDER}/loaded_modules"
     fi
   }
 
@@ -494,19 +462,19 @@ activate_direnv()
     i_module=${i_module%:*}
     if ! [[ -e "${DIRENVRC_MODULE_FOLDER}/${i_module}.sh" ]]
     then
-      direnv_log "ERROR" "Module **${i_module}** does not exists !"
-      direnv_log "ERROR" "Please review file **${DIRENV_CONFIG_PATH//${HOME}/\~}** to remove or comment it."
+      _log "ERROR" "Module **${i_module}** does not exists !"
+      _log "ERROR" "Please review file **${DIRENV_CONFIG_PATH//${HOME}/\~}** to remove or comment it."
       return 1
     fi
     check_sha1 "${DIRENVRC_MODULE_FOLDER}/${i_module}.sh" || return 1
     # shellcheck source=modules/export_var.sh
     source "${DIRENVRC_MODULE_FOLDER}/${i_module}.sh"
-    direnv_log "INFO" "Loading module **${i_module}**."
+    _log "DEBUG" "Loading module **${i_module}**."
     ${i_module} || error="true"
-    if ! [[ -f "${DIRENV_TEMP_FOLDER}/.loaded_modules" ]] \
-        || ! grep -q "${i_module}" "${DIRENV_TEMP_FOLDER}/.loaded_modules"
+    if ! [[ -f "${DIRENV_TEMP_FOLDER}/loaded_modules" ]] \
+        || ! grep -q "${i_module}" "${DIRENV_TEMP_FOLDER}/loaded_modules"
     then
-      echo "${i_module}" >> "${DIRENV_TEMP_FOLDER}/.loaded_modules"
+      echo "${i_module}" >> "${DIRENV_TEMP_FOLDER}/loaded_modules"
     fi
   }
 
@@ -780,30 +748,30 @@ activate_direnv()
     }
 
     local config_file_path="$1"
-    local config_file_sha1
-
-    config_file_sha1="${DIRENV_SHA1_FOLDER}/$(basename "${config_file_path}").sha1"
+    local config_file_sha1="${XDG_CACHE_HOME:-${HOME}/.cache}/direnv${DIRENV_ROOT/${HOME}/}/$(basename "${config_file_path}" | sed -e "s/^\.//").sha1"
 
     if ! [[ -f "${config_file_path}" ]]
     then
-      direnv_log "ERROR" "File **${config_file_path}** does not exists."
+      _log "ERROR" "File **${config_file_path}** does not exists."
       return 1
-    else
-      if ! [[ -f "${config_file_sha1}" ]]
-      then
-        sha1sum "${config_file_path}" | cut -d " " -f 1 > "${config_file_sha1}"
-      else
-        if ! check_sha1 "${config_file_path}"
-        then
-          direnv_log "ERROR" "If you modify **${config_file_path/${HOME}/\~}**."
-          direnv_log "ERROR" "Please remove **${config_file_sha1/${HOME}/\~}**."
-          direnv_log "ERROR" "And reactivate direnv."
-          return 1
-        fi
-      fi
-      direnv_log "DEBUG" "Loading **${config_file_path//${HOME}/\~}**."
-      parse_ini_file "${config_file_path}" || return 1
     fi
+    if ! [[ -d "$(dirname ${config_file_sha1})" ]]
+    then
+      mkdir -p "$(dirname ${config_file_sha1})"
+    fi
+    if ! [[ -f "${config_file_sha1}" ]]
+    then
+      sha1sum "${config_file_path}" > "${config_file_sha1}"
+    fi
+    if ! check_sha1 "${config_file_path}"
+    then
+      _log "ERROR" "If you modify **${config_file_path/${HOME}/\~}**."
+      _log "ERROR" "Please remove **${config_file_sha1/${HOME}/\~}**."
+      _log "ERROR" "And reactivate direnv."
+      return 1
+    fi
+    _log "DEBUG" "Loading **${config_file_path//${HOME}/\~}**."
+    parse_ini_file "${config_file_path}" || return 1
   }
 
   deactivate_modules()
@@ -831,7 +799,7 @@ activate_direnv()
     #   1 if module can not be loaded
     #
     # """
-    local loaded_modules="${DIRENV_TEMP_FOLDER}/.loaded_modules"
+    local loaded_modules="${DIRENV_TEMP_FOLDER}/loaded_modules"
 
     if [[ -n "$1" ]]
     then
@@ -844,7 +812,7 @@ activate_direnv()
       do
         # shellcheck source=modules/export_var.sh
         source "${DIRENVRC_MODULE_FOLDER}/${i_module}.sh"
-        direnv_log "WARNING" "Deactivating module **${i_module}**."
+        _log "WARNING" "Deactivating module **${i_module}**."
         if command -v "deactivate_${i_module}" &> /dev/null
         then
           deactivate_"${i_module}"
@@ -881,14 +849,15 @@ activate_direnv()
     local config_file_name=".envrc.ini"
     local parent_env
 
-    direnv_log "ERROR" "An error occurs while loading direnv."
+    _log "ERROR" "An error occurs while loading direnv."
 
     if grep -q "source_up=[Tt]rue" ${config_file_name}
     then
       cd .. || return 1
-      parent_env=$(find_up .envrc)
-      parent_env=$(dirname "${parent_env}")
-      deactivate_modules "${parent_env}/.direnv/tmp/.loaded_modules"
+      parent_env="$(find_up .envrc)"
+      parent_env="$(dirname "${parent_env/${HOME}\//}")"
+      parent_env="${XDG_CACHE_HOME:-${HOME}/.cache}/direnv/${parent_env}"
+      deactivate_modules "${parent_env}/tmp/loaded_modules"
       cd "${DIRENV_ROOT}" || return 1
     fi
 
@@ -903,27 +872,30 @@ activate_direnv()
   local direnv_modules=()
   local error="false"
 
-  local DIRENVRC_FOLDER="${HOME}/.config/direnv"
-  local DIRENVRC_SHA1_FOLDER="${DIRENVRC_FOLDER}/.sha1"
-  local DIRENVRC_MODULE_FOLDER="${DIRENVRC_FOLDER}/modules"
+  local DIRENVRC_SHA1_FOLDER="${XDG_CONFIG_HOME:-${HOME}/.config}/direnv/sha1"
+  local DIRENVRC_MODULE_FOLDER="${XDG_CONFIG_HOME:-${HOME}/.config}/direnv/modules"
   #   - SC2034: VAR appears unused
   # shellcheck disable=SC2034
-  local DIRENVRC_SRC_FOLDER="${DIRENVRC_FOLDER}/src"
+  local DIRENVRC_SRC_FOLDER="${XDG_CONFIG_HOME:-${HOME}/.config}/direnv/src"
   #   - SC2034: VAR appears unused
   # shellcheck disable=SC2034
-  local DIRENVRC_TEMPLATE_FOLDER="${DIRENVRC_FOLDER}/templates"
+  local DIRENVRC_TEMPLATE_FOLDER="${XDG_CONFIG_HOME:-${HOME}/.config}/direnv/templates"
   #   - SC2034: VAR appears unused
   # shellcheck disable=SC2034
-  local DIRENV_DEBUG_LEVEL="warning"
+  local DIRENV_DEBUG_LEVEL="info"
 
   # Ensure this script has not been modified
-  check_sha1 "${DIRENVRC_FOLDER}/direnvrc" || return 1
+  check_sha1 "${XDG_CONFIG_HOME:-${HOME}/.config}/direnv/direnvrc" || return 1
 
   # Init direnv variables
   set_direnv || return 1
 
   # Parse configuration file
-  load_config_file "${DIRENV_CONFIG_PATH}" || return 1
+  if ! load_config_file "${DIRENV_CONFIG_PATH}"
+  then
+    safe_exit
+    return 1
+  fi
 
   # Load every module listed in configuration file
   for i_module in "${direnv_modules[@]}"
@@ -951,7 +923,7 @@ activate_direnv()
 }
 
 # make `direnv` silent
-#export DIRENV_LOG_FORMAT=
+export DIRENV_LOG_FORMAT=$'\e[32m\e[1m[INFO]\e[0m\e[32m direnv: %s\e[0m '
 
 # ------------------------------------------------------------------------------
 # VIM MODELINE

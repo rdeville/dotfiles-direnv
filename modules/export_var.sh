@@ -29,8 +29,13 @@
 #   # ------------------------------------------------------------------------------
 #   # Export arbitrary variables
 #   [export_var]
+#   # !!! DO NOT USE DOUBLE QUOTE AROUND VALUE !!!!
 #   # Specify variable name and value to export
-#   VAR_NAME="value"
+#   # VAR_NAME=value
+#
+#   # TMUXP Related variables
+#   TMUXP_SESSION_NAME=🕵️ TODO
+#   TMUXP_DIRECTORY=${PWD}
 #   ```
 #
 # """
@@ -57,8 +62,8 @@ export_var()
   #   - SC2514: export_var is referenced but not assigned
   for i_key in "${!export_var[@]}"
   do
-    cmd="export ${i_key}=${export_var[${i_key}]}"
-    ${cmd}
+    cmd="export ${i_key}=\"${export_var[${i_key}]}\""
+    eval ${cmd}
   done
 }
 
@@ -87,7 +92,7 @@ deactivate_export_var()
   for i_key in "${!export_var[@]}"
   do
     cmd="unset ${i_key}"
-    ${cmd}
+    eval ${cmd}
   done
 }
 

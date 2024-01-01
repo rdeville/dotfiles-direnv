@@ -30,8 +30,8 @@
 #   # Execute arbitrary command
 #   [custom_cmd]
 #   # Specify command to execute, variable name does not matter.
-#   CMD_NAME="echo 'value'"
-#   CMD_ANOTHER_NAME="echo 'value'"
+#   CMD_NAME=echo 'value'
+#   CMD_ANOTHER_NAME=echo 'value'
 #   ```
 #
 # """

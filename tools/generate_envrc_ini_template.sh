@@ -120,7 +120,7 @@ generate_envrc_ini()
   #
   # """
 
-  local output_file="${DIRENV_ROOT}/templates/envrc.ini.template"
+  local output_file="${XDG_CONFIG_HOME:-${HOME}/.config}/direnv/templates/envrc.ini.template"
 
   cat <<EOM > "${output_file}"
 # DIRENV MODULE CONFIGURATION
@@ -131,10 +131,9 @@ generate_envrc_ini()
 [DEFAULT]
 source_up=True
 
-
 EOM
 
-  for i_module in "${DIRENV_ROOT}"/modules/*.sh
+  for i_module in "${XDG_CONFIG_HOME:-${HOME}/.config}"/direnv/modules/*.sh
   do
     direnv_log "INFO" \
       "Computing \`.envrc.ini\` template for module **$(basename "${i_module}")**."
@@ -147,10 +146,7 @@ EOM
   done
 
   cat <<EOM >> "${output_file}"
-# ------------------------------------------------------------------------------
-# VIM MODELINE
 # vim: ft=dosini
-# ------------------------------------------------------------------------------
 EOM
 }
 
@@ -176,12 +172,12 @@ main()
   # """
 
   # Ensure directory environment is activated
-  if [[ -z "${DIRENV_ROOT}" ]]
-  then
-    # Not using direnv_log as directory environment is not loaded yet
-    echo -e "${e_error}[ERROR] Direnv must be activated to use this script.${e_normal}"
-    return 1
-  fi
+  # if [[ -z ""${XDG_CONFIG_HOME:-${HOME}/.config}"/direnv/" ]]
+  # then
+  #   # Not using direnv_log as directory environment is not loaded yet
+  #   echo -e "${e_error}[ERROR] Direnv must be activated to use this script.${e_normal}"
+  #   return 1
+  # fi
 
   generate_envrc_ini
 }

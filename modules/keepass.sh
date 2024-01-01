@@ -91,64 +91,21 @@ update_add_path()
   # If python module loaded previously with virtual environment, gather old_path
   if [[ -n "${_OLD_VIRTUAL_PATH}" ]]
   then
-      old_path=${_OLD_VIRTUAL_PATH}
-  fi
-
-  # Add `.direnv/bin` to `PATH`
-  if [[ "${add_direnv_to_path}" == "true" ]]
-  then
-    if [[ -z "${old_path}" ]]
-    then
-      old_path=${PATH}
-    fi
-    export PATH="${DIRENV_ROOT}/.direnv/bin:${PATH}"
-  fi
-
-  # Export `PATH` from its previous state.
-  if [[ -n "${old_path}" ]]
-  then
-    export _DIRENV_OLD_PATH="${old_path}"
-  fi
-}
-
-
-update_del_path()
-{
-  # """Restore `PATH` to exclude new folders
-  #
-  # Restore `PATH` variable to its previous state and unset variables storing
-  # old `PATH`
-  #
-  # Globals:
-  #   PATH
-  #   _OLD_VIRTUAL_PATH
-  #   _DIRENV_OLD_PATH
-  #
-  # Arguments:
-  #   None
-  #
-  # Output:
-  #   None
-  #
-  # Returns:
-  #   None
-  #
-  # """
-
-  local old_path
-
-  # If python module not already unloaded, gather its old path value
-  if [[ -n "${_OLD_VIRTUAL_PATH}" ]]
-  then
     old_path=${_OLD_VIRTUAL_PATH}
-  else
-    old_path=${_DIRENV_OLD_PATH}
   fi
 
-  export PATH=${old_path}
-  unset _DIRENV_OLD_PATH
+  # Add `~/.cache/direnv/bin` to `PATH` if not already  present
+  if ! [[ -e "${DIRENV_BIN_FOLDER}/keepass" ]]
+  then
+    ln -s "${DIRENVRC_SRC_FOLDER}/keepass.sh" \
+          "${DIRENV_BIN_FOLDER}/keepass"
+  fi
+  export _DIRENV_OLD_PATH="${old_path:-${PATH}}"
+  if ! [[ "${PATH}" =~ ${DIRENV_BIN_FOLDER} ]]
+  then
+    export PATH="${DIRENV_BIN_FOLDER}:${PATH}"
+  fi
 }
-
 
 keepass()
 {
@@ -198,10 +155,14 @@ keepass()
     #
     # """
 
-    if ! [[ -e "${DIRENV_BIN_FOLDER}/mykeepass" ]]
+    if ! [[ -e "${DIRENV_BIN_FOLDER}/keepass" ]]
     then
       ln -s "${DIRENVRC_SRC_FOLDER}/keepass.sh" \
-            "${DIRENV_BIN_FOLDER}/mykeepass"
+            "${DIRENV_BIN_FOLDER}/keepass"
+    fi
+    if ! [[ ${PATH} =~ ${DIRENV_BIN_FOLDER} ]]
+    then
+      export PATH="${DIRENV_BIN_FOLDER}:${PATH}"
     fi
   }
 
@@ -232,7 +193,7 @@ keepass()
     local var_value=$2
     if [[ -z "${var_value}" ]]
     then
-      direnv_log "ERROR" "Variable **\`${var_name}\`** should be set in .envrc.ini. "
+      _log "ERROR" "Variable **\`${var_name}\`** should be set in .envrc.ini. "
       return 1
     fi
   }
@@ -264,7 +225,7 @@ keepass()
     local var_value=$2
     if ! [[ -f "${var_value}" ]]
     then
-      direnv_log "ERROR" "File defined by variable **\`${var_name}\`** does not exists."
+      _log "ERROR" "File defined by variable **\`${var_name}\`** does not exists."
       return 1
     fi
   }
@@ -286,8 +247,8 @@ keepass()
   # Ensure keepassxc-cli is installed
   if ! command -v keepassxc-cli > /dev/null 2>&1
   then
-    direnv_log "ERROR" "Command **\`keepassxc-cli\`** does not exists."
-    direnv_log "ERROR" "Please refer to your OS distribution to install keepassxc-cli"
+    _log "ERROR" "Command **\`keepassxc-cli\`** does not exists."
+    _log "ERROR" "Please refer to your OS distribution to install keepassxc-cli"
     return 1
   fi
 
@@ -310,7 +271,7 @@ keepass()
   # Ensure variables are correct and allow to unlock the database
   if ! eval "${keepass_test_cmd}" > /dev/null 2>&1
   then
-    direnv_log "ERROR" "Unable to open the keepass DB with provided **KEEPASS variables**!"
+    _log "ERROR" "Unable to open the keepass DB with provided **KEEPASS variables**!"
     return 1
   fi
 
@@ -344,11 +305,18 @@ deactivate_keepass()
   #   None
   #
   # """
+  if ! [[ -e "${DIRENV_BIN_FOLDER}/keepass" ]]
+  then
+    rm -f "${DIRENV_BIN_FOLDER}/keepass"
+  fi
+  if find ${DIRENV_BIN_FOLDER} -mindepth 1 -maxdepth 1 | read
+  then
+    export PATH=${PATH//${DIRENV_BIN_FOLDER}:/}
+  fi
 
   unset KEEPASS_DB
   unset KEEPASS_NAME
   unset KEEPASS_KEYFILE
-  update_del_path
 }
 
 # ------------------------------------------------------------------------------

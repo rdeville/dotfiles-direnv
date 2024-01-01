@@ -153,7 +153,3 @@ deactivate_path_management()
   export PATH=${old_path}
   unset _DIRENV_OLD_PATH
 }
-
-
-
-
