@@ -61,7 +61,11 @@ activate_direnv()
   # """
 
   local DEBUG_LEVEL=${DIRENV_DEBUG_LEVEL}
-  source <(curl -s https://framagit.org/-/snippets/7183/raw/main/_log.sh)
+  if ! [[ -f /tmp/_log.sh ]]
+  then
+    curl -s https://framagit.org/-/snippets/7183/raw/main/_log.sh -o /tmp/_log.sh
+  fi
+  source /tmp/_log.sh
   # #   - SC2034: var appears unused, Verify use (or export if used externally)
   # _log()
   # {
