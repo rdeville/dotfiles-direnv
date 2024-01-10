@@ -60,7 +60,7 @@ activate_direnv()
   #
   # """
 
-  local DEBUG_LEVEL=${DIRENV_DEBUG_LEVEL}
+  local DEBUG_LEVEL=${DIRENV_DEBUG_LEVEL:-"WARNING"}
   if ! [[ -f /tmp/_log.sh ]]
   then
     curl -s https://framagit.org/-/snippets/7183/raw/main/_log.sh -o /tmp/_log.sh
