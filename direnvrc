@@ -216,7 +216,6 @@ activate_direnv()
     #   - Unset associative array related to this module
     #
     # Globals:
-    #   DIRENV_TEMP_FOLDER
     #   DIRENVRC_MODULE_FOLDER
     #
     # Arguments:
@@ -233,7 +232,7 @@ activate_direnv()
     local i_module
     local file_list
 
-    if [[ -f "${DIRENV_TEMP_FOLDER}/.loaded_modules" ]]
+    if [[ -f "${DIRENV_CACHE_ROOT}/loaded_modules" ]]
     then
       while read -r i_module
       do
@@ -248,7 +247,7 @@ activate_direnv()
         unset_methods "$(get_methods_list "${file_list}")"
         # Deallocate module associative array
         unset "${i_module}"
-      done <<< "$(cat "${DIRENV_TEMP_FOLDER}/loaded_modules")"
+      done <<< "$(cat "${DIRENV_CACHE}/loaded_modules")"
     fi
   }
 
@@ -267,7 +266,6 @@ activate_direnv()
     #   DIRENVRC_SRC_FOLDER
     #   DIRENVRC_SHA1_FOLDER
     #   DIRENVRC_MODULE_FOLDER
-    #   DIRENV_TEMP_FOLDER
     #   DIRENV_CONFIG_PATH
     #   DIRENV_INI_SEP
     #
@@ -299,7 +297,6 @@ activate_direnv()
     unset DIRENVRC_TEMPLATE_FOLDER
 
     unset DIRENV_LOG_FOLDER
-    unset DIRENV_TEMP_FOLDER
     unset DIRENV_CONFIG_PATH
     unset DIRENV_INI_SEP
   }
@@ -378,7 +375,6 @@ activate_direnv()
     #   DIRENV_LOG_FOLDER
     #   DIRENVRC_SRC_FOLDER
     #   DIRENVRC_SHA1_FOLDER
-    #   DIRENV_TEMP_FOLDER
     #   DIRENVRC_MODULE_FOLDER
     #   DIRENV_CONFIG_PATH
     #   DIRENV_INI_SEP
@@ -409,14 +405,13 @@ activate_direnv()
     export DIRENV_BIN_FOLDER="${DIRENV_CACHE}/bin"
     export DIRENV_CACHE_ROOT="${PWD/${HOME}/${DIRENV_CACHE}}"
     export DIRENV_LOG_FOLDER="${DIRENV_CACHE_ROOT}/log"
-    export DIRENV_TEMP_FOLDER="${DIRENV_CACHE_ROOT}/tmp"
     export DIRENV_CONFIG_PATH="${DIRENV_ROOT}/${config_file_name}"
     export DIRENV_INI_SEP="%%%%"
 
     # Create local only folder
     for i_dir in "${DIRENV_LOG_FOLDER}" \
                  "${DIRENV_BIN_FOLDER}" \
-                 "${DIRENV_TEMP_FOLDER}"
+                 "${DIRENV_CACHE_ROOT}"
     do
       if ! [[ -d ${i_dir} ]]
       then
@@ -428,9 +423,9 @@ activate_direnv()
     # If user is reloading the directory environment, clean the temporary file
     # listing loaded module to avoid issues when deactivating directory
     # environment
-    if [[ -f "${DIRENV_TEMP_FOLDER}/loaded_modules" ]]
+    if [[ -f "${DIRENV_CACHE_ROOT}/loaded_modules" ]]
     then
-      rm -f "${DIRENV_TEMP_FOLDER}/loaded_modules"
+      rm -f "${DIRENV_CACHE_ROOT}/loaded_modules"
     fi
   }
 
@@ -443,7 +438,6 @@ activate_direnv()
     # If everything is correct, load the module.
     #
     # Globals:
-    #   DIRENV_TEMP_FOLDER
     #   DIRENV_MODULE_FOLDER
     #   DIRENV_CONFIG_PATH
     #
@@ -475,10 +469,10 @@ activate_direnv()
     source "${DIRENVRC_MODULE_FOLDER}/${i_module}.sh"
     _log "DEBUG" "Loading module **${i_module}**."
     ${i_module} || error="true"
-    if ! [[ -f "${DIRENV_TEMP_FOLDER}/loaded_modules" ]] \
-        || ! grep -q "${i_module}" "${DIRENV_TEMP_FOLDER}/loaded_modules"
+    if ! [[ -f "${DIRENV_CACHE_ROOT}/loaded_modules" ]] \
+        || ! grep -q "${i_module}" "${DIRENV_CACHE_ROOT}/loaded_modules"
     then
-      echo "${i_module}" >> "${DIRENV_TEMP_FOLDER}/loaded_modules"
+      echo "${i_module}" >> "${DIRENV_CACHE_ROOT}/loaded_modules"
     fi
   }
 
@@ -784,13 +778,12 @@ activate_direnv()
     #
     # Methods called when initialization of directory environment went wrong.
     # For each already loaded modules, i.e. modules listed in
-    # ${DIRENV_TEMP_FOLDER}/.loaded_modules, call the deactivate method of the
+    # ${DIRENV_CACHE_ROOT}/loaded_modules, call the deactivate method of the
     # module.
-    # Finally, remove the file ${DIRENV_TEMP_FOLDER}/.loaded_modules.
+    # Finally, remove the file ${DIRENV_CACHE_ROOT}/loaded_modules.
     #
     # Globals:
     #   DIRENV_MODULE_FOLDER
-    #   DIRENV_TEMP_FOLDER
     #
     # Arguments:
     #   $1: string, name of the module from `.envrc.ini`
@@ -803,7 +796,7 @@ activate_direnv()
     #   1 if module can not be loaded
     #
     # """
-    local loaded_modules="${DIRENV_TEMP_FOLDER}/loaded_modules"
+    local loaded_modules="${DIRENV_CACHE_ROOT}/loaded_modules"
 
     if [[ -n "$1" ]]
     then

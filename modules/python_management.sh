@@ -169,7 +169,7 @@ python_management()
       # Value is not an integer
       if ! [[ "${i_var_value}" =~ ^[0-9]+$ ]]
       then
-        direnv_log "ERROR" "Variable **\`${i_var_name}\`** should be an integer."
+        _log "ERROR" "Variable **\`${i_var_name}\`** should be an integer."
         error="true"
       fi
     done
@@ -217,8 +217,8 @@ python_management()
       # Ensure python is installed
       if ! command -v python3 &> /dev/null
       then
-        direnv_log "ERROR" "Required python to be installed with version **${python_full_version}**."
-        direnv_log "ERROR" "Please refer to your distribution documentation."
+        _log "ERROR" "Required python to be installed with version **${python_full_version}**."
+        _log "ERROR" "Please refer to your distribution documentation."
         return 1
       fi
 
@@ -234,16 +234,16 @@ python_management()
 
       if [[ "${installed_python_int_version}" -lt "${python_int_version}" ]]
       then
-        direnv_log "ERROR" "Requires python version **${python_full_version}**."
-        direnv_log "ERROR" "Please refer to your distribution documentation."
+        _log "ERROR" "Requires python version **${python_full_version}**."
+        _log "ERROR" "Please refer to your distribution documentation."
         return 1
       elif ! command -v pip3 &> /dev/null
       then
-        direnv_log "ERROR" "Required pip is not installed."
-        direnv_log "ERROR" "Please refer to your distribution documentation to install pip3."
+        _log "ERROR" "Required pip is not installed."
+        _log "ERROR" "Please refer to your distribution documentation to install pip3."
         return 1
       else
-        touch "${DIRENV_ROOT}/.direnv/.python_version.ok"
+        touch "${DIRENV_CACHE_ROOT}/python_version.ok"
       fi
     fi
   }
@@ -279,11 +279,11 @@ python_management()
 
     if ! [[ -f "${unpin_requirements}" ]]
     then
-      direnv_log "WARNING" "File **${unpin_requirements}** does not exists !"
-      direnv_log "WARNING" "No pinned version of this requirements will be generated."
+      _log "WARNING" "File **${unpin_requirements}** does not exists !"
+      _log "WARNING" "No pinned version of this requirements will be generated."
     elif ! [[ -f "${pinned_requirements}" ]] && [[ -f "${unpin_requirements}" ]]
     then
-      direnv_log "INFO" "Generation of the python ${type_requirements} requirements with pinned version."
+      _log "INFO" "Generation of the python ${type_requirements} requirements with pinned version."
       pip-compile "${unpin_requirements}" >> "${DIRENV_LOG_FOLDER}/module.python_management.log" 2>&1
       # Remove ${DIRENV_ROOT} from pinned version of the requirements
       sed -i "" -e "s/${DIRENV_ROOT//\//\\\/}\///g" "${pinned_requirements}"
@@ -317,7 +317,7 @@ python_management()
 
     if [[ -f "${pin_requirements}" ]]
     then
-      direnv_log "INFO" "Installing python dependencies for ${type_requirements}."
+      _log "INFO" "Installing python dependencies for ${type_requirements}."
       pip install -r "${pin_requirements}" >> "${DIRENV_LOG_FOLDER}/module.python_management.log" 2>&1
     fi
   }
@@ -384,15 +384,14 @@ python_management()
 
   # Get python version if set in `.envrc.ini`
   local python_major=${python_management[python_major]:-3}
-  local python_minor=${python_management[python_minor]:-8}
+  local python_minor=${python_management[python_minor]:-10}
   local python_patch=${python_management[python_patch]:-0}
   # Setup variable local to `DIRENV_ROOT` to compute python virtual environment.
   local dir_name
   dir_name=$(basename "${DIRENV_ROOT}")
 
   # Directory where the virtual environment folder will be.
-  local venv_dir="${DIRENV_ROOT}/.direnv/python_venv/${dir_name}"
-
+  local venv_dir="${DIRENV_CACHE_ROOT}/python_venv/${dir_name}"
 
   check_python_var || return 1
   check_python_version || return 1

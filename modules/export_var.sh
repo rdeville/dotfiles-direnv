@@ -35,7 +35,7 @@
 #
 #   # TMUXP Related variables
 #   TMUXP_SESSION_NAME=🕵️ TODO
-#   TMUXP_DIRECTORY=${PWD}
+#   TMUXP_CONFIG=default
 #   ```
 #
 # """

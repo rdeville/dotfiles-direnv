@@ -1,3 +1,23 @@
 #!/usr/bin/env bash
 
 activate_direnv
+
+PWD=$(pwd)
+ENVRC_INI="${PWD}/.envrc.ini"
+TMUXP_CONFIG=""
+if [[ "${PWD}" != "${HOME}" ]] \
+  && [[ -f "${ENVRC_INI}" ]] \
+  && [[ -n "${TMUXP_SESSION_NAME}" ]] \
+  && [[ "$(tmux display-message -p '#S')" != "${TMUXP_SESSION_NAME}" ]] \
+  && grep "TMUXP_SESSION_NAME" "${ENVRC_INI}" &> /dev/null
+then
+  TMUXP_CONFIG=${TMUXP_CONFIG:-""}
+  echo -n -e "\e[0;32mLoad tmux session \e[1m${TMUXP_SESSION_NAME}\e[0;32m ? [\e[1mY\e[0;32m/n]"
+  read -r answer
+  answer=${answer:-y}
+  answer=$(echo "${answer}" | tr '[:upper:]' '[:lower:]')
+  if [[ "${answer}" =~ (y|ye|yes) ]]
+  then
+    tmuxp load -y "${TMUXP_CONFIG:-default}"
+  fi
+fi
