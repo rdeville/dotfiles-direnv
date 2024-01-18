@@ -9,7 +9,7 @@ e6fcae00a28c753e826a8aec40b8932c536711df  modules/custom_cmd.sh
 d92dddb27a10d2dd85f89257b4fe459c3027285e  modules/export_var.sh
 a263c48af2c44a3a286767557f18075b605bdd06  modules/keepass.sh
 15c0ba09e27b81f70d77fbb9c2d177ff8fb2eade  modules/python_management.sh
-4a98a5b54495b987f2e46e1da52e2edbc4defeef  templates/envrc.ini.template
+c326bb4abb40f0e15f250c3b5db94ea5642e5128  templates/envrc.ini.template
 f56d959ac58d8d415b12c69a28c781ed9af496bc  templates/envrc.template
 a737d6d4e724d70050d3012284b901c6d29ecd71  modules/deprecated/ansible.sh
 3a52d603378a7acf8c82cef737ffdbaad8f852ee  modules/deprecated/go_management.sh
