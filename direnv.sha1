@@ -1,4 +1,4 @@
-f56d959ac58d8d415b12c69a28c781ed9af496bc  .envrc
+a2de172921b7e0ff0013f9dddebb7735a07b11ee  .envrc
 1489e37cb4428887806527c7975fa2559e73b945  direnvrc
 f316f6881d7df9e03ba2f4ea8b88273c1b6f35dc  lib/_direnv_log.sh
 995fdf205b7215db575955d1da60ebc46d5143f2  src/clone_ansible_roles.py
@@ -10,7 +10,7 @@ d92dddb27a10d2dd85f89257b4fe459c3027285e  modules/export_var.sh
 a263c48af2c44a3a286767557f18075b605bdd06  modules/keepass.sh
 15c0ba09e27b81f70d77fbb9c2d177ff8fb2eade  modules/python_management.sh
 c326bb4abb40f0e15f250c3b5db94ea5642e5128  templates/envrc.ini.template
-f56d959ac58d8d415b12c69a28c781ed9af496bc  templates/envrc.template
+a2de172921b7e0ff0013f9dddebb7735a07b11ee  templates/envrc.template
 a737d6d4e724d70050d3012284b901c6d29ecd71  modules/deprecated/ansible.sh
 3a52d603378a7acf8c82cef737ffdbaad8f852ee  modules/deprecated/go_management.sh
 0a91e65408a955e557e5a04bb4f03793ae6db53a  modules/deprecated/kubernetes.sh
