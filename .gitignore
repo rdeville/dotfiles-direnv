@@ -1,12 +1,6 @@
 # Project Specific Gitignore
 
-.vimrc.local
-.tmuxinator.y*ml
-.tmuxp.y*ml
-.old/
-.tmp/
-docs/versions.json
-.undodir
+.envrc*
 
 ### BEGIN MKDOCS TEMPLATE ###
 ### WARNING, DO NOT UPDATE CONTENT BETWEEN MKDOCS TEMPLATE TAG ! ###
