@@ -11,7 +11,7 @@ _init_logger(){
   if ! [[ -f "${log_file}" ]] \
     || { [[ -f "${log_file}" ]] && [[ "${time}" -gt "${delai}" ]]; }
   then
-    if ping -q -c 1 framagit.org &> /dev/null
+    if ping -q -c 1 -W 1 framagit.org &> /dev/null
     then
       # shellcheck disable=SC1090
       source <(curl -s https://framagit.org/-/snippets/7183/raw/main/_get_log.sh)
