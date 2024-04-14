@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+source_up_if_exists
+
+# TMUXP VARIABLES
+export TMUXP_SESSION_NAME=priv-tf-git_repo_data
+
+# PROMPT VARIABLES
+export TERRAFORM_ENV="True"
+
+# TERRAFORM VARIABLES
+export TF_VAR_GITHUB_PUBLIC_ORG_MIRROR_TOKEN=$(kp show /informatique/github/perso -a "API_TOKEN:tf-git-repo-data-rdeville-public-mirror")
+export TF_VAR_GITHUB_PUBLIC_ORG_TOKEN=$(kp show /informatique/github/perso -a "API_TOKEN:terraform-git-repo-data-rdeville-public")
+export TF_VAR_GITHUB_PUBLIC_ORG=rdeville-public
+export TF_VAR_GITHUB_USER_MIRROR_TOKEN=$(kp show /informatique/github/perso -a "API_TOKEN:terraform-git-repo-data-rdeville")
+export TF_VAR_GITHUB_USER_TOKEN=$(kp show /informatique/github/perso -a "API_TOKEN:terraform-git-repo-data-rdeville")
+export TF_VAR_GITHUB_USER=rdeville
+export TF_VAR_GITLAB_API_TOKEN=$(kp show /informatique/gitlab/gitlab -a "API_TOKEN:terraform-git-repo-data")
+export TF_VAR_FRAMAGIT_API_TOKEN=$(kp show /informatique/gitlab/framagit -a "API_TOKEN:terraform-git-repo-data")
+
+use_tmux
+
+# vim: ft=bash

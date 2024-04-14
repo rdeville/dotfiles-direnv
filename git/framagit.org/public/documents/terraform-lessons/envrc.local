@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source_up_if_exists
+
+# TMUXP VARIABLES
+export TMUXP_SESSION_NAME=pub-doc-terraform_lessons
+
+use_tmux
+
+# vim: ft=bash

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+source_up_if_exists
+
+# TMUXP VARIABLES
+export TMUXP_CONFIG=home
+export TMUXP_SESSION_NAME=home
+
+use_tmux
+
+# vim: ft=bash
