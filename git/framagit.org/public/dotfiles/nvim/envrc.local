@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+export TMUXP_SESSION_NAME="pub-dot-neovim"
+use_tmux
+
+source_up_if_exists
+
+export NVIM_APPNAME="nvim-dev"
+
+# vim: ft=bash

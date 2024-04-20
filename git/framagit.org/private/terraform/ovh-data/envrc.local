@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2155
+
+export TMUXP_SESSION_NAME=priv-terraform-ovh-data
+use_tmux
+
+source_up_if_exists
+
+# TERRAFORM VARIABLES
+TF_ENTRY_PATH=$(kp search "ovh-api-terraform-ak-sk")
+export OVH_APPLICATION_KEY=$(kp show "${TF_ENTRY_PATH}" -a UserName)
+export OVH_APPLICATION_SECRET=$(kp show "${TF_ENTRY_PATH}" -a Password)
+export OVH_CONSUMER_KEY=$(kp show "${TF_ENTRY_PATH}" -a ConsumerKey)
+
+# vim: ft=bash

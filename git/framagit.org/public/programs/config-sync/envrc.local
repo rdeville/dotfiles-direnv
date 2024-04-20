@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
-source_up_if_exists
-
-# TMUXP VARIABLES
-export TMUXP_SESSION_NAME=pub-prog-config_sync
-
+export TMUXP_SESSION_NAME=pub-prog-dotgit-sync-data
 use_tmux
+
+source_up_if_exists
 
 # vim: ft=bash

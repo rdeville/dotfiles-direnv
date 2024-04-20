@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export TMUXP_SESSION_NAME=priv-dot-neomutt
+export TMUXP_SESSION_NAME=pub-home-manager
 use_tmux
 
 source_up_if_exists
