@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-export TMUXP_SESSION_NAME=pub-doc-kubernetes_lessons
-use_tmux
-
-source_up_if_exists
-
-# vim: ft=bash

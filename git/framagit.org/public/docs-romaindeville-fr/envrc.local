@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-export TMUXP_SESSION_NAME=pub-docs_romaindeville
-use_tmux
-
-source_up_if_exists
-
-# vim: ft=bash
