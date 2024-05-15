@@ -1,8 +1,4 @@
 [global]
-# If set to true, also look for and load .env files on top of the .envrc files.
-# If both .envrc and .env files exist, the .envrc will always be chosen first.
-load_dotenv=true
-
 # Specify how long to wait before warning the user that the command is taking
 # too long to execute. Defaults to "5s".
 # A duration string is a possibly signed sequence of decimal numbers, each with
