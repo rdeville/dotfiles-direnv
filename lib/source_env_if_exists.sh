@@ -7,4 +7,3 @@ source_env_if_exists(){
     source_env "${file}"
   fi
 }
-
