@@ -1,6 +1,7 @@
 # Project Specific Gitignore
 
 .envrc*
+.devenv
 
 ### BEGIN MKDOCS TEMPLATE ###
 ### WARNING, DO NOT UPDATE CONTENT BETWEEN MKDOCS TEMPLATE TAG ! ###
