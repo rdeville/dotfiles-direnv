@@ -1,6 +1,19 @@
 #!/usr/bin/env bash
-use_keepass()
-{
+
+use_keepass() {
+  # """Ensure keepass environment allow to access to keepass database
+  #
+  # Usage:
+  #   use_keepass
+  #
+  # Returns:
+  #   0 if anything is good
+  #   1 if something goes wrong such as no keepassxc-cli, missing or wrong
+  #     variable, etc.
+  #
+  # """
+  _log "TRACE" "direnv: use_keepass()"
+
   local error="false"
 
   if ! has keepassxc-cli
@@ -13,6 +26,7 @@ use_keepass()
   # Ensure every required variable are defined
   for i_var in "KEEPASS_DB" "KEEPASS_KEYFILE"
   do
+    _log "TRACE" "direnv: Tesing validity of variable **\`${name}\`**"
     name="${i_var}"
     value="${!i_var}"
 
@@ -28,6 +42,7 @@ use_keepass()
       error="true"
     fi
   done
+
   [[ "${error}" == "true" ]] && return 1
 
   if ! keepassxc-cli ls --no-password -k "${KEEPASS_KEYFILE}" "${KEEPASS_DB}" > /dev/null 2>&1

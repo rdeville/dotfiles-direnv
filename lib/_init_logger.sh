@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-_init_logger(){
+_init_logger() {
   local log_file="${XDG_CACHE_HOME:-${HOME}/.cache}/snippets/_log.sh"
   local last_download_file="/tmp/_log.time"
   local delai=14400             # 4 hours
