@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-# make `direnv` silent
-export DIRENV_LOG_FORMAT=$'\e[32m\e[1m[INFO]\e[0m\e[32m direnv: %s\e[0m '
+# Deactivate default direnv log
+DIRENV_LOG_FORMAT=""
+DEBUG_LEVEL="INFO"
 
 # Ensure this script has not been modified
-_check_sha1 "${XDG_CONFIG_HOME:-${HOME}/.config}/direnv/direnvrc" || exit 1
-
-dotenv_if_exists "${PWD}/.env.secrets"
+_log "INFO" "direnv: Loading  **${PWD/${HOME}/\~}/.envrc**"
+_check_sha "${XDG_CONFIG_HOME:-${HOME}/.config}/direnv/direnvrc" || exit 1
 
 # vim: ft=bash
