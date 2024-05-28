@@ -1,12 +1,25 @@
 #!/usr/bin/env bash
 
-PWD="$(pwd -P)"
-dotenv_if_exists
-source_env_if_exists "${PWD}/.envrc.local"
+# Function below are declared in my own direnv stdlib (and my override default
+# stdlib functions)
+# See: https://framagit.org/rdeville-public/dotfiles/direnv/-/blob/main/lib
 
-if [[ -f "${PWD}/devbox.json" ]]
-then
-  use_devbox
-fi
+# Temporary deactivate direnv log as I have my own logger
+DIRENV_LOG_FORMAT=""
+
+# Ensure that PWD is absolute without symlink
+PWD="$(pwd -P)"
+
+# Load .env file if it exists
+dotenv_if_exists
+
+# Allow users to setup their own envrc files
+source_env_if_exists ".envrc.local"
+
+# Use flake.nix devShells output
+use flake . --impure
+
+# Reset direnv log to see exported environment variables
+DIRENV_LOG_FORMAT="[INFO] direnv: %s"
 
 # vim: ft=bash

@@ -5,11 +5,6 @@ source_up_if_exists
 # TMUXP VARIABLES
 export TMUXP_SESSION_NAME=TMUXP_SESSION_NAME
 
-dotenv_if_exists "${PWD}/.env"
-dotenv_if_exists "${PWD}/.env.dev"
-dotenv_if_exists "${PWD}/.env.secrets"
-dotenv_if_exists "${PWD}/.env.local"
-
 use_tmux
 
 # vim: ft=bash
