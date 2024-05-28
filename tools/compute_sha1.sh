@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# """TODO
-# """
 
 # shellcheck disable=SC2034
 SCRIPTPATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit 1 ; pwd -P )"
@@ -23,7 +21,7 @@ init_logger(){
       source <(curl -s https://framagit.org/-/snippets/7183/raw/main/_get_log.sh)
       echo "${curr_time}" > "${last_download_file}"
     else
-      echo -e "\033[1;33m[WARNING]\033[0;33m Unable to get last logger version, will use `echo`.\033[0m"
+      echo -e "\033[1;33m[WARNING]\033[0;33m Unable to get last logger version, will use \`echo\`.\033[0m"
       _log(){
         echo "$@"
       }
@@ -35,7 +33,6 @@ init_logger(){
 }
 
 main(){
-  # TODO Change below substitution if need
   local DEBUG_LEVEL="${DEBUG_LEVEL:-INFO}"
   init_logger
 
@@ -46,14 +43,14 @@ main(){
     local file_name="$(basename "${file}" | sed -e "s/^\.//")"
     # shellcheck disable=SC2155
     local file_dir="$(dirname "${file}")"
-    local sha1_file="${XDG_CACHE_HOME:-${HOME}/.cache}/direnv${file_dir/${HOME}/}/${file_name}.sha1"
-    if [[ -f "${sha1_file}" ]]
+    local sha_file="${XDG_CACHE_HOME:-${HOME}/.cache}/direnv${file_dir/${HOME}/}/${file_name}.sha"
+    if [[ -f "${sha_file}" ]]
     then
-      _log "WARNING" "Deleting ${sha1_file}"
-      rm -f ${sha1_file}
+      _log "WARNING" "Deleting ${sha_file}"
+      rm -f "${sha_file}"
     fi
-    _log "INFO" "Regenerate sha1sum of ${i_node}"
-    sha1sum "${file}" > "${sha1_file}"
+    _log "INFO" "Regenerate shasum of ${i_node}"
+    sha1sum "${file}" > "${sha_file}"
   done
 }
 
