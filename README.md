@@ -3,7 +3,6 @@
 
   <!-- Project Title -->
   <a href="https://framagit.org/rdeville.public/my_dotfiles/direnv">
-    <img src="docs/assets/img/meta/direnv_logo.png" width="100px">
     <h1>Direnv</h1>
   </a>
 
@@ -21,7 +20,7 @@ Dotfiles to setup common directory environment management per project using
   <b>
 IMPORTANT !
 
-Main repo is on [ Framagit][repo_url].<br>
+Main repo is on [framagit.org][repo_url].<br>
 On other online git platforms, they are just mirror of the main repo.<br>
 Any issues, pull/merge requests, etc., might not be considered on those other
 platforms.
@@ -37,8 +36,9 @@ platforms.
 
 ## Introduction
 
-This repo aims to help managing directory environment uniformly accross multiple
-project by defining common configuration for [`direnv`][direnv].
+This repo aims to store my direnv configuration to help managing directory
+environment uniformly accross multiple project by defining common configuration
+for [`direnv`][direnv].
 
 **What is a directory environment ?**
 
@@ -70,14 +70,14 @@ directory to:
     entering directories in which you want these varaible set
   * Automate unsetting these variables and methods when leaving the directory.
 
-This can be [direnv][direnv]. [`direnv`][direnv] is an extension for your shell.
-It augments existing shells with a new feature that can load and unload
-environment variables depending on the current directory.
+This can be [direnv][direnv].
+
+> [`direnv`][direnv] is an extension for your shell. It augments existing shells
+> with a new feature that can load and unload environment variables depending on
+> the current directory.
 
 In other terms, if a script `.envrc` is present in a folder and allowed for
 `direnv`, it will automatically be executed when entering the folder. When
 leaving the folder any exported variables will be automatically unloaded.
-
-**Why this repo since there is [direnv][direnv] ?**
 
 [direnv]: https://direnv.net
