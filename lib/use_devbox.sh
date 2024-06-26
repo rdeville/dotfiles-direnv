@@ -1,27 +1,41 @@
 #!/usr/bin/env bash
 
 use_devbox() {
-  # """If devbox environment exists, load and watch ti
+  # """If devbox environment exists, load and watch it
   #
-  # Usage:
+  # **NAME**
   #   use_devbox
   #
-  # Returns:
+  # **DESCRIPTION**
+  #   Load file provided as arguments or devbox.json relative to direnv root as
+  #   a \`devbox.json\` environment
+  #
+  # **OPTIONS**
+  #   **FILE**: string, path to the devbox.json file
+  #
+  # **EXAMPLES**
+  #   use_devbox filename.json
+  #
+  # **RETURN CODE**
+  #   1 if devbox json file does not exists
   #   0 if anything is good
   #
   # """
   _log "TRACE" "direnv: use_devbox()"
 
-  local file="${PWD}/devbox.json"
+  local file
 
-  if [[ -f "${file}" ]]
+  [[ $1 =~ ^\/ ]] && file="${1}" || file="${PWD}/${1:-"devbox.json"}"
+
+  if ! [[ -f "${file}" ]]
   then
-    _log "INFO" "direnv: Watching **${file/${HOME}/\~}**"
-    watch_file "devbox.json"
-
-    _log "DEBUG" "direnv: Loading devbox environment defined in **${file/${HOME}/\~}**"
-    eval "$(devbox shellenv --init-hook --install --no-refresh-alias)"
-    return 0
+    _log "DEBUG" "direnv: File **${file/${HOME}/\~}** does not exists, nothing to do."
+    return 1
   fi
-  return 1
+
+  _log "INFO" "direnv: 👀 **${file/${HOME}/\~}**."
+  watch_file "devbox.json"
+
+  _log "DEBUG" "direnv: 🚀 **${file/${HOME}/\~}**"
+  eval "$(devbox shellenv --init-hook --install --no-refresh-alias)"
 }

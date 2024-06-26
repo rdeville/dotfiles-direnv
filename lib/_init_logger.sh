@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-_init_logger() {
+_init_logger(){
+  # """Initiliaze bash logger script and allow access to _log() function"""
   local log_file="${XDG_CACHE_HOME:-${HOME}/.cache}/snippets/_log.sh"
   local last_download_file="/tmp/_log.time"
-  local delai=14400             # 4 hours
+  # 4 hours
+  local delai=14400
   # shellcheck disable=SC2155
   local curr_time=$(date +%s)
   local time="$(( curr_time - $(cat "${last_download_file}" 2>/dev/null || echo "0") ))"
@@ -29,3 +31,5 @@ _init_logger() {
 }
 
 _init_logger
+
+# vim: ft=sh

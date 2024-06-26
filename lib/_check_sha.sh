@@ -3,23 +3,30 @@
 _check_sha() {
   # """Ensure the sha of a file is valid
   #
-  # Ensure the sha of a file provided as argument corresponding the value of
-  # a previously computed sha to ensure the file has not been modified.
+  # **NAME**
+  #   _check_sha [FILE]
   #
-  # Arguments:
-  #   $1: string, path to the file to test
+  # **DESCRIPTION**
+  #   Ensure the sha of a file provided as argument corresponding the value of
+  #   a previously computed sha to ensure the file has not been modified.
   #
-  # Output:
-  #   Log message to inform user SHA does not correspond to expected value
+  # **OPTIONS**
+  #   **FILE**: string, path to the file to test
   #
-  # Returns:
+  # **EXAMPLES**
+  #   _check_sha filename.ext
+  #
+  # **RETURN CODE**
   #   0 if sha is valid
   #   1 if sha is not valid
   #
   # """
   _log "TRACE" "direnv: _check_sha()"
 
-  local file=$1
+  local file
+
+  [[ "${1}" =~ ^\/ ]] && file="${1}" || file="${PWD}/${1:-".env"}"
+
   # shellcheck disable=SC2155
   local file_name="$(basename "${file}" | sed -e "s/^\.//")"
   # shellcheck disable=SC2155
@@ -29,7 +36,7 @@ _check_sha() {
   if ! [[ -f "${sha_file}" ]]
   then
     _log "INFO" "direnv: Sha of **\`${file/${HOME}/\~}\`** does not exists yet."
-    _log "INFO" "direnv: Will be computed in to **\`${sha_file/${HOME}/\~}\`** authorized"
+    _log "INFO" "direnv: Will be computed in to **\`${sha_file/${HOME}/\~}\`** authorized."
     ! [[ -d "$(dirname "${sha_file}")" ]] && mkdir -p "$(dirname "${sha_file}")"
     shasum "${file}" > "${sha_file}"
   elif ! shasum -c "${sha_file}" &> /dev/null
@@ -37,5 +44,4 @@ _check_sha() {
     _log "ERROR" "direnv: Sha of **\`${file/${HOME}/\~}\`** differs from **\`${sha_file/${HOME}/\~}\`**."
     return 1
   fi
-  return 0
 }

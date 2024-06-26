@@ -3,35 +3,39 @@
 source_env_if_exists() {
   # """Source environment file provided as arguments if file exists
   #
-  # Check that provided file exists and ensure its SHA sum does not differ
-  # from previously authorization.
+  # **NAME**
+  #   source_env_if_exists [FILE]
   #
-  # Usage:
-  #   source_env_if_exists <rel_path_file>
+  #   Check that provided file exists and ensure its SHA sum does not differ
+  #   from previously authorization.
+  #   If everything is good, load it as an \`.envrc\` file
   #
-  # Arguments:
-  #   $1: string, path to the file to source
+  # **OPTIONS**
+  #   **FILE**: string, path to the file to source
   #
-  # Returns:
+  # **EXAMPLES**
+  #   source_env_if_exists .envrc.dev
+  #
+  # **RETURN CODE**
   #   0 if anything is good
   #   1 if sha of file is not valid or if file does not exists
   #
   # """
   _log "TRACE" "direnv: source_env_if_exists()"
 
-  local file="${PWD}/${1:-}"
+  local file
 
-  if [[ -f "${file}" ]]
+  [[ $1 =~ ^\/ ]] && file="${1}" || file="${PWD}/${1:-".envrc.local"}"
+
+  if ! [[ -f "${file}" ]]
   then
-    if ! _check_sha "${file}"
-    then
-      return 1
-    else
-      _log "INFO" "direnv: Sourcing **${file/${HOME}/\~}**"
-      source_env "${file}"
-      return 0
-    fi
+    _log "DEBUG" "direnv: File **${file/${HOME}/\~}** does not exists, nothing to source."
+    return 1
+  elif ! _check_sha "${file}"
+  then
+    return 1
   fi
-  _log "DEBUG" "direnv: File **${file/${HOME}/\~}** does not exists, nothing to source."
-  return 1
+
+  _log "INFO" "direnv: 🔁 **${file/${HOME}/\~}**"
+  source_env "${file}"
 }

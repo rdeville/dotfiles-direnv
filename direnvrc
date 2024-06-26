@@ -5,7 +5,7 @@ DIRENV_LOG_FORMAT=""
 DEBUG_LEVEL="INFO"
 
 # Ensure this script has not been modified
-_log "INFO" "direnv: Loading  **${PWD/${HOME}/\~}/.envrc**"
+_log "INFO" "direnv: 🔁 **${PWD/${HOME}/\~}/.envrc**"
 _check_sha "${XDG_CONFIG_HOME:-${HOME}/.config}/direnv/direnvrc" || exit 1
 
 # vim: ft=bash

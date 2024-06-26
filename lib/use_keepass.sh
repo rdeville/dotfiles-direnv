@@ -3,10 +3,10 @@
 use_keepass() {
   # """Ensure keepass environment allow to access to keepass database
   #
-  # Usage:
+  # **NAME**
   #   use_keepass
   #
-  # Returns:
+  # **RETURN CODE**
   #   0 if anything is good
   #   1 if something goes wrong such as no keepassxc-cli, missing or wrong
   #     variable, etc.
@@ -19,14 +19,14 @@ use_keepass() {
   if ! has keepassxc-cli
   then
     _log "ERROR" "Command **\`keepassxc-cli\`** does not exists."
-    _log "ERROR" "Please refer to your OS distribution to install keepassxc-cli"
+    _log "ERROR" "Please refer to your OS distribution to install keepassxc-cli."
     return 1
   fi
 
   # Ensure every required variable are defined
   for i_var in "KEEPASS_DB" "KEEPASS_KEYFILE"
   do
-    _log "TRACE" "direnv: Tesing validity of variable **\`${name}\`**"
+    _log "TRACE" "direnv: Tesing validity of variable **\`${name}\`**."
     name="${i_var}"
     value="${!i_var}"
 

@@ -3,10 +3,10 @@
 use_tmux(){
   # """If tmux environment variable sets ask to load tmux session
   #
-  # Usage:
+  # **NAME**
   #   use_tmux
   #
-  # Returns:
+  # **RETURN CODE**
   #   0 if anything is good
   #
   # """

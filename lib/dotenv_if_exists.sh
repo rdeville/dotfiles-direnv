@@ -3,35 +3,41 @@
 dotenv_if_exists() {
   # """Source dot environment file '.env' provided as arguments if file exists
   #
-  # Check that provided dot file exists load it in the current environment
-  # and watch if it exits.
+  # **NAME**
+  #   dotenv_if_exists [FILE]
   #
-  # Usage:
-  #   dotenv_if_exists [<rel_path_file>]
+  # **DESCRIPTION**
+  #   Check that provided dot file exists load it in the current environment
+  #   and watch if it exits.
   #
-  # Arguments:
-  #   $1: string (optional), relative path to the file to source, `.env` if not
-  #       specified
+  # **OPTIONS**
+  #   **FILE**: string (optional), relative path to the file to source, `.env`
+  #             if not specified
   #
-  # Returns:
+  # **EXAMPLES**
+  #   dotenv_if_exists .env
+  #
+  # **RETURN CODE**
   #   0 anyway
   #
   # """
   _log "TRACE" "direnv: dotenv_if_exists()"
 
-  local file="${PWD}/${1:-".env"}"
-  local direnv
-  direnv=$(which direnv)
+  # shellcheck disable=SC2155
+  local direnv="$(which direnv)"
+  local file
+
+  [[ "${1}" =~ ^\/ ]] && file="${1}" || file="${PWD}/${1:-".env"}"
 
   if ! [[ -f ${file} ]]
   then
-    _log "DEBUG" "direnv: File **${file/${HOME}/\~}** does not exits, nothing to load"
-    return
+    _log "DEBUG" "direnv: File **${file/${HOME}/\~}** does not exits, nothing to load."
+    return 1
   fi
 
-  _log "INFO" "direnv: Dotenv   **${file/${HOME}/\~}**"
+  _log "INFO" "direnv: 🌍 **${file/${HOME}/\~}**"
   eval "$("$direnv" dotenv bash "${file}")"
 
-  _log "INFO" "direnv: Watching **${file/${HOME}/\~}**"
+  _log "INFO" "direnv: 👀 **${file/${HOME}/\~}**"
   watch_file "${file}"
 }
