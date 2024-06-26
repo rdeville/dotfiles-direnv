@@ -1,39 +1,28 @@
-<!-- markdownlint-disable MD041 MD002 -->
-<div align="center" style="text-align: center;">
+<!-- BEGIN DOTGIT-SYNC BLOCK MANAGED -->
+# 👋 Welcome to dotgit-sync
 
-  <!-- Project Title -->
-  <a href="https://framagit.org/rdeville.public/my_dotfiles/direnv">
-    <h1>Direnv</h1>
-  </a>
+<center>
 
-  <!-- Project Badges -->
-  ![License][license_badge]
-  [![Build Status][build_status_badge]][build_status]
+[![Licenses: (MIT OR BEERWARE)][license_badge]][license_url]
+[![Changelog][changelog_badge]][changelog_badge_url]
+[![Build][build_badge]][build_badge_url]
+[![Release][release_badge]][release_badge_url]
 
---------------------------------------------------------------------------------
+</center>
 
-Dotfiles to setup common directory environment management per project using
-[`direnv`](https://direnv.net) uniformly for all my projects.
+[build_badge]: https://framagit.org/rdeville-public/programs/dotgit-sync/badges/main/pipeline.svg
+[build_badge_url]: https://framagit.org/rdeville-public/programs/dotgit-sync/-/commits/main
+[release_badge]: https://framagit.org/rdeville-public/programs/dotgit-sync/-/badges/release.svg
+[release_badge_url]: https://framagit.org/rdeville-public/programs/dotgit-sync/-/releases/
+[license_badge]: https://img.shields.io/badge/Licenses-MIT%20OR%20BEERWARE-blue
+[license_url]: https://framagit.org/rdeville-public/programs/dotgit-sync/blob/main/LICENSE
+[changelog_badge]: https://img.shields.io/badge/Changelog-Python%20Semantic%20Release-yellow
+[changelog_badge_url]: https://github.com/python-semantic-release/python-semantic-release
 
---------------------------------------------------------------------------------
+> Dotfiles to setup common directory environment management per project using [`direnv`](https://direnv.net) uniformly for all my projects.
 
-  <b>
-IMPORTANT !
-
-Main repo is on [framagit.org][repo_url].<br>
-On other online git platforms, they are just mirror of the main repo.<br>
-Any issues, pull/merge requests, etc., might not be considered on those other
-platforms.
-  </b>
-</div>
-
---------------------------------------------------------------------------------
-
-[repo_url]: https://framagit.org/rdeville.public/my_dotfiles/direnv
-[license_badge]: https://img.shields.io/badge/License-MIT%2FBeer%20Ware-blue?style=flat-square&logo=open-source-initiative
-[build_status_badge]: https://framagit.org/rdeville.public/my_dotfiles/direnv/badges/master/pipeline.svg?style=flat-square&logo=appveyor
-[build_status]: https://framagit.org/rdeville.public/my_dotfiles/direnv/commits/master
-
+---
+<!-- BEGIN DOTGIT-SYNC BLOCK EXCLUDED CUSTOM_README -->
 ## Introduction
 
 This repo aims to store my direnv configuration to help managing directory
@@ -81,3 +70,36 @@ In other terms, if a script `.envrc` is present in a folder and allowed for
 leaving the folder any exported variables will be automatically unloaded.
 
 [direnv]: https://direnv.net
+<!-- END DOTGIT-SYNC BLOCK EXCLUDED CUSTOM_README -->
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check [issues page][issues_pages].
+
+You can also take a look at the [CONTRIBUTING.md][contributing].
+
+[issues_pages]: https://framagit.org/rdeville-public/programs/dotgit-sync/-/issues
+[contributing]: https://framagit.org/rdeville-public/programs/dotgit-sync/blob/main/CONTRIBUTING.md
+
+## 👤 Maintainers
+
+* 📧 [**Romain Deville** \<code@romaindeville.fr\>](mailto:code@romaindeville.fr)
+  * Website: [https://romaindeville.fr](https://romaindeville.fr)
+  * Github: [@rdeville](https://github.com/rdeville)
+  * Gitlab: [@r.deville](https://gitlab.com/r.deville)
+  * Framagit: [@rdeville](https://framagit.org/rdeville)
+
+## 📝 License
+
+Copyright © 2023 - 2024 [Romain Deville](code@romaindeville.fr)
+
+This project is under following licenses (**OR**) :
+
+* [MIT][main_license]
+* [BEERWARE][beerware_license]
+
+[main_license]: https://framagit.org/rdeville-public/programs/dotgit-sync/blob/main/LICENSE
+[beerware_license]: https://framagit.org/rdeville-public/programs/dotgit-sync/blob/main/LICENSE.BEERWARE
+<!-- END DOTGIT-SYNC BLOCK MANAGED -->
