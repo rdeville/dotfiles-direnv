@@ -19,6 +19,7 @@
 
   # Dotenv files are loading before devenv using direnv
   dotenv = {
+    enable = false;
     disableHint = true;
   };
 }

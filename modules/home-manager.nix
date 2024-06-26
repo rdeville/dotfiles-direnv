@@ -1,30 +1,12 @@
-{
-  config,
-  lib,
+self: {
   pkgs,
+  lib,
   ...
-}: let
-  cfg = config.programs.direnv;
-in {
-  config = lib.mkIf cfg.enable {
-    programs = {
+}: {
+  xdg = {
+    configFile = {
       direnv = {
-        config = builtins.fromTOML (builtins.readFile ../direnv.toml);
-        stdlib = builtins.readFile ../direnvrc;
-      };
-    };
-
-    xdg = {
-      configFile = {
-        "direnv/lib" = {
-          source = ../lib;
-        };
-        "direnv/templates" = {
-          source = ../templates;
-        };
-        "direnv/tools" = {
-          source = ../tools;
-        };
+        source = lib.mkDefault self.packages.${pkgs.stdenv.hostPlatform.system}.default;
       };
     };
   };

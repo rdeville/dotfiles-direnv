@@ -54,10 +54,9 @@
       system: let
         pkgs = pkgsForSystem system;
       in rec {
-        packages =
-          {
-            devenv-up = self.devShells.${system}.default.config.procfileScript;
-          };
+        packages = {
+          devenv-up = self.devShells.${system}.default.config.procfileScript;
+        };
 
         devShells = {
           default = devenv.lib.mkShell {
@@ -79,9 +78,18 @@
           alejandra.defaultPackage.${system}
       );
 
-      homeManagerModules = {
-        direnv = import ./modules/home-manager.nix ;
+      overlays.default = final: prev: {
+        direnvrc = final.callPackage ./package.nix {};
       };
-      homeManagerModule = self.homeManagerModules.direnv;
+      packages = forAllSystems (system: rec {
+        direnvrc = with import nixpkgs {inherit system;};
+          callPackage ./package.nix {};
+        default = direnvrc;
+      });
+
+      homeManagerModules = {
+        direnvrc = import ./modules/home-manager.nix self;
+      };
+      homeManagerModule = self.homeManagerModules.direnvrc;
     };
 }
