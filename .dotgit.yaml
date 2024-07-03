@@ -14,8 +14,9 @@ dotgit:
 
 # Repos description and template usage configuration
 # ------------------------------------------------------------------------------
-name: dotgit-sync
-description: >-
+name: DirenvRC
+slug: direnv
+description: |-
   Dotfiles to setup common directory environment management per project using
   [`direnv`](https://direnv.net) uniformly for all my projects.
 licenses:
@@ -65,5 +66,4 @@ extra:
           alt: "@rdeville"
           url: https://framagit.org/rdeville
   repo:
-    server: https://framagit.org/
-    namespace: rdeville-public/programs
+    url: https://framagit.org/rdeville-public/dotfiles/direnv

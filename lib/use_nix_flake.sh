@@ -59,6 +59,8 @@ use_nix_flake() {
     return 1
   fi
 
+  _log "INFO" "direnv: 🚀 **${flake/${HOME}/\~}**"
+  use flake . --impure 2>/dev/null
   _log "INFO" "direnv: 👀 **${flake/${HOME}/\~}**"
   watch_file "${PWD}/flake.nix"
 
@@ -73,9 +75,6 @@ use_nix_flake() {
     _log "INFO" "direnv: 👀 **${shell/${HOME}/\~}**"
     watch_file "${shell}"
   fi
-
-  _log "INFO" "direnv: 🚀 **${flake/${HOME}/\~}**"
-  use flake . --impure 2>/dev/null
 }
 
 # vim: ft=bash

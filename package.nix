@@ -5,13 +5,16 @@ stdenv.mkDerivation {
   installPhase = ''
     mkdir -p $out;
     cp -r \
+      README.md \
+      LICENSE* \
+      CHANGELOG.md \
+      CODE_OF_CONDUCT.md \
+      AUTHORS \
       direnv.toml \
       direnvrc \
       lib \
       templates \
       tools \
-      README.md \
-      LICENSE* \
       $out
   '';
 }

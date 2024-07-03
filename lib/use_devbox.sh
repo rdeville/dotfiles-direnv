@@ -33,9 +33,9 @@ use_devbox() {
     return 1
   fi
 
-  _log "INFO" "direnv: 👀 **${file/${HOME}/\~}**."
-  watch_file "devbox.json"
-
   _log "DEBUG" "direnv: 🚀 **${file/${HOME}/\~}**"
   eval "$(devbox shellenv --init-hook --install --no-refresh-alias)"
+
+  _log "INFO" "direnv: 👀 **${file/${HOME}/\~}**."
+  watch_file "devbox.json"
 }
