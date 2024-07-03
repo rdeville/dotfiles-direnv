@@ -1,5 +1,6 @@
 # BEGIN DOTGIT-SYNC BLOCK MANAGED
-dotgit-sync - Dotfiles to setup common directory environment management per project using [`direnv`](https://direnv.net) uniformly for all my projects.
+DirenvRC - Dotfiles to setup common directory environment management per project using
+[`direnv`](https://direnv.net) uniformly for all my projects.
 
 Copyright © 2023 - 2024 Romain Deville
 
