@@ -22,6 +22,28 @@ use_devbox() {
   #
   # """
   _log "TRACE" "direnv: use_devbox()"
+  make_scripts_executables(){
+    local key=$1
+    local subkey="$2"
+    local cmd="jq --arg key '${key}' "
+    if [[ -n "${subkey}" ]]
+    then
+      cmd+="--arg subkey '${subkey}' '.shell.${key}.${subkey}[]'"
+      key="${key} ${subkey}"
+    else
+      cmd+="'.shell.${key}[]'"
+    fi
+    cmd+=" '${file}' | sed 's/\"//g'"
+    cmd=$(eval "${cmd}")
+    while read -r hook
+    do
+      if [[ -f "${hook//\"/}" ]]
+      then
+        _log "INFO" "direnv: 🛠️ Making ${key} **${hook}** executable."
+        chmod +x "${hook}"
+      fi
+    done <<<"${cmd}"
+  }
 
   local file
 
@@ -33,9 +55,29 @@ use_devbox() {
     return 1
   fi
 
-  _log "DEBUG" "direnv: 🚀 **${file/${HOME}/\~}**"
+  if ! type jq &>/dev/null
+  then
+    _log "WARNING" "Command **jq** does not exists, unable to parse ${file/${HOME}/\~}."
+  else
+    if grep -q "init_hook" "${file}"
+    then
+      make_scripts_executables "init_hook"
+    fi
+    if grep -q "scripts" "${file}"
+    then
+      scripts=$(jq '.shell.scripts | keys | .[]' "${file}" | sed 's/"//g')
+      while read -r script
+      do
+        make_scripts_executables "scripts" "${script}"
+      done <<<"${scripts}"
+    fi
+  fi
+
+  _log "INFO" "direnv: 🚀 **${file/${HOME}/\~}**"
   eval "$(devbox shellenv --init-hook --install --no-refresh-alias)"
 
   _log "INFO" "direnv: 👀 **${file/${HOME}/\~}**."
   watch_file "devbox.json"
 }
+
+# vim: ft=bash

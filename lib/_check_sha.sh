@@ -45,3 +45,5 @@ _check_sha() {
     return 1
   fi
 }
+
+# vim: ft=bash

@@ -32,4 +32,4 @@ _init_logger(){
 
 _init_logger
 
-# vim: ft=sh
+# vim: ft=bash

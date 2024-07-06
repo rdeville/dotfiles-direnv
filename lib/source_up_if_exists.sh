@@ -38,3 +38,5 @@ source_up_if_exists() {
   _log "INFO" "direnv: 🔁 **${parent/${HOME}/\~}**"
   source_up
 }
+
+# vim: ft=bash

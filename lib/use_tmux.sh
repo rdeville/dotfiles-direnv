@@ -35,3 +35,5 @@ use_tmux(){
     fi
   fi
 }
+
+# vim: ft=bash

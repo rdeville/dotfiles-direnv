@@ -41,3 +41,5 @@ dotenv_if_exists() {
   _log "INFO" "direnv: 👀 **${file/${HOME}/\~}**"
   watch_file "${file}"
 }
+
+# vim: ft=bash
