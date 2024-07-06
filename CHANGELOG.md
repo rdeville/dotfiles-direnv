@@ -1,6 +1,24 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v1.3.0 (2024-07-06)
+
+### ✨ Minor
+
+  * ✨ Improve devbox stdlib with devbox script executable (!8) by Romain Deville ([`8576ab3`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/8576ab35c719e63e41ed49048a5f445fae2e73f8))
+  * ✨ Make devbox script executable with use_devbox by Romain Deville ([`d9f54f9`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/d9f54f9529cca4402ec4673edd0f17edf8693288)) 🔏
+
+### 🩹 Patch
+
+  * 🍱 Improve direnv templates by Romain Deville ([`5095c3d`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/5095c3d963af84e354e2efe01117cae49e3f0610)) 🔏
+  * 🔧 Update dotgit configuration by Romain Deville ([`9f66e33`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/9f66e338b73d0f1143ad5e568e88b11ec3a9c3a2)) 🔏
+
+### 🔊 Others
+
+  * 🔨 Update .envrc from DGS template by Romain Deville ([`e112e05`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/e112e051817dbd4aac066242a9853bed2037fd2d)) 🔏
+  * 🔨 Update flake and hm module from DGS template by Romain Deville ([`cef871d`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/cef871d63c0fa3727a7f1b4e27cd793bfbb50c65)) 🔏
+  * 🔨 Update devbox and remove devenv by Romain Deville ([`bb4c38f`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/bb4c38fbcea185b5a0fca3beaa18cacda04d6ed6)) 🔏
+
 ## v1.2.1 (2024-07-03)
 
 ### 🩹 Patch
@@ -16,6 +34,7 @@
   * 👷 Update CI from DGS Templates by Romain Deville ([`fc47296`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/fc47296959d2e04b8e1e932ab34f8278fd2bcc1e)) 🔏
   * 📄 Update LICENSES from DGS Templates by Romain Deville ([`f372a3c`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/f372a3cd2690c50f2d81b604e7bcd8722195c8a0)) 🔏
   * 📝 Update README from DGS templates by Romain Deville ([`4f37a95`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/4f37a957b576848731278277a5aa00d2a4a1100d)) 🔏
+  * 🔖 v1.2.1 (NO-CI) by Python Semantic Release [bot] ([`dc6cbde`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/dc6cbde0eef83f2f6fa1c71d7f235d0ab9c8a79e))
   * 🙈 Update markdownlint ignore from DGS templates by Romain Deville ([`55d452f`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/55d452f7ba7c802cf318b8a063d36ae563b9e972)) 🔏
 
 ## v1.2.0 (2024-06-27)
@@ -33,11 +52,9 @@
   * 🔧 Add commitlint configuration by Romain Deville ([`20fea56`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/20fea56a1f191ff9b51196082c224789b3d26880)) 🔏
   * 🔧 Add markdownling config and ignore by Romain Deville ([`252aa3c`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/252aa3c5f1da3578beb5b971b0b22d7d08c75565)) 🔏
   * 🔧 Add pre-commit configuration by Romain Deville ([`cc5ea93`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/cc5ea9335795c5cbb84eae6258ee33822d9f6ed4)) 🔏
-  * 🔧 Add .dotgit.yaml to use DGS by Romain Deville ([`c8c74f5`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/c8c74f548b8e77041c46f7dd7d4388d5178d6383)) 🔏
 
 ### 🔊 Others
 
-  * ♻️ Refacto my own direnv stdlib by Romain Deville ([`d39ffab`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/d39ffabd320769a6febdf8eab9c17c2f09dd1f7b)) 🔏
   * 👷 Add Gitlab CI build from DGS by Romain Deville ([`ebf2aa4`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/ebf2aa48a81fc7ccb7051409924fe771e759f99c)) 🔏
   * 📄 Update licenses from DGS by Romain Deville ([`1c25712`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/1c25712d4b9addbb97a6322a3a03cf49eb47473a)) 🔏
   * 📝 Update README.md from DGS by Romain Deville ([`45e0bae`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/45e0bae97aa8146d1d3eba149b11b602ae704fe1)) 🔏
