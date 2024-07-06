@@ -57,12 +57,14 @@ use_nix_flake() {
   then
     _log "DEBUG" "direnv: File **${flake/${HOME}/\~}** does not exists, nothing to do."
     return 1
+  elif ! grep -q "devShells" ${flake}
+  then
+    _log "DEBUG" "direnv: File **${flake/${HOME}/\~}** does not have \`devShells\`"
+    return 1
   fi
 
   _log "INFO" "direnv: 🚀 **${flake/${HOME}/\~}**"
   use flake . --impure 2>/dev/null
-  _log "INFO" "direnv: 👀 **${flake/${HOME}/\~}**"
-  watch_file "${PWD}/flake.nix"
 
   if [[ -f "${devenv}" ]]
   then

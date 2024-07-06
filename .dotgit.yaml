@@ -44,6 +44,8 @@ statics:
   - markdown-ci-gitlab
 templates:
   - base
+  - nix-flake
+  - nix-home-manager-module
 
 # Everything below is only used as variables in templates
 # ------------------------------------------------------------------------------

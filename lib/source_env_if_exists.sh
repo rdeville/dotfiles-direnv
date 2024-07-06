@@ -39,3 +39,5 @@ source_env_if_exists() {
   _log "INFO" "direnv: 🔁 **${file/${HOME}/\~}**"
   source_env "${file}"
 }
+
+# vim: ft=bash

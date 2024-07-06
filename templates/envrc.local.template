@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# Start tmux session as soon as possible to ensure environment is set within the
-# session
 # TMUXP VARIABLES
 export TMUXP_SESSION_NAME="" # TODO SET TMUXP_SESSION_NAME !!
 use_tmux
