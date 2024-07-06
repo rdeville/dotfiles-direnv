@@ -1,10 +1,11 @@
+# BEGIN DOTGIT-SYNC BLOCK MANAGED
 {
-  description = "My Direnv configuration as flake to use in Home-Manager";
+  description = ''
+    Flake for DirenvRC
 
-  nixConfig = {
-    extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
-    extra-substituters = "https://devenv.cachix.org";
-  };
+    Dotfiles to setup common directory environment management per project using
+    [`direnv`](https://direnv.net) uniformly for all my projects.
+  '';
 
   inputs = {
     # Stable Nix Packages
@@ -16,32 +17,24 @@
     utils = {
       url = "github:numtide/flake-utils";
     };
-    # Devenv to automate development environment combined with direnv
-    devenv = {
-      url = "github:cachix/devenv";
-    };
     alejandra = {
       url = "github:kamadorueda/alejandra/3.0.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # BEGIN DOTGIT-SYNC BLOCK EXCLUDED NIX_FLAKE_INPUT
+    #
+    # END DOTGIT-SYNC BLOCK EXCLUDED NIX_FLAKE_INPUT
   };
 
-  outputs = inputs @ {
-    self,
-    devenv,
-    utils,
-    nixpkgs,
-    alejandra,
-    ...
-  }: let
+  outputs = inputs @ {self, ...}: let
     pkgsForSystem = system:
-      import nixpkgs {
+      import inputs.nixpkgs {
         inherit system;
       };
 
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
-    forAllSystems = nixpkgs.lib.genAttrs allSystems;
+    forAllSystems = inputs.nixpkgs.lib.genAttrs allSystems;
 
     allSystems = [
       "x86_64-linux"
@@ -49,47 +42,33 @@
       "x86_64-darwin"
       "aarch64-darwin"
     ];
-  in
-    utils.lib.eachSystem allSystems (
-      system: let
-        pkgs = pkgsForSystem system;
-      in rec {
-        packages = {
-          devenv-up = self.devShells.${system}.default.config.procfileScript;
-        };
-
-        devShells = {
-          default = devenv.lib.mkShell {
-            inherit inputs pkgs;
-            modules = [
-              ./devenv.nix
-            ];
-          };
-        };
-      }
-    )
-    // {
-      # TOOLING
-      # ========================================================================
-      # Formatter for your nix files, available through 'nix fmt'
-      # Other options beside 'alejandra' include 'nixpkgs-fmt'
-      formatter = forAllSystems (
-        system:
-          alejandra.defaultPackage.${system}
-      );
-
-      overlays.default = final: prev: {
-        direnvrc = final.callPackage ./package.nix {};
-      };
-      packages = forAllSystems (system: rec {
-        direnvrc = with import nixpkgs {inherit system;};
-          callPackage ./package.nix {};
-        default = direnvrc;
-      });
-
-      homeManagerModules = {
-        direnvrc = import ./modules/home-manager.nix self;
-      };
-      homeManagerModule = self.homeManagerModules.direnvrc;
+    # BEGIN DOTGIT-SYNC BLOCK EXCLUDED NIX_FLAKE_CUSTOM_VARS
+    #
+    # END DOTGIT-SYNC BLOCK EXCLUDED NIX_FLAKE_CUSTOM_VARS
+  in {
+    # TOOLING
+    # ========================================================================
+    # Formatter for your nix files, available through 'nix fmt'
+    # Other options beside 'alejandra' include 'nixpkgs-fmt'
+    formatter = forAllSystems (
+      system:
+        inputs.alejandra.defaultPackage.${system}
+    );
+    homeManagerModules = {
+      direnv = import ./modules/home-manager.nix self;
     };
+    homeManagerModule = self.homeManagerModules.direnv;
+
+    # BEGIN DOTGIT-SYNC BLOCK EXCLUDED NIX_FLAKE_OUTPUTS_CUSTOM
+    overlays.default = final: prev: {
+      direnvrc = final.callPackage ./package.nix {};
+    };
+    packages = forAllSystems (system: rec {
+      direnvrc = with import inputs.nixpkgs {inherit system;};
+        callPackage ./package.nix {};
+      default = direnvrc;
+    });
+    # END DOTGIT-SYNC BLOCK EXCLUDED NIX_FLAKE_OUTPUTS_CUSTOM
+  };
 }
+# END DOTGIT-SYNC BLOCK MANAGED
