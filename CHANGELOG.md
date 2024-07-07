@@ -1,6 +1,13 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v1.3.1 (2024-07-07)
+
+### 🩹 Patch
+
+  * ✏️ Fix typos in flake HM module name (!9) by Romain Deville ([`58858ae`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/58858ae36bbc54f3a051d2ed25b5a5608d565710))
+  * ✏️ Fix typos in flake HM module name by Romain Deville ([`ff1cb1a`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/ff1cb1abaf2f99704b91824a94ff73c0923cbc1b)) 🔏
+
 ## v1.3.0 (2024-07-06)
 
 ### ✨ Minor
@@ -15,6 +22,7 @@
 
 ### 🔊 Others
 
+  * 🔖 v1.3.0 (NO-CI) by Python Semantic Release [bot] ([`55b0409`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/55b0409cd9e4f37a6c74cce6b329c1d6b554e020))
   * 🔨 Update .envrc from DGS template by Romain Deville ([`e112e05`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/e112e051817dbd4aac066242a9853bed2037fd2d)) 🔏
   * 🔨 Update flake and hm module from DGS template by Romain Deville ([`cef871d`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/cef871d63c0fa3727a7f1b4e27cd793bfbb50c65)) 🔏
   * 🔨 Update devbox and remove devenv by Romain Deville ([`bb4c38f`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/bb4c38fbcea185b5a0fca3beaa18cacda04d6ed6)) 🔏
@@ -51,7 +59,6 @@
   * 🔧 Add cspell configuration by Romain Deville ([`91d1fa8`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/91d1fa873f7c7bc2e52797b0c5f8b987e93074fa)) 🔏
   * 🔧 Add commitlint configuration by Romain Deville ([`20fea56`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/20fea56a1f191ff9b51196082c224789b3d26880)) 🔏
   * 🔧 Add markdownling config and ignore by Romain Deville ([`252aa3c`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/252aa3c5f1da3578beb5b971b0b22d7d08c75565)) 🔏
-  * 🔧 Add pre-commit configuration by Romain Deville ([`cc5ea93`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/cc5ea9335795c5cbb84eae6258ee33822d9f6ed4)) 🔏
 
 ### 🔊 Others
 
@@ -63,4 +70,3 @@
   * 🔨 Add devbox configuration by Romain Deville ([`3e239f5`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/3e239f58fef367d49d56557889b2c09ef0f051bc)) 🔏
   * 🔨 Update .envrc from direnv template by Romain Deville ([`4d26348`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/4d26348f44f32acd5792cee983f157f76743281b)) 🔏
   * 🙈 Update gitignore by Romain Deville ([`b588f72`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/b588f7245672585ef46cfe3e0fc755083c0c0574)) 🔏
-  * 🙈 Update gitignore from DGS by Romain Deville ([`2ffb86a`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/2ffb86a3caf8cb460c681bcf7c8c79b40c8eb6a1)) 🔏
