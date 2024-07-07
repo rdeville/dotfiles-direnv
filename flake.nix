@@ -55,9 +55,9 @@
         inputs.alejandra.defaultPackage.${system}
     );
     homeManagerModules = {
-      direnv = import ./modules/home-manager.nix self;
+      direnvrc = import ./modules/home-manager.nix self;
     };
-    homeManagerModule = self.homeManagerModules.direnv;
+    homeManagerModule = self.homeManagerModules.direnvrc;
 
     # BEGIN DOTGIT-SYNC BLOCK EXCLUDED NIX_FLAKE_OUTPUTS_CUSTOM
     overlays.default = final: prev: {
