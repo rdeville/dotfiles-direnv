@@ -1,12 +1,27 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v1.4.0 (2024-07-14)
+
+### ✨ Minor
+
+  * ✨ Do not run tmux when in vim terminal (!10) by Romain Deville ([`d816de9`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/d816de95059e02fbddc1e33ecb28e3f3ebbf8b44))
+  * ✨(lib): Do not run tmux when in vim terminal by Romain Deville ([`2067681`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/20676814ac1420ab48452b85cf29482466f2616d)) 🔏
+
+### 🔊 Others
+
+  * 🔥 Remove setup.sh as now useless by Romain Deville ([`ec9fbbe`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/ec9fbbe04c1112fba70fe5cbdfa0e698d472d89f)) 🔏
+
 ## v1.3.1 (2024-07-07)
 
 ### 🩹 Patch
 
   * ✏️ Fix typos in flake HM module name (!9) by Romain Deville ([`58858ae`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/58858ae36bbc54f3a051d2ed25b5a5608d565710))
   * ✏️ Fix typos in flake HM module name by Romain Deville ([`ff1cb1a`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/ff1cb1abaf2f99704b91824a94ff73c0923cbc1b)) 🔏
+
+### 🔊 Others
+
+  * 🔖 v1.3.1 (NO-CI) by Python Semantic Release [bot] ([`a8155e3`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/a8155e302741f683950d00fd6bc7f7d9fde0e529))
 
 ## v1.3.0 (2024-07-06)
 
@@ -57,8 +72,6 @@
   * 🔧 Add Python Semantic Release configuration by Romain Deville ([`77a3e76`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/77a3e7654767bcfcba9b6b49f0b968f8f4d751cd)) 🔏
   * 🔧 Update editorconfig from DGS by Romain Deville ([`7ba4b28`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/7ba4b28d89b5a509999a342a04a42b1600156ab7)) 🔏
   * 🔧 Add cspell configuration by Romain Deville ([`91d1fa8`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/91d1fa873f7c7bc2e52797b0c5f8b987e93074fa)) 🔏
-  * 🔧 Add commitlint configuration by Romain Deville ([`20fea56`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/20fea56a1f191ff9b51196082c224789b3d26880)) 🔏
-  * 🔧 Add markdownling config and ignore by Romain Deville ([`252aa3c`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/252aa3c5f1da3578beb5b971b0b22d7d08c75565)) 🔏
 
 ### 🔊 Others
 
