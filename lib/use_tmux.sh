@@ -18,7 +18,8 @@ use_tmux(){
     TMUXP_CONFIG=""
   fi
 
-  if [[ "${PWD}" != "${HOME}" ]] \
+  if [[ -z "${VIMRUNTIME}" ]] \
+    && [[ "${PWD}" != "${HOME}" ]] \
     && [[ -n "${TMUXP_SESSION_NAME}" ]] \
     && [[ "$(tmux display-message -p '#S')" != "${TMUXP_SESSION_NAME}" ]]
   then
