@@ -1,6 +1,13 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v1.5.0 (2024-07-17)
+
+### ✨ Minor
+
+  * ✨ Make HM package optional and improve nix packaging (!11) by Romain Deville ([`8b84bd6`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/8b84bd639177a61b82e17cf75dc4b21a2dd0ddf3))
+  * ✨ Make HM package optional and improve nix packaging by Romain Deville ([`df11cf6`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/df11cf64008f8ad690ae879e908ba131ec21deeb)) 🔏
+
 ## v1.4.0 (2024-07-14)
 
 ### ✨ Minor
@@ -10,6 +17,7 @@
 
 ### 🔊 Others
 
+  * 🔖 v1.4.0 (NO-CI) by Python Semantic Release [bot] ([`e3eb1b7`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/e3eb1b71e1b245c4218e788eda18e7ba578bccc8))
   * 🔥 Remove setup.sh as now useless by Romain Deville ([`ec9fbbe`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/ec9fbbe04c1112fba70fe5cbdfa0e698d472d89f)) 🔏
 
 ## v1.3.1 (2024-07-07)
@@ -71,7 +79,6 @@
   * 🍱 Update templates examples by Romain Deville ([`ae8c5ef`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/ae8c5ef7b185838273224052b2c13337bff7eaab)) 🔏
   * 🔧 Add Python Semantic Release configuration by Romain Deville ([`77a3e76`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/77a3e7654767bcfcba9b6b49f0b968f8f4d751cd)) 🔏
   * 🔧 Update editorconfig from DGS by Romain Deville ([`7ba4b28`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/7ba4b28d89b5a509999a342a04a42b1600156ab7)) 🔏
-  * 🔧 Add cspell configuration by Romain Deville ([`91d1fa8`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/91d1fa873f7c7bc2e52797b0c5f8b987e93074fa)) 🔏
 
 ### 🔊 Others
 
@@ -81,5 +88,4 @@
   * 📝 Add CODE_OF_CONDUCT from DGS by Romain Deville ([`b0a1a40`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/b0a1a404db07f817c8d0d4508da33bb849e2c4eb)) 🔏
   * 🔖 v1.2.0 by Romain Deville ([`a9abeed`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/a9abeed14784616e591b1d8299bf2f22e298f96d)) 🔏
   * 🔨 Add devbox configuration by Romain Deville ([`3e239f5`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/3e239f58fef367d49d56557889b2c09ef0f051bc)) 🔏
-  * 🔨 Update .envrc from direnv template by Romain Deville ([`4d26348`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/4d26348f44f32acd5792cee983f157f76743281b)) 🔏
   * 🙈 Update gitignore by Romain Deville ([`b588f72`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/b588f7245672585ef46cfe3e0fc755083c0c0574)) 🔏
