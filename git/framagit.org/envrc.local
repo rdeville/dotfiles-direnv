@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2155
 
 source_up_if_exists
 
-# GLAB VARIABLES
+# Gitlab Token
 export GITLAB_TOKEN=$(kp show /informatique/gitlab/framagit -a "API_TOKEN:terraform-git-repo-data")
+export GITLAB_HOST="framagit.org"
 
 # vim: ft=bash
