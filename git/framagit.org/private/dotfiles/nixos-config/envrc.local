@@ -7,7 +7,5 @@ source_up_if_exists
 
 # shellcheck disable=SC2155
 export SOPS_AGE_KEY=$(kp show age-home-manager-master -a private_key)
-mkdir -p /tmp/age
-kp show age-rdeville@rey -a private_key >/tmp/age/age-rdeville@rey
 
 # vim: ft=bash
