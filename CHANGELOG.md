@@ -1,6 +1,13 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.1 (2024-08-17)
+
+### 🩹 Patch
+
+  * 🔧 Update envrc.local (!3) by Romain Deville ([`45c634c`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/45c634c9f5bfef468cc270f9427154e279dca25d))
+  * 🔧 Update envrc.local by Romain Deville ([`7952d41`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/7952d4118009dadec239b54d75d67d6c84cf56d6)) 🔏
+
 ## v0.2.0 (2024-08-17)
 
 ### ✨ Minor
@@ -24,6 +31,7 @@
   * 📄 Update licenses from DGS by Romain Deville ([`8b548f5`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/8b548f5a11f1365d85eec509b9836d7c3f76f78b)) 🔏
   * 📝 Add CODE_OF_CONDUCT from DGS by Romain Deville ([`41b1bcb`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/41b1bcb6a5a0e69b76b14a533bb0157e8022aaf8)) 🔏
   * 📝 Update README from DGS by Romain Deville ([`59e67e1`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/59e67e1f5326e372acc6163fe604b63f1dfbdf5e)) 🔏
+  * 🔖 v0.2.0 (NO-CI) by Python Semantic Release [bot] ([`7408fb2`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/7408fb2c716730d8cba4d76997f9ea8cb661473f))
   * 🔥 Remove now useless files (envrc.local, symlinks) by Romain Deville ([`726bfea`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/726bfea9273580d423c1a42d89ac347efc5ae6b5)) 🔏
   * 🔨 Add devbox config from DGS template by Romain Deville ([`924660a`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/924660a560bc95ce6e123c915a764266d7d5eb4e)) 🔏
   * 🔨 Add pre-commit configuration from DGS template by Romain Deville ([`d13324f`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/d13324f536fb6c6b15ac9937956b2cebdfcdec5c)) 🔏
