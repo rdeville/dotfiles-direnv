@@ -18,7 +18,7 @@ source_env_if_exists() {
   #
   # **RETURN CODE**
   #   0 if anything is good
-  #   1 if sha of file is not valid or if file does not exists
+  #   1 if sha of file is not valid or if file does not exist
   #
   # """
   _log "TRACE" "direnv: source_env_if_exists()"
@@ -27,12 +27,10 @@ source_env_if_exists() {
 
   [[ $1 =~ ^\/ ]] && file="${1}" || file="${PWD}/${1:-".envrc.local"}"
 
-  if ! [[ -f "${file}" ]]
-  then
-    _log "DEBUG" "direnv: File **${file/${HOME}/\~}** does not exists, nothing to source."
+  if ! [[ -f "${file}" ]]; then
+    _log "DEBUG" "direnv: File **${file/${HOME}/\~}** does not exist, nothing to source."
     return 1
-  elif ! _check_sha "${file}"
-  then
+  elif ! _check_sha "${file}"; then
     return 1
   fi
 

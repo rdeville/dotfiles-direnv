@@ -33,14 +33,12 @@ _check_sha() {
   local file_dir="$(dirname "${file}")"
   local sha_file="${XDG_CACHE_HOME:-${HOME}/.cache}/direnv${file_dir/${HOME}/}/${file_name}.sha"
 
-  if ! [[ -f "${sha_file}" ]]
-  then
-    _log "INFO" "direnv: Sha of **\`${file/${HOME}/\~}\`** does not exists yet."
+  if ! [[ -f "${sha_file}" ]]; then
+    _log "INFO" "direnv: Sha of **\`${file/${HOME}/\~}\`** does not exist yet."
     _log "INFO" "direnv: Will be computed in to **\`${sha_file/${HOME}/\~}\`** authorized."
     ! [[ -d "$(dirname "${sha_file}")" ]] && mkdir -p "$(dirname "${sha_file}")"
-    shasum "${file}" > "${sha_file}"
-  elif ! shasum -c "${sha_file}" &> /dev/null
-  then
+    shasum "${file}" >"${sha_file}"
+  elif ! shasum -c "${sha_file}" &>/dev/null; then
     _log "ERROR" "direnv: Sha of **\`${file/${HOME}/\~}\`** differs from **\`${sha_file/${HOME}/\~}\`**."
     return 1
   fi

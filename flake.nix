@@ -55,9 +55,7 @@
         inputs.alejandra.defaultPackage.${system}
     );
     homeManagerModules = {
-      direnvrc = {
-        imports = [./modules/home-manager.nix];
-      };
+      direnvrc = import ./modules/home-manager.nix self;
     };
     homeManagerModule = self.homeManagerModules.direnvrc;
 

@@ -15,7 +15,7 @@ dotgit:
 # Repos description and template usage configuration
 # ------------------------------------------------------------------------------
 name: DirenvRC
-slug: direnv
+slug: direnvrc
 description: |-
   Dotfiles to setup common directory environment management per project using
   [`direnv`](https://direnv.net) uniformly for all my projects.
