@@ -1,12 +1,23 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.2 (2024-08-18)
+
+### 🩹 Patch
+
+  * 🔧 Add pub/dot/nvim envrc.local (!4) by Romain Deville ([`e7c4a5c`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/e7c4a5c04b6e2b8608e7c11fa7125c6564db83ea))
+  * 🔧 Add pub/dot/nvim envrc.local by Romain Deville ([`f518327`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/f5183278850b0ffa011ea839f7a0a5abc902aa91)) 🔏
+
 ## v0.2.1 (2024-08-17)
 
 ### 🩹 Patch
 
   * 🔧 Update envrc.local (!3) by Romain Deville ([`45c634c`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/45c634c9f5bfef468cc270f9427154e279dca25d))
   * 🔧 Update envrc.local by Romain Deville ([`7952d41`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/7952d4118009dadec239b54d75d67d6c84cf56d6)) 🔏
+
+### 🔊 Others
+
+  * 🔖 v0.2.1 (NO-CI) by Python Semantic Release [bot] ([`a61a1e4`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/a61a1e4860d9a00482ef6abe0ee2112a0c379ad2))
 
 ## v0.2.0 (2024-08-17)
 
@@ -23,7 +34,6 @@
   * 🔧 Add cspell configuration from DGS template by Romain Deville ([`e4e711a`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/e4e711aeaca6a7c30718a17063f9f4bb50b63c3e)) 🔏
   * 🔧 Add editorconfig from DGS template by Romain Deville ([`ef84a68`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/ef84a68791d43ef72f6bf8033415748dd489bae3)) 🔏
   * 🔧 Add dotgit sync configuration by Romain Deville ([`e5c2e66`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/e5c2e66b41462e0759b47d3f24fc343675d69786)) 🔏
-  * 🔧 Update envrc.local config by Romain Deville ([`b97fd28`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/b97fd28484e1630dd6f301971659b09ce709aa61)) 🔏
 
 ### 🔊 Others
 
@@ -36,7 +46,6 @@
   * 🔨 Add devbox config from DGS template by Romain Deville ([`924660a`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/924660a560bc95ce6e123c915a764266d7d5eb4e)) 🔏
   * 🔨 Add pre-commit configuration from DGS template by Romain Deville ([`d13324f`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/d13324f536fb6c6b15ac9937956b2cebdfcdec5c)) 🔏
   * 🔨 Update .envrc from DGS by Romain Deville ([`d58edd3`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/d58edd3264f12ed9f9d626c2b7300b2aa2243d1d)) 🔏
-  * 🙈 Update gitignore from DGS by Romain Deville ([`b08e018`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/b08e01898503db6008571661c24a197771a09c97)) 🔏
 
 ## v0.1.0 (2024-08-17)
 
