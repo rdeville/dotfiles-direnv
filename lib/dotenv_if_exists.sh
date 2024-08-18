@@ -29,9 +29,8 @@ dotenv_if_exists() {
 
   [[ "${1}" =~ ^\/ ]] && file="${1}" || file="${PWD}/${1:-".env"}"
 
-  if ! [[ -f ${file} ]]
-  then
-    _log "DEBUG" "direnv: File **${file/${HOME}/\~}** does not exits, nothing to load."
+  if ! [[ -f ${file} ]]; then
+    _log "DEBUG" "direnv: File **${file/${HOME}/\~}** does not exist, nothing to load."
     return 1
   fi
 

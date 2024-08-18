@@ -23,14 +23,12 @@ source_up_if_exists() {
   local parent
   parent="$(cd ../ && find_up .envrc)"
 
-  if [[ -z "${parent}" ]]
-  then
+  if [[ -z "${parent}" ]]; then
     _log "DEBUG" "direnv: No more parent direnv file to source."
     return 0
   fi
 
-  if ! _check_sha "${parent}"
-  then
+  if ! _check_sha "${parent}"; then
     _log "WARNING" "direnv: File **${parent}** (and possible parent) will not be sourced."
     return 1
   fi

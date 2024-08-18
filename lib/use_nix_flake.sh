@@ -38,27 +38,25 @@ use_nix_flake() {
 
   while getopts "f:d:s:" option; do
     case "${option}" in
-      f)
-          [[ "${OPTARG}" =~ ^\/ ]] && flake="${OPTARG}" || flake="${PWD}/${OPTARG}"
-          ;;
-      d)
-          [[ "${OPTARG}" =~ ^\/ ]] && devenv="${OPTARG}" || devenv="${PWD}/${OPTARG}"
-          ;;
-      s)
-          [[ "${OPTARG}" =~ ^\/ ]] && shell="${OPTARG}" || shell="${PWD}/${OPTARG}"
-          ;;
-      *)
-          _log "ERROR" "direnv: Unkown option ${option} for use_nix_flake()"
-          ;;
+    f)
+      [[ "${OPTARG}" =~ ^\/ ]] && flake="${OPTARG}" || flake="${PWD}/${OPTARG}"
+      ;;
+    d)
+      [[ "${OPTARG}" =~ ^\/ ]] && devenv="${OPTARG}" || devenv="${PWD}/${OPTARG}"
+      ;;
+    s)
+      [[ "${OPTARG}" =~ ^\/ ]] && shell="${OPTARG}" || shell="${PWD}/${OPTARG}"
+      ;;
+    *)
+      _log "ERROR" "direnv: Unkown option ${option} for use_nix_flake()"
+      ;;
     esac
   done
 
-  if ! [[ -f "${flake}" ]]
-  then
-    _log "DEBUG" "direnv: File **${flake/${HOME}/\~}** does not exists, nothing to do."
+  if ! [[ -f "${flake}" ]]; then
+    _log "DEBUG" "direnv: File **${flake/${HOME}/\~}** does not exist, nothing to do."
     return 1
-  elif ! grep -q "devShells" ${flake}
-  then
+  elif ! grep -q "devShells" "${flake}"; then
     _log "DEBUG" "direnv: File **${flake/${HOME}/\~}** does not have \`devShells\`"
     return 1
   fi
@@ -66,14 +64,12 @@ use_nix_flake() {
   _log "INFO" "direnv: 🚀 **${flake/${HOME}/\~}**"
   use flake . --impure 2>/dev/null
 
-  if [[ -f "${devenv}" ]]
-  then
+  if [[ -f "${devenv}" ]]; then
     _log "INFO" "direnv: 👀 **${devenv/${HOME}/\~}**"
     watch_file "${devenv}"
   fi
 
-  if [[ -f "${shell}" ]]
-  then
+  if [[ -f "${shell}" ]]; then
     _log "INFO" "direnv: 👀 **${shell/${HOME}/\~}**"
     watch_file "${shell}"
   fi

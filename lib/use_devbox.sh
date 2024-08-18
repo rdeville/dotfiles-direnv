@@ -22,12 +22,11 @@ use_devbox() {
   #
   # """
   _log "TRACE" "direnv: use_devbox()"
-  make_scripts_executables(){
+  make_scripts_executables() {
     local key=$1
     local subkey="$2"
     local cmd="jq --arg key '${key}' "
-    if [[ -n "${subkey}" ]]
-    then
+    if [[ -n "${subkey}" ]]; then
       cmd+="--arg subkey '${subkey}' '.shell.${key}.${subkey}[]'"
       key="${key} ${subkey}"
     else
@@ -35,10 +34,8 @@ use_devbox() {
     fi
     cmd+=" '${file}' | sed 's/\"//g'"
     cmd=$(eval "${cmd}")
-    while read -r hook
-    do
-      if [[ -f "${hook//\"/}" ]]
-      then
+    while read -r hook; do
+      if [[ -f "${hook//\"/}" ]]; then
         _log "INFO" "direnv: 🛠️ Making ${key} **${hook}** executable."
         chmod +x "${hook}"
       fi
@@ -49,25 +46,20 @@ use_devbox() {
 
   [[ $1 =~ ^\/ ]] && file="${1}" || file="${PWD}/${1:-"devbox.json"}"
 
-  if ! [[ -f "${file}" ]]
-  then
-    _log "DEBUG" "direnv: File **${file/${HOME}/\~}** does not exists, nothing to do."
+  if ! [[ -f "${file}" ]]; then
+    _log "DEBUG" "direnv: File **${file/${HOME}/\~}** does not exist, nothing to do."
     return 1
   fi
 
-  if ! type jq &>/dev/null
-  then
-    _log "WARNING" "Command **jq** does not exists, unable to parse ${file/${HOME}/\~}."
+  if ! type jq &>/dev/null; then
+    _log "WARNING" "Command **jq** does not exist, unable to parse ${file/${HOME}/\~}."
   else
-    if grep -q "init_hook" "${file}"
-    then
+    if grep -q "init_hook" "${file}"; then
       make_scripts_executables "init_hook"
     fi
-    if grep -q "scripts" "${file}"
-    then
+    if grep -q "scripts" "${file}"; then
       scripts=$(jq '.shell.scripts | keys | .[]' "${file}" | sed 's/"//g')
-      while read -r script
-      do
+      while read -r script; do
         make_scripts_executables "scripts" "${script}"
       done <<<"${scripts}"
     fi
