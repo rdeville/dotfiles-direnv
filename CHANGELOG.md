@@ -1,12 +1,33 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v1.6.0 (2024-08-18)
+
+### ✨ Minor
+
+  * ✨ Improve DEBUG_LEVEL management and format (!12) by Romain Deville ([`ef7c018`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/ef7c0187a61b34ff6b4eb7a5c70ed24b7a570a53))
+  * ✨ Improve DIRENV_DEBUG_LEVEL management by Romain Deville ([`bff52db`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/bff52db9dbf8998b430502e07ccee5b7c8583d9a)) 🔏
+
+### 🩹 Patch
+
+  * 📦️ Update Nix pkgs from DGS by Romain Deville ([`46e78ea`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/46e78ea8fe448fb31ed87368bd04670beb85dea5)) 🔏
+  * 🔧 Update slug in dotgit-sync config by Romain Deville ([`d4af537`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/d4af53720308ea05b56d8615de4f35d95b9a6cfa)) 🔏
+
+### 🔊 Others
+
+  * 🎨(lib): Fix typos and format libs by Romain Deville ([`e76a10c`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/e76a10c9e8a2b294f9953c401533b922f22bebe7)) 🔏
+  * 💚 Update CI from DGS by Romain Deville ([`c11b9d9`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/c11b9d928ab0c7c4f44761399f1906003f649e49)) 🔏
+
 ## v1.5.0 (2024-07-17)
 
 ### ✨ Minor
 
   * ✨ Make HM package optional and improve nix packaging (!11) by Romain Deville ([`8b84bd6`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/8b84bd639177a61b82e17cf75dc4b21a2dd0ddf3))
   * ✨ Make HM package optional and improve nix packaging by Romain Deville ([`df11cf6`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/df11cf64008f8ad690ae879e908ba131ec21deeb)) 🔏
+
+### 🔊 Others
+
+  * 🔖 v1.5.0 (NO-CI) by Python Semantic Release [bot] ([`3c40990`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/3c409904c8234a0b299bb364a37d7f1a466a3c55))
 
 ## v1.4.0 (2024-07-14)
 
@@ -83,9 +104,7 @@
 ### 🔊 Others
 
   * 👷 Add Gitlab CI build from DGS by Romain Deville ([`ebf2aa4`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/ebf2aa48a81fc7ccb7051409924fe771e759f99c)) 🔏
-  * 📄 Update licenses from DGS by Romain Deville ([`1c25712`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/1c25712d4b9addbb97a6322a3a03cf49eb47473a)) 🔏
   * 📝 Update README.md from DGS by Romain Deville ([`45e0bae`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/45e0bae97aa8146d1d3eba149b11b602ae704fe1)) 🔏
   * 📝 Add CODE_OF_CONDUCT from DGS by Romain Deville ([`b0a1a40`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/b0a1a404db07f817c8d0d4508da33bb849e2c4eb)) 🔏
   * 🔖 v1.2.0 by Romain Deville ([`a9abeed`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/a9abeed14784616e591b1d8299bf2f22e298f96d)) 🔏
-  * 🔨 Add devbox configuration by Romain Deville ([`3e239f5`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/3e239f58fef367d49d56557889b2c09ef0f051bc)) 🔏
   * 🙈 Update gitignore by Romain Deville ([`b588f72`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/b588f7245672585ef46cfe3e0fc755083c0c0574)) 🔏
