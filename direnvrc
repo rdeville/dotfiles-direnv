@@ -2,7 +2,11 @@
 
 # Deactivate default direnv log
 DIRENV_LOG_FORMAT=""
-DEBUG_LEVEL="INFO"
+if [[ -z "${DEBUG_LEVEL}" && -z "${DIRENV_DEBUG_LEVEL}" ]]; then
+  DEBUG_LEVEL="INFO"
+else
+  DEBUG_LEVEL="${DIRENV_DEBUG_LEVEL:-INFO}"
+fi
 
 # Ensure this script has not been modified
 _log "INFO" "direnv: 🔁 **${PWD/${HOME}/\~}/.envrc**"
