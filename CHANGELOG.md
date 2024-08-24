@@ -1,12 +1,23 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v1.6.2 (2024-08-24)
+
+### 🩹 Patch
+
+  * ⬆️ Update templated files from dotgit-sync (!13) by Romain Deville ([`f6e109e`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/f6e109eb7e2ba4c67dd7ef8d6fe85f6811843fb8))
+  * ⬆️ Update templated files from dotgit-sync by Dotgit Sync [bot] ([`0a64bac`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/0a64bac11892e87ba3e7964889c91dc67655daff))
+
 ## v1.6.1 (2024-08-22)
 
 ### 🩹 Patch
 
   * 🐛(lib): _init_logger use previous log if unable to fetch last log (!14) by Romain Deville ([`cd2bc26`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/cd2bc26e3748f4e51d33c4703187e0f693b3ee52))
   * 🐛(lib): _init_logger use previous log if unable to fetch last log by Romain Deville ([`570f219`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/570f2198fec8f23b45ba7537882be8247261fb63)) 🔏
+
+### 🔊 Others
+
+  * 🔖 v1.6.1 (NO-CI) by Python Semantic Release [bot] ([`9f444bb`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/9f444bb1273622339d31887a66836ddd7e14266b))
 
 ## v1.6.0 (2024-08-18)
 
@@ -85,12 +96,10 @@
 
   * ⚡️ Update lib call order (!6) by Romain Deville ([`a8552df`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/a8552dfd12ff5897c69cf42891b95c617c06bca9))
   * 🔧 Update release config from DGS templates by Romain Deville ([`f9b6a37`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/f9b6a3763b537a79decec43d8927d41e3beeebab)) 🔏
-  * 🔧 Update dotgit config due to config changes by Romain Deville ([`c74826d`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/c74826d7579de804d1cb0de49afff47821a00bba)) 🔏
 
 ### 🔊 Others
 
   * 🎨 Update package.nix format by Romain Deville ([`b956173`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/b95617361dd343faca6406ad5d4d604d2c2930b6)) 🔏
-  * 👷 Update CI from DGS Templates by Romain Deville ([`fc47296`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/fc47296959d2e04b8e1e932ab34f8278fd2bcc1e)) 🔏
   * 📄 Update LICENSES from DGS Templates by Romain Deville ([`f372a3c`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/f372a3cd2690c50f2d81b604e7bcd8722195c8a0)) 🔏
   * 📝 Update README from DGS templates by Romain Deville ([`4f37a95`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/4f37a957b576848731278277a5aa00d2a4a1100d)) 🔏
   * 🔖 v1.2.1 (NO-CI) by Python Semantic Release [bot] ([`dc6cbde`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/dc6cbde0eef83f2f6fa1c71d7f235d0ab9c8a79e))
@@ -104,7 +113,6 @@
 
 ### 🩹 Patch
 
-  * 🍱 Update templates examples by Romain Deville ([`ae8c5ef`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/ae8c5ef7b185838273224052b2c13337bff7eaab)) 🔏
   * 🔧 Add Python Semantic Release configuration by Romain Deville ([`77a3e76`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/77a3e7654767bcfcba9b6b49f0b968f8f4d751cd)) 🔏
   * 🔧 Update editorconfig from DGS by Romain Deville ([`7ba4b28`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/7ba4b28d89b5a509999a342a04a42b1600156ab7)) 🔏
 
@@ -112,4 +120,3 @@
 
   * 👷 Add Gitlab CI build from DGS by Romain Deville ([`ebf2aa4`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/ebf2aa48a81fc7ccb7051409924fe771e759f99c)) 🔏
   * 🔖 v1.2.0 by Romain Deville ([`a9abeed`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/a9abeed14784616e591b1d8299bf2f22e298f96d)) 🔏
-  * 🙈 Update gitignore by Romain Deville ([`b588f72`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/b588f7245672585ef46cfe3e0fc755083c0c0574)) 🔏
