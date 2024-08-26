@@ -13,8 +13,8 @@ workflow:
     - if: $CI_MERGE_REQUEST_TITLE =~ /^(D|d)raft:/
       when: never
       # Allow pipelines from any source on default branch
-    - if: $CI_PIPELINE_SOURCE =~ /(merge_request_event|parent_pipeline)/
-    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE =~ /(merge_request_event|parent_pipeline)/ && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE =~ /(parent_pipeline|pipeline|push|web|webide|schedule)/ && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     - when: never
 
 variables:
