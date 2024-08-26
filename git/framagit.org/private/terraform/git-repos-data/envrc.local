@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2155
 
-export TMUXP_SESSION_NAME=priv-tf-git-repo-data
-use_tmux
-
 source_up_if_exists
+
+export TMUXP_SESSION_NAME=priv-tf-git-repo-data
 
 # PROMPT VARIABLES
 export TERRAFORM_ENV="True"

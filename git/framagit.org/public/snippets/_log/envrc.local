@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-export TMUXP_SESSION_NAME="pub-snippets-log"
-use_tmux
-
 source_up_if_exists
+
+export TMUXP_SESSION_NAME="pub-snippets-log"
 
 # vim: ft=bash
