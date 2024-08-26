@@ -1,6 +1,17 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.6 (2024-08-26)
+
+### 🩹 Patch
+
+  * 🔧 Batch update: remove tmux, source_up first by Romain Deville ([`9c91726`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/9c91726c1d46555ca8f7d487730873e7ae4e70df)) 🔏
+
+### 🔊 Others
+
+  * 🔨 Add tools script to batch update (and apply it) (!9) by Romain Deville ([`190acc4`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/190acc46d385b0e87cdcb0fe468cf16a60537c88))
+  * 🔨 Add tools script to batch update by Romain Deville ([`0cf83df`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/0cf83df141001fdf7487f3dae9dee329f0509613)) 🔏
+
 ## v0.2.5 (2024-08-26)
 
 ### 🩹 Patch
@@ -12,6 +23,7 @@
 
   * 💚 Update CI Workflow rules (!7) by Romain Deville ([`3927ba3`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/3927ba38befb0a5e70386595f81caed92647890d))
   * 💚 Update CI Workflow rules by Romain Deville ([`bdd039e`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/bdd039e0e5fb31bb12633270f079f459df9a2560)) 🔏
+  * 🔖 v0.2.5 (NO-CI) by Python Semantic Release [bot] ([`fc512ee`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/fc512eeed1f1f574610942548534409372aaa284))
 
 ## v0.2.4 (2024-08-25)
 
@@ -66,14 +78,12 @@
   * 🔧 Add markdownlint config from DGS template by Romain Deville ([`d49fed5`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/d49fed5dd1999cdb30713c464b4b0058e698ed1b)) 🔏
   * 🔧 Add commitlint config from DGS template by Romain Deville ([`8100c01`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/8100c011c7aa804659d3824898bae50a21f0fad4)) 🔏
   * 🔧 Add cspell configuration from DGS template by Romain Deville ([`e4e711a`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/e4e711aeaca6a7c30718a17063f9f4bb50b63c3e)) 🔏
-  * 🔧 Add editorconfig from DGS template by Romain Deville ([`ef84a68`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/ef84a68791d43ef72f6bf8033415748dd489bae3)) 🔏
 
 ### 🔊 Others
 
   * 👷 Add Gitlab CI from DGS template by Romain Deville ([`dbb805b`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/dbb805b7f7df343d46f5f2c8059a93eb620281d1)) 🔏
   * 🔖 v0.2.0 (NO-CI) by Python Semantic Release [bot] ([`7408fb2`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/7408fb2c716730d8cba4d76997f9ea8cb661473f))
   * 🔨 Add devbox config from DGS template by Romain Deville ([`924660a`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/924660a560bc95ce6e123c915a764266d7d5eb4e)) 🔏
-  * 🔨 Add pre-commit configuration from DGS template by Romain Deville ([`d13324f`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/d13324f536fb6c6b15ac9937956b2cebdfcdec5c)) 🔏
 
 ## v0.1.0 (2024-08-17)
 
@@ -86,8 +96,6 @@
   * 🔧 Add .envrc of the repo by Romain Deville ([`5635b8a`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/5635b8a46ca6d41e0fc5043f9895f65f3f0cc013)) 🔏
   * 🔧 Update git-repo_data envrc by Romain Deville ([`eaa46ca`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/eaa46ca0fd4b432320dfc82d14ffa6fa25ce5d4b)) 🔏
   * 🔧 Add neomutt envrc by Romain Deville ([`c9eb27f`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/c9eb27f4660c07472679a081494cd8123b4f28b1)) 🔏
-  * 🔧 Add new config files by Romain Deville ([`9f4fca6`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/9f4fca65efa18adde551a300c071b05a487e1b55)) 🔏
-  * 🔧 Add envrc config files by Romain Deville ([`7a8df11`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/7a8df1128b07a5af9a618e2de3e37c547078225b)) 🔏
 
 ### 🔊 Others
 
