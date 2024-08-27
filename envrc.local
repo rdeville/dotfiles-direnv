@@ -3,8 +3,11 @@
 source_up_if_exists
 
 # TMUXP VARIABLES
-export TMUXP_CONFIG=home
 export TMUXP_SESSION_NAME=home
+
+# Keepass
+export KEEPASS_DB="${HOME}/perso/documents/securite/keepass/perso_f.kdbx"
+export KEEPASS_KEYFILE="${XDG_CONFIG_HOME:-${HOME}/.config}/p.gpg"
 
 use_keepass
 
