@@ -1,6 +1,13 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.8 (2024-09-07)
+
+### 🩹 Patch
+
+  * 🔧 Update envrc.local configs (!11) by Romain Deville ([`881869c`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/881869c6623a0d1aa480869433f2bf4c0a512e53))
+  * 🔧 Update envrc.local configs by Romain Deville ([`79aad4c`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/79aad4c67c1a2ede70627ee8ec016fcd46019b5e)) 🔏
+
 ## v0.2.7 (2024-08-27)
 
 ### 🩹 Patch
@@ -12,6 +19,7 @@
 ### 🔊 Others
 
   * 👷 Update Gitlab CI from DGS template by Romain Deville ([`c7aa02c`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/c7aa02ce8c8697ac5198aebef7ec76905fd924f5)) 🔏
+  * 🔖 v0.2.7 (NO-CI) by Python Semantic Release [bot] ([`558e947`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/558e947887907839102c7dab195c958f49470cc7))
 
 ## v0.2.6 (2024-08-26)
 
@@ -87,8 +95,6 @@
 ### 🩹 Patch
 
   * ⚡️ Upgrade with DGS and improve data files (!2) by Romain Deville ([`264e270`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/264e270f21280e690d812cc016c8e0ad99db45b2))
-  * 🔧 Add semantic release config from DGS template by Romain Deville ([`8acb51e`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/8acb51eb984b133482d0ae5f46d0023255ec8301)) 🔏
-  * 🔧 Add markdownlint config from DGS template by Romain Deville ([`d49fed5`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/d49fed5dd1999cdb30713c464b4b0058e698ed1b)) 🔏
 
 ### 🔊 Others
 
@@ -101,9 +107,7 @@
 ### 🩹 Patch
 
   * 🔧 Add .envrc of the repo by Romain Deville ([`5635b8a`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/5635b8a46ca6d41e0fc5043f9895f65f3f0cc013)) 🔏
-  * 🔧 Update git-repo_data envrc by Romain Deville ([`eaa46ca`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/eaa46ca0fd4b432320dfc82d14ffa6fa25ce5d4b)) 🔏
 
 ### 🔊 Others
 
-  * ♻️ Upgrade from envrc.ini to new format envrc.local by Romain Deville ([`0e8f056`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/0e8f056be795bfd808a563278bb1e3681f0d472a)) 🔏
   * 🙈 Add basic .gitignore by Romain Deville ([`efa55a5`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/efa55a559a96c548fb11c629368da435a8d9875c)) 🔏
