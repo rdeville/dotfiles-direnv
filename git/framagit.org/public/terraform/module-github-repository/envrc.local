@@ -3,7 +3,7 @@
 source_up_if_exists
 
 # TMUXP VARIABLES
-export TMUXP_SESSION_NAME="tf-module-github-org"
+export TMUXP_SESSION_NAME="tf-module-github-repository"
 
 export GITHUB_OWNER="TF-Test-Organization"
 # shellcheck disable=SC2155
