@@ -1,12 +1,23 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v1.6.5 (2024-09-08)
+
+### 🩹 Patch
+
+  * ⬆️ Update flake.lock (!18) by Romain Deville ([`4f7200c`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/4f7200c0a56fb6993edc5770f6777ca3c656bcd9))
+  * ⬆️ Update flake.lock by Romain Deville ([`ce0c70f`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/ce0c70f4647ecca72d1365c6a15e70756592715b))
+
 ## v1.6.4 (2024-09-07)
 
 ### 🩹 Patch
 
   * ⬆️ Update templated files from dotgit-sync (!17) by Romain Deville ([`c115c36`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/c115c365a3fa7e1078ae11a311f04f2c5a7c8af3))
   * ⬆️ Update templated files from dotgit-sync by Dotgit Sync [bot] ([`48bda3d`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/48bda3dce12359e04d51a9707327e3a1a046e431))
+
+### 🔊 Others
+
+  * 🔖 v1.6.4 (NO-CI) by Python Semantic Release [bot] ([`a708205`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/a708205479b51f66971624e8ad265a9d7462896a))
 
 ## v1.6.3 (2024-08-27)
 
@@ -105,15 +116,3 @@
 ### 🔊 Others
 
   * 🔖 v1.3.0 (NO-CI) by Python Semantic Release [bot] ([`55b0409`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/55b0409cd9e4f37a6c74cce6b329c1d6b554e020))
-  * 🔨 Update .envrc from DGS template by Romain Deville ([`e112e05`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/e112e051817dbd4aac066242a9853bed2037fd2d)) 🔏
-  * 🔨 Update flake and hm module from DGS template by Romain Deville ([`cef871d`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/cef871d63c0fa3727a7f1b4e27cd793bfbb50c65)) 🔏
-
-## v1.2.1 (2024-07-03)
-
-### 🩹 Patch
-
-  * ⚡️ Update lib call order (!6) by Romain Deville ([`a8552df`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/a8552dfd12ff5897c69cf42891b95c617c06bca9))
-
-### 🔊 Others
-
-  * 🔖 v1.2.1 (NO-CI) by Python Semantic Release [bot] ([`dc6cbde`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/dc6cbde0eef83f2f6fa1c71d7f235d0ab9c8a79e))
