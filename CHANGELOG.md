@@ -1,12 +1,23 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.9 (2024-09-08)
+
+### 🩹 Patch
+
+  * 🔧 Update envrc.local configs (!12) by Romain Deville ([`0797174`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/07971748750a1458dd400e380f3f5557db4272c2))
+  * 🔧 Update envrc.local configs by Romain Deville ([`cefcefc`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/cefcefc13a679faf385247d61c4e47a69ccd5f8f)) 🔏
+
 ## v0.2.8 (2024-09-07)
 
 ### 🩹 Patch
 
   * 🔧 Update envrc.local configs (!11) by Romain Deville ([`881869c`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/881869c6623a0d1aa480869433f2bf4c0a512e53))
   * 🔧 Update envrc.local configs by Romain Deville ([`79aad4c`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/79aad4c67c1a2ede70627ee8ec016fcd46019b5e)) 🔏
+
+### 🔊 Others
+
+  * 🔖 v0.2.8 (NO-CI) by Python Semantic Release [bot] ([`ee14323`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/ee14323c45c44d48bbcf9f0d6a44812ad36b8684))
 
 ## v0.2.7 (2024-08-27)
 
@@ -98,16 +109,4 @@
 
 ### 🔊 Others
 
-  * 👷 Add Gitlab CI from DGS template by Romain Deville ([`dbb805b`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/dbb805b7f7df343d46f5f2c8059a93eb620281d1)) 🔏
   * 🔖 v0.2.0 (NO-CI) by Python Semantic Release [bot] ([`7408fb2`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/7408fb2c716730d8cba4d76997f9ea8cb661473f))
-  * 🔨 Add devbox config from DGS template by Romain Deville ([`924660a`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/924660a560bc95ce6e123c915a764266d7d5eb4e)) 🔏
-
-## v0.1.0 (2024-08-17)
-
-### 🩹 Patch
-
-  * 🔧 Add .envrc of the repo by Romain Deville ([`5635b8a`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/5635b8a46ca6d41e0fc5043f9895f65f3f0cc013)) 🔏
-
-### 🔊 Others
-
-  * 🙈 Add basic .gitignore by Romain Deville ([`efa55a5`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/efa55a559a96c548fb11c629368da435a8d9875c)) 🔏
