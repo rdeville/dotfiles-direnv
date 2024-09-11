@@ -1,12 +1,23 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.10 (2024-09-11)
+
+### 🩹 Patch
+
+  * 🔧 Add public terraform module github teams envrc.local (!13) by Romain Deville ([`09b11ea`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/09b11ea95551d30570489c451ce1d761afcb70fe))
+  * 🔧 Add public terraform module github teams envrc.local by Romain Deville ([`90b9e29`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/90b9e2930f0cf368b669a324f1523a098099b53d)) 🔏
+
 ## v0.2.9 (2024-09-08)
 
 ### 🩹 Patch
 
   * 🔧 Update envrc.local configs (!12) by Romain Deville ([`0797174`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/07971748750a1458dd400e380f3f5557db4272c2))
   * 🔧 Update envrc.local configs by Romain Deville ([`cefcefc`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/cefcefc13a679faf385247d61c4e47a69ccd5f8f)) 🔏
+
+### 🔊 Others
+
+  * 🔖 v0.2.9 (NO-CI) by Python Semantic Release [bot] ([`f75ed49`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/f75ed4949a6aa33c049fc5ab649d30e9ed58d808))
 
 ## v0.2.8 (2024-09-07)
 
@@ -95,18 +106,7 @@
 ### 🩹 Patch
 
   * 🔧 Update envrc.local (!3) by Romain Deville ([`45c634c`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/45c634c9f5bfef468cc270f9427154e279dca25d))
-  * 🔧 Update envrc.local by Romain Deville ([`7952d41`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/7952d4118009dadec239b54d75d67d6c84cf56d6)) 🔏
 
 ### 🔊 Others
 
   * 🔖 v0.2.1 (NO-CI) by Python Semantic Release [bot] ([`a61a1e4`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/a61a1e4860d9a00482ef6abe0ee2112a0c379ad2))
-
-## v0.2.0 (2024-08-17)
-
-### 🩹 Patch
-
-  * ⚡️ Upgrade with DGS and improve data files (!2) by Romain Deville ([`264e270`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/264e270f21280e690d812cc016c8e0ad99db45b2))
-
-### 🔊 Others
-
-  * 🔖 v0.2.0 (NO-CI) by Python Semantic Release [bot] ([`7408fb2`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/7408fb2c716730d8cba4d76997f9ea8cb661473f))
