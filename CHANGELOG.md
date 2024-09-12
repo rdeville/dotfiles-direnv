@@ -1,12 +1,23 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.11 (2024-09-12)
+
+### 🩹 Patch
+
+  * 🔧 Add public terraform github user envrc.local (!14) by Romain Deville ([`4975c1e`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/4975c1e4a3f488e1ac62451e1437bbc47186c1cd))
+  * 🔧 Add public terraform github user envrc.local by Romain Deville ([`f4fc739`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/f4fc7398127278bfa9d83ed375789405a31dd54c)) 🔏
+
 ## v0.2.10 (2024-09-11)
 
 ### 🩹 Patch
 
   * 🔧 Add public terraform module github teams envrc.local (!13) by Romain Deville ([`09b11ea`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/09b11ea95551d30570489c451ce1d761afcb70fe))
   * 🔧 Add public terraform module github teams envrc.local by Romain Deville ([`90b9e29`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/90b9e2930f0cf368b669a324f1523a098099b53d)) 🔏
+
+### 🔊 Others
+
+  * 🔖 v0.2.10 (NO-CI) by Python Semantic Release [bot] ([`a0deafd`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/a0deafd3ecdf983fc0370383ac9c5964f01d9fa6))
 
 ## v0.2.9 (2024-09-08)
 
@@ -95,18 +106,7 @@
 ### 🩹 Patch
 
   * 🔧 Add pub/dot/nvim envrc.local (!4) by Romain Deville ([`e7c4a5c`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/e7c4a5c04b6e2b8608e7c11fa7125c6564db83ea))
-  * 🔧 Add pub/dot/nvim envrc.local by Romain Deville ([`f518327`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/f5183278850b0ffa011ea839f7a0a5abc902aa91)) 🔏
 
 ### 🔊 Others
 
   * 🔖 v0.2.2 (NO-CI) by Python Semantic Release [bot] ([`9b3a5ed`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/9b3a5ed1795ae81e5d3387142536a82238d543ed))
-
-## v0.2.1 (2024-08-17)
-
-### 🩹 Patch
-
-  * 🔧 Update envrc.local (!3) by Romain Deville ([`45c634c`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/45c634c9f5bfef468cc270f9427154e279dca25d))
-
-### 🔊 Others
-
-  * 🔖 v0.2.1 (NO-CI) by Python Semantic Release [bot] ([`a61a1e4`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/a61a1e4860d9a00482ef6abe0ee2112a0c379ad2))
