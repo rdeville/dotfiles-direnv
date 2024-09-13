@@ -6,10 +6,9 @@ source_up_if_exists
 export TMUXP_SESSION_NAME=home
 
 # Keepass
-export KEEPASS_DB="${HOME}/perso/documents/securite/keepass/perso_f.kdbx"
+export KEEPASS_DB="${HOME}/perso/perso.kdbx"
 export KEEPASS_KEYFILE="${XDG_CONFIG_HOME:-${HOME}/.config}/p.gpg"
+export KEEPASS_YUBIKEY="2"
 export NIX_CONFIG="access-tokens = github.com=$(kp show /informatique/github/perso -a 'FINE_GRAINED:Nix_Flake_Update')"
-
-use_keepass
 
 # vim: ft=bash
