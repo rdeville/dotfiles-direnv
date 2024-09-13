@@ -1,12 +1,23 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v1.6.6 (2024-09-13)
+
+### 🩹 Patch
+
+  * 🚩 Remove use_keepass as I don&#39;t use it (!19) by Romain Deville ([`d671fdd`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/d671fdd2775f1e8dc91eb954571f96164e19c489))
+  * 🚩 Remove use_keepass as I don&#39;t use it by Romain Deville ([`90db2c9`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/90db2c9c35ccc2b3332511f1b73e14f10d835f34)) 🔏
+
 ## v1.6.5 (2024-09-08)
 
 ### 🩹 Patch
 
   * ⬆️ Update flake.lock (!18) by Romain Deville ([`4f7200c`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/4f7200c0a56fb6993edc5770f6777ca3c656bcd9))
   * ⬆️ Update flake.lock by Romain Deville ([`ce0c70f`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/ce0c70f4647ecca72d1365c6a15e70756592715b))
+
+### 🔊 Others
+
+  * 🔖 v1.6.5 (NO-CI) by Python Semantic Release [bot] ([`e394cbf`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/e394cbf2c9264ec867774a5099f64c59dd75b69c))
 
 ## v1.6.4 (2024-09-07)
 
@@ -101,18 +112,7 @@
 ### 🩹 Patch
 
   * ✏️ Fix typos in flake HM module name (!9) by Romain Deville ([`58858ae`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/58858ae36bbc54f3a051d2ed25b5a5608d565710))
-  * ✏️ Fix typos in flake HM module name by Romain Deville ([`ff1cb1a`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/ff1cb1abaf2f99704b91824a94ff73c0923cbc1b)) 🔏
 
 ### 🔊 Others
 
   * 🔖 v1.3.1 (NO-CI) by Python Semantic Release [bot] ([`a8155e3`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/a8155e302741f683950d00fd6bc7f7d9fde0e529))
-
-## v1.3.0 (2024-07-06)
-
-### ✨ Minor
-
-  * ✨ Improve devbox stdlib with devbox script executable (!8) by Romain Deville ([`8576ab3`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/8576ab35c719e63e41ed49048a5f445fae2e73f8))
-
-### 🔊 Others
-
-  * 🔖 v1.3.0 (NO-CI) by Python Semantic Release [bot] ([`55b0409`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/55b0409cd9e4f37a6c74cce6b329c1d6b554e020))
