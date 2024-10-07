@@ -1,12 +1,23 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.13 (2024-10-07)
+
+### 🩹 Patch
+
+  * 🔧 Update direnv config (!16) by Romain Deville ([`94f69ca`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/94f69ca73271795d9ded82db6a740f01865b62ea))
+  * 🔧 Update direnv config by Romain Deville ([`285592d`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/285592d9f1375867031d87751ff2b92712e8b775)) 🔏
+
 ## v0.2.12 (2024-09-13)
 
 ### 🩹 Patch
 
   * 🔧 Update envrc.local config (!15) by Romain Deville ([`722f245`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/722f24516f726c77d54c19549cb7d8ae04cfe0bb))
   * 🔧 Update envrc.local config by Romain Deville ([`cd4e969`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/cd4e9695b3837686a097b7539bb2c889d4c9ef49)) 🔏
+
+### 🔊 Others
+
+  * 🔖 v0.2.12 (NO-CI) by Python Semantic Release [bot] ([`206f5e4`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/206f5e436b3a48d856c105e11bee6ded738da2e4))
 
 ## v0.2.11 (2024-09-12)
 
@@ -95,18 +106,7 @@
 ### 🩹 Patch
 
   * 🔧 Add new .envrc.local config (!6) by Romain Deville ([`7fb2e48`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/7fb2e48486ab30f40404f0e0754651a11434cfed))
-  * 🔧 Add new .envrc.local config by Romain Deville ([`355d862`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/355d86276c9badc95fe458a59866e496f424113c)) 🔏
 
 ### 🔊 Others
 
   * 🔖 v0.2.4 (NO-CI) by Python Semantic Release [bot] ([`2f9d1a7`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/2f9d1a736c0532c620d64dfeebaac9c4a472a923))
-
-## v0.2.3 (2024-08-23)
-
-### 🩹 Patch
-
-  * ⬆️ Update templated files from dotgit-sync (!5) by Romain Deville ([`51e40ff`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/51e40ff3e822f294af87f6beb013aafa1c13c421))
-
-### 🔊 Others
-
-  * 🔖 v0.2.3 (NO-CI) by Python Semantic Release [bot] ([`d484dc0`](https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commit/d484dc071af4f9f6140790d2357667daa09abfd6))
