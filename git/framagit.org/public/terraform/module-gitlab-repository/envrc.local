@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+source_up_if_exists
+
+# TMUXP VARIABLES
+export TMUXP_SESSION_NAME="pub-tf-gitlab-repo"
+
+# vim: ft=bash
