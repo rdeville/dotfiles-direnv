@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+source_up_if_exists
+
+export TMUXP_SESSION_NAME="priv-tf-deploy-git"
+export SOPS_AGE_KEY=$(kp show gpg/age -a PRIVATE_KEY)
+
+# vim: ft=bash
