@@ -2,7 +2,8 @@
 DirenvRC - Dotfiles to setup common directory environment management per project using
 [`direnv`](https://direnv.net) uniformly for all my projects.
 
-Copyright © 2023 - 2024 Romain Deville
+Copyright © 2023 - 2025
+Romain Deville
 
 Licensed under the "THE BEER-WARE LICENSE" (Revision 42):
 Romain Deville wrote this file.
