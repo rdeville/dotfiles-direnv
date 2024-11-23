@@ -2,6 +2,7 @@
 
 source_up_if_exists
 
+
 export TMUXP_SESSION_NAME="pub-dot-tmux"
 
 # vim: ft=bash
