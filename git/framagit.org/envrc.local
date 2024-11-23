@@ -4,7 +4,7 @@
 source_up_if_exists
 
 # Gitlab Token
-export GITLAB_TOKEN=$(kp show /informatique/gitlab/framagit -a "API_TOKEN:terraform-git-repo-data")
+export GITLAB_TOKEN=$(kp show /informatique/gitlab/framagit -a "ACCESS_TOKEN:git-deploy")
 export GITLAB_HOST="framagit.org"
 
 # vim: ft=bash

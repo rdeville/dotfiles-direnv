@@ -21,7 +21,6 @@ update() {
   #
   # ```
   if grep -A 1 "#!/usr/bin/env" "${file_path}" | grep -q "# shellcheck"; then
-    _log "ERROR" "lkjqsmlkdfj"
     local shellcheck="# shellcheck disable=SC...."
     sed -i \
       -z "s/\(${shebang}${shellcheck}\n\)\(.*\)\(${pattern}\)\(.*\)/\1\n${pattern}\2\4/g" \
