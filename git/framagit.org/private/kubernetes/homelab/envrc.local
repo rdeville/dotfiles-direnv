@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# TMUXP VARIABLES
+export TMUXP_SESSION_NAME="pro-k8s-homelab"
+use_tmux
+
+source_up_if_exists
+
+# vim: ft=bash
