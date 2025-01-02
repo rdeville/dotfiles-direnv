@@ -12,33 +12,31 @@ YUBIKEYS=(
 )
 SERIAL_FILE="/tmp/yk.data"
 
-# if [[ -f "${SERIAL_FILE}" ]]; then
-#   SERIAL="$(cat "${SERIAL_FILE}")"
-# else
-#   KEYS=$(ykman list -s)
-#   COUNT=0
-#   LIMIT=10
-#   while echo "${KEYS}" | grep -q "WARNING: Failed opening device" && [[ "${COUNT}" -lt "${LIMIT}" ]]; do
-#     sleep 1
-#     KEYS=$(ykman list -s)
-#     COUNT=$((COUNT + 1))
-#   done
-#
-#   if [[ -n "${KEYS}" ]]; then
-#     idx=0
-#     while [[ "${KEYS}" != "${YUBIKEYS[$idx]}" && "${idx}" -lt "${#YUBIKEYS[@]}" ]]; do
-#       idx=$((idx + 1))
-#     done
-#     SERIAL="${YUBIKEYS[$idx]}"
-#     echo "${SERIAL}" > "${SERIAL_FILE}"
-#   fi
-# fi
+if [[ -f "${SERIAL_FILE}" ]]; then
+  SERIAL="$(cat "${SERIAL_FILE}")"
+else
+  KEYS=$(ykman list -s)
+  COUNT=0
+  LIMIT=10
+  while echo "${KEYS}" | grep -q "WARNING: Failed opening device" && [[ "${COUNT}" -lt "${LIMIT}" ]]; do
+    sleep 1
+    KEYS=$(ykman list -s)
+    COUNT=$((COUNT + 1))
+  done
+
+  if [[ -n "${KEYS}" ]]; then
+    idx=0
+    while [[ "${KEYS}" != "${YUBIKEYS[$idx]}" && "${idx}" -lt "${#YUBIKEYS[@]}" ]]; do
+      idx=$((idx + 1))
+    done
+    SERIAL="${YUBIKEYS[$idx]}"
+    echo "${SERIAL}" > "${SERIAL_FILE}"
+  fi
+fi
 
 # Keepass
-export KEEPASS_DB="${HOME}/.config/keepassxc/perso.kdbx"
-export KEEPASS_KEYFILE="${XDG_CACHE_HOME:-${HOME}/.cache}/p.gpg"
-export KEEPASS_YUBIKEY="2:30105708"
-# shellcheck disable=SC2155
-export NIX_CONFIG="access-tokens = github.com=$(kp show /informatique/github/perso -a 'FINE_GRAINED:Nix_Flake_Update')"
+export KEEPASS_DB="${HOME}/perso/perso.kdbx"
+export KEEPASS_KEYFILE="${XDG_CONFIG_HOME:-${HOME}/.config}/p.gpg"
+export KEEPASS_YUBIKEY="2:${SERIAL}"
 
 # vim: ft=bash
