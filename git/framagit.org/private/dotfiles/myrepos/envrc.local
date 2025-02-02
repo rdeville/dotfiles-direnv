@@ -3,6 +3,8 @@
 source_up_if_exists
 
 # TMUXP VARIABLES
-export TMUXP_SESSION_NAME=pub-dot-awesome
+export TMUXP_SESSION_NAME="pri-dot-mr"
+
+source_up_if_exists
 
 # vim: ft=bash
