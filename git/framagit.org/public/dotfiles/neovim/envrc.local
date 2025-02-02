@@ -2,9 +2,9 @@
 
 source_up_if_exists
 
-
 # TMUXP VARIABLES
 export TMUXP_SESSION_NAME="pub-dot-neovim"
+
 export NVIM_APPNAME="nvim-dev"
 
 # vim: ft=bash
