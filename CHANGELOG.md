@@ -1,6 +1,13 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v1.6.8 (2025-02-06)
+
+### 🩹 Patch
+
+  * 🐛 Fix path typo in direnvrc (!23) by Romain Deville ([`ce50fd4`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/ce50fd433d65d96a5d6177bfb40ad53c4266c974))
+  * 🐛 Fix path typo in direnvrc by Romain Deville ([`3940378`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/39403785c5841d6ca079c0251c8d1e403541c356)) 🔏
+
 ## v1.6.7 (2025-02-06)
 
 ### 🩹 Patch
