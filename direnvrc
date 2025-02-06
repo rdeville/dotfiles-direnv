@@ -14,7 +14,7 @@ else
 fi
 
 # shellcheck source=./lib/_init_logger.sh
-source "${SCRIPTPATH}./lib/_init_logger.sh"
+source "${SCRIPTPATH}/lib/_init_logger.sh"
 
 # Ensure this script has not been modified
 _log "INFO" "direnv: 🔁 **${PWD/${HOME}/\~}/.envrc**"
