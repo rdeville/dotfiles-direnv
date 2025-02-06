@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+SCRIPTPATH="$(
+  cd -- "$(dirname "$0")" >/dev/null 2>&1 || exit 1
+  pwd -P
+)"
+
 # Deactivate default direnv log
 DIRENV_LOG_FORMAT=""
 if [[ -z "${DEBUG_LEVEL}" && -z "${DIRENV_DEBUG_LEVEL}" ]]; then
@@ -7,6 +12,9 @@ if [[ -z "${DEBUG_LEVEL}" && -z "${DIRENV_DEBUG_LEVEL}" ]]; then
 else
   DEBUG_LEVEL="${DIRENV_DEBUG_LEVEL:-INFO}"
 fi
+
+# shellcheck source=./lib/_init_logger.sh
+source "${SCRIPTPATH}./lib/_init_logger.sh"
 
 # Ensure this script has not been modified
 _log "INFO" "direnv: 🔁 **${PWD/${HOME}/\~}/.envrc**"
