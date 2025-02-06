@@ -6,6 +6,7 @@ stdenv.mkDerivation {
     mkdir -p $out;
     cp -r \
       *.md \
+      AUTHORS \
       LICENSE* \
       direnv.toml \
       direnvrc \
