@@ -1,6 +1,13 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v1.6.9 (2025-02-06)
+
+### 🩹 Patch
+
+  * 🐛 Fix init logger loading in direnvrc (!24) by Romain Deville ([`8f35f71`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/8f35f71eddaa6d3e61a1395b9a72f2092231a557))
+  * 🐛 Fix init logger loading in direnvrc by Romain Deville ([`6e67e06`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/6e67e06921f7a8e19375b446104907d7102e4550))
+
 ## v1.6.8 (2025-02-06)
 
 ### 🩹 Patch
