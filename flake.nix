@@ -7,13 +7,8 @@
   '';
 
   inputs = {
-    # Stable Nix Packages
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
-    };
-    # Flake Utils Lib
-    utils = {
-      url = "github:numtide/flake-utils";
     };
   };
 
@@ -33,23 +28,25 @@
   in {
     # TOOLING
     # ========================================================================
-    # Formatter for your nix files, available through 'nix fmt'
-    # Other options beside 'alejandra' include 'nixpkgs-fmt'
     formatter = forAllSystems (
       system:
         (pkgsForSystem system).alejandra
     );
 
+    # PACKAGES
+    # ========================================================================
+    packages = forAllSystems (system: rec {
+      direnvrc = with (pkgsForSystem system);
+        callPackage ./package.nix {};
+      default = direnvrc;
+    });
+
+    # HOME MANAGER MODULES
+    # ========================================================================
     homeManagerModules = {
       direnvrc = import ./modules/home-manager.nix self;
     };
     homeManagerModule = self.homeManagerModules.direnvrc;
 
-    packages = forAllSystems (system: rec {
-      direnvrc = with import inputs.nixpkgs {inherit system;};
-        callPackage ./package.nix {};
-      default = direnvrc;
-    });
   };
 }
-# END DOTGIT-SYNC BLOCK MANAGED
