@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # TMUXP VARIABLES
-export TMUXP_SESSION_NAME="pub-tofu-cfl-dns"
+export TMUXP_SESSION_NAME="pub-dot-zsh"
 
 source_up_if_exists
 

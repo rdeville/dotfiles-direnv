@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2155
 
 source_up_if_exists
 
@@ -6,9 +7,8 @@ export TMUXP_SESSION_NAME=priv-dot-nixos
 
 export GITHUB_TOKEN=$(kp show /informatique/github/perso -a "FINE_GRAINED:Nix_Flake_Update")
 
-# shellcheck disable=SC2155
 export SOPS_AGE_KEY=$(kp show age-home-manager-master -a private_key)
-# shellcheck disable=SC2155
+
 export NIX_CONFIG="access-tokens = github.com=$(kp show /informatique/github/perso -a 'FINE_GRAINED:Nix_Flake_Update')"
 
 # vim: ft=bash
