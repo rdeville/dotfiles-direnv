@@ -2,12 +2,9 @@
 
 source_up_if_exists
 
-
 # TMUXP VARIABLES
 export TMUXP_SESSION_NAME="tofu-github-org"
 
 export GITHUB_OWNER="TF-Test-Organization"
-# shellcheck disable=SC2155
-export GITHUB_TOKEN="$(kp show /informatique/github/perso -a 'FINE_GRAINED:[TF-Test]_From_TF_Module_Github_Org')"
 
 # vim: ft=bash

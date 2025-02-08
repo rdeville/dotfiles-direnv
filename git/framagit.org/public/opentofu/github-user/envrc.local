@@ -3,6 +3,6 @@
 source_up_if_exists
 
 # TMUXP VARIABLES
-export TMUXP_SESSION_NAME="pri-dot-mr"
+export TMUXP_SESSION_NAME="pub-tofu-github-user"
 
 # vim: ft=bash
