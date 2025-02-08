@@ -1,6 +1,18 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v1.6.10 (2025-02-08)
+
+### 🩹 Patch
+
+  * ⬆️ Minor flake.nix update and upgrade flake.lock (!25) by Romain Deville ([`26bece5`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/26bece59f6f04a96c058a1624cdec0c03dd095ab))
+  * ⬆️ Upgrade flake.lock by Romain Deville ([`873cc0e`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/873cc0eb9960a0ae9fe4d4f53671f5710f645216)) 🔏
+
+### 🔊 Others
+
+  * 🔥 Remove useless code and useless flakes inputs by Romain Deville ([`8a0520b`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/8a0520bddbb4e400e30cc2a2b44b9541767d593a)) 🔏
+  * 🔥 Remove useless code and useless flakes inputs by Romain Deville ([`3f5e135`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/3f5e1354950c2abf3f3965cbb8a2aec8f14ab951)) 🔏
+
 ## v1.6.9 (2025-02-06)
 
 ### 🩹 Patch
