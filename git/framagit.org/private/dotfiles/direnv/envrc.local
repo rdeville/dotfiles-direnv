@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# TMUXP VARIABLES
+export TMUXP_SESSION_NAME="pri-dot-direnv"
+
+source_up_if_exists
+
+# vim: ft=bash
