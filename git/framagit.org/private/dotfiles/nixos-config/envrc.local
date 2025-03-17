@@ -3,6 +3,8 @@
 
 source_up_if_exists
 
+export PWD_PUBLIC="${PWD/private/public}"
+export TMUXP_CONFIG="nixos"
 export TMUXP_SESSION_NAME=priv-dot-nixos
 
 export GITHUB_TOKEN=$(kp show /informatique/github/perso -a "FINE_GRAINED:Nix_Flake_Update")
@@ -10,5 +12,6 @@ export GITHUB_TOKEN=$(kp show /informatique/github/perso -a "FINE_GRAINED:Nix_Fl
 export SOPS_AGE_KEY=$(kp show age-home-manager-master -a private_key)
 
 export NIX_CONFIG="access-tokens = github.com=$(kp show /informatique/github/perso -a 'FINE_GRAINED:Nix_Flake_Update')"
+
 
 # vim: ft=bash

@@ -1,4 +1,5 @@
 <!-- BEGIN DOTGIT-SYNC BLOCK MANAGED -->
+<!-- markdownlint-disable -->
 # 👋 Welcome to Direnv Config Data
 
 <center>
@@ -18,7 +19,7 @@
 
 <center>
 
-[![Licenses: (MIT OR BEERWARE)][license_badge]][license_url]
+[![License: COPYRIGHT)][license_badge]][license_url]
 [![Changelog][changelog_badge]][changelog_badge_url]
 [![Build][build_badge]][build_badge_url]
 [![Release][release_badge]][release_badge_url]
@@ -29,7 +30,7 @@
 [build_badge_url]: https://framagit.org/rdeville-private/dotfiles/direnv-data/-/commits/main
 [release_badge]: https://framagit.org/rdeville-private/dotfiles/direnv-data/-/badges/release.svg
 [release_badge_url]: https://framagit.org/rdeville-private/dotfiles/direnv-data/-/releases/
-[license_badge]: https://img.shields.io/badge/Licenses-MIT%20OR%20BEERWARE-blue
+[license_badge]: https://img.shields.io/badge/License-COPYRIGHT-blue
 [license_url]: https://framagit.org/rdeville-private/dotfiles/direnv-data/blob/main/LICENSE
 [changelog_badge]: https://img.shields.io/badge/Changelog-Python%20Semantic%20Release-yellow
 [changelog_badge_url]: https://github.com/python-semantic-release/python-semantic-release
@@ -72,13 +73,12 @@ You can also take a look at the [CONTRIBUTING.md][contributing].
 
 ## 📝 License
 
-Copyright © 2024 [Romain Deville](code@romaindeville.fr)
+Copyright © 2024 - 2025
+ * [Romain Deville \<code@romaindeville.fr\>](code@romaindeville.fr)
 
-This project is under following licenses (**OR**) :
+This project is under [COPYRIGHT][main_license].
 
-* [MIT][main_license]
-* [BEERWARE][beerware_license]
 
 [main_license]: https://framagit.org/rdeville-private/dotfiles/direnv-data/blob/main/LICENSE
-[beerware_license]: https://framagit.org/rdeville-private/dotfiles/direnv-data/blob/main/LICENSE.BEERWARE
+
 <!-- END DOTGIT-SYNC BLOCK MANAGED -->

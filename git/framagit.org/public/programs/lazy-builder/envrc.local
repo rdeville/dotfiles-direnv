@@ -2,8 +2,7 @@
 
 source_up_if_exists
 
-
 # TMUXP VARIABLES
-export TMUXP_SESSION_NAME="tf-git-repo" # TODO SET TMUXP_SESSION_NAME !!
+export TMUXP_SESSION_NAME="pub-prog-lazy-resume"
 
 # vim: ft=bash
