@@ -1,6 +1,27 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.16 (2025-03-17)
+
+### 🩹 Patch
+
+  * ⬆️ Upgrade devbox.lock by Romain Deville ([`d237d36`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/d237d360610b66eb932ac12aa04ff6be5ac2a331)) 🔏
+  * 🔧 Update envrc.local files (clean old one, commit new ones) (!22) by Romain Deville ([`1e2e3b1`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/1e2e3b12f2fc766c0326ad74a3420b3b77ab34e2))
+  * 🔧 Update dotgit sync configuration by Romain Deville ([`95f726a`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/95f726ae047b7fc1d4645aa6fe0a1e98183e7f3c)) 🔏
+  * 🔧 Update envrc.local files (clean old one, commit new ones) by Romain Deville ([`43b87ef`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/43b87efc1bdd0cb7c8af33e876fc1a29078772ef)) 🔏
+
+### 🔊 Others
+
+  * 👷 Update Gitlab CI from DGS template by Romain Deville ([`ae0942c`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/ae0942c938f25b00cbb81c47da6717d55f9bf13f)) 🔏
+  * 📝 Add COPYRIGHT from DGS template by Romain Deville ([`715ea61`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/715ea618578f6d2f15eb6749ec64cde34258f8c4)) 🔏
+  * 📝 Update CONTRIBUTING from DGS template by Romain Deville ([`a976d91`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/a976d91479d243c7b4d5af7757becd9679df589f)) 🔏
+  * 📝 Update CODE_OF_CONDUCT from DGS template by Romain Deville ([`eb0da7d`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/eb0da7df274f479227eec7e354aa0344a2d88ce9)) 🔏
+  * 📝 Update README from DGS template by Romain Deville ([`ff86b34`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/ff86b34e430600dedd9c9968c7e87a6cc79319c8)) 🔏
+  * 🔥 Remove licenses by Romain Deville ([`5ade4e4`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/5ade4e4c30c65e2eb4314176e18ed9f866fbe3ad)) 🔏
+  * 🔨 Update .envrc from DGS template by Romain Deville ([`d260c18`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/d260c18ce0951931774e111bc2cb9bf23ed5cdf8)) 🔏
+  * 🔨 Update devbox config from DGS template by Romain Deville ([`97012e6`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/97012e60ad48abfbca7b3f79fd761c5f8ce5bdd4)) 🔏
+  * 🔨 Update pre-commit configuration from DGS template by Romain Deville ([`409ad36`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/409ad3665abb3dc43c4f0ee91d1b4eb4fce78742)) 🔏
+
 ## v0.2.15 (2025-02-08)
 
 ### 🩹 Patch
