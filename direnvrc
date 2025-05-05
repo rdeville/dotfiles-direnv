@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Deactivate default direnv log
-DIRENV_LOG_FORMAT=""
+export DIRENV_LOG_FORMAT=""
 if [[ -z "${DEBUG_LEVEL}" && -z "${DIRENV_DEBUG_LEVEL}" ]]; then
   DEBUG_LEVEL="INFO"
 else
