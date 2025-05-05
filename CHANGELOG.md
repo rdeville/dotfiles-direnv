@@ -1,6 +1,14 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v1.6.11 (2025-05-05)
+
+### 🩹 Patch
+
+  * ⬆️ Upgrade devbox.lock by Romain Deville ([`d459647`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/d459647ad830b11337829a9396b92d88a85c9eab)) 🔏
+  * 🐛 Fix export for DIRENV_LOG_FORMAT (!27) by Romain Deville ([`0cbf993`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/0cbf9930285d273f72547174d5ae4871db9e7d48))
+  * 🐛 Fix export for DIRENV_LOG_FORMAT by Romain Deville ([`8c86cce`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/8c86cce7e2b70bed5b1ee31ed71a5cac759d1db1)) 🔏
+
 ## v1.6.10 (2025-02-08)
 
 ### 🩹 Patch
