@@ -1,6 +1,13 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v1.6.12 (2025-05-05)
+
+### 🩹 Patch
+
+  * ⬆️ Update templated files from dotgit-sync (!26) by Romain Deville ([`0801ab6`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/0801ab6674ac93aa67260aa4d2fe9db0d677a042))
+  * ⬆️ Update templated files from dotgit-sync by Dotgit Sync [bot] ([`e619523`](https://framagit.org/rdeville-public/dotfiles/direnv/-/commit/e61952305a3ee183aa62886e3fe35249bf88ef5e))
+
 ## v1.6.11 (2025-05-05)
 
 ### 🩹 Patch
