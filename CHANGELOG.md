@@ -1,6 +1,13 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.17 (2025-07-27)
+
+### 🩹 Patch
+
+  * 🔧 Add and update envrc files (!24) by Romain Deville ([`f804095`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/f804095c8985d342bb0caf9dd74df31e72c607a9))
+  * 🔧 Add and update envrc files by Romain Deville ([`d297e51`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/d297e51da01180c8c1f853f40d3d2861971b5f40)) 🔏
+
 ## v0.2.16 (2025-03-17)
 
 ### 🩹 Patch
