@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# TMUXP VARIABLES
+export TMUXP_SESSION_NAME="pub-web-romaindeville-fr"
+
+source_up_if_exists
+
+# vim: ft=bash
