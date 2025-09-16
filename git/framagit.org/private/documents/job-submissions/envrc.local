@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# TMUXP VARIABLES
+export TMUXP_SESSION_NAME="pri-doc-job" # TODO SET TMUXP_SESSION_NAME !!
+use_tmux
+
+source_up_if_exists
+
+# vim: ft=bash

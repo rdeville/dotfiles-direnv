@@ -19,6 +19,6 @@ export TF_VAR_BACKEND_MINIO_ENDPOINT=$(kp show /ordinateur/darth-plagueis/ak-sk-
 export TF_VAR_BACKEND_MINIO_ACCESS_KEY=$(kp show /ordinateur/darth-plagueis/ak-sk-minio-git-repos -a UserName)
 export TF_VAR_BACKEND_MINIO_SECRET_KEY=$(kp show /ordinateur/darth-plagueis/ak-sk-minio-git-repos -a Password)
 
-export TERRAGRUNT_DOWNLOAD="${XDG_CACHE_HOME:-"${HOME}/.cache"}/terragrunt/"
+export TERRAGRUNT_DOWNLOAD_DIR="${XDG_CACHE_HOME:-"${HOME}/.cache"}/terragrunt/"
 
 # vim: ft=bash
