@@ -1,6 +1,19 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.18 (2025-09-16)
+
+### 🩹 Patch
+
+  * ⬆️ Upgrade devbox.lock by Romain Deville ([`091d627`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/091d627b74ffd45a05a904e65db2de28451e568f)) 🔏
+  * 🔧 Update envrc.local files (!25) by Romain Deville ([`3dd6351`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/3dd6351153c4166da8d05dccfc35eaac951dc2be))
+  * 🔧(devbox): Update pre-commit command by Romain Deville ([`08eeae9`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/08eeae96fa3ddd75d8f1bbd1a42d8b42531f8a38)) 🔏
+  * 🔧 Update all envrc.local files by Romain Deville ([`a98737a`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/a98737a0d228ac4fb32d7df58bbfc2a3e070861d)) 🔏
+
+### 🔊 Others
+
+  * 🔨(devbox): Make init_hook executable by Romain Deville ([`327e55f`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/327e55f423eb3d8999f247dde7d225efed5dc36b)) 🔏
+
 ## v0.2.17 (2025-07-27)
 
 ### 🩹 Patch
