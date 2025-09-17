@@ -7,5 +7,10 @@ export TMUXP_SESSION_NAME="pri-k8s-lab"
 use_tmux
 
 export SOPS_AGE_KEY=$(kp show /infra/age@k8s -a PRIVATE_KEY)
+export VAGRANT_HOME="${HOME}/.cache/vagrant"
+
+if ! [[ -d "${VAGRANT_HOME}" ]]; then
+  mkdir -p "${VAGRANT_HOME}"
+fi
 
 # vim: ft=bash
