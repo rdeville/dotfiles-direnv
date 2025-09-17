@@ -1,6 +1,13 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.19 (2025-09-17)
+
+### 🩹 Patch
+
+  * 🔧 Update and commit envrc.local (!26) by Romain Deville ([`26041b2`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/26041b251313d8af4d3ce0fcfb8e153e1ea110f3))
+  * 🔧 Update and commit envrc.local by Romain Deville ([`30ba7f3`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/30ba7f38632eb5b6952871097c84ec077fa4b811)) 🔏
+
 ## v0.2.18 (2025-09-16)
 
 ### 🩹 Patch
