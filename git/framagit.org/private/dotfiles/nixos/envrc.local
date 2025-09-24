@@ -3,21 +3,16 @@
 
 source_up_if_exists
 
-export PWD_PUBLIC="${PWD/private/public}"
+# TMUXP VARIABLES
 export TMUXP_CONFIG="nixos"
 export TMUXP_SESSION_NAME=priv-dot-nixos
 
-export GITHUB_TOKEN=$(kp show /informatique/github/perso -a "FINE_GRAINED:Nix_Flake_Update")
-export SOPS_AGE_KEY=$(kp show age-home-manager-master -a private_key)
-export NIX_CONFIG="access-tokens = github.com=$(kp show /informatique/github/perso -a 'FINE_GRAINED:Nix_Flake_Update')"
-
-if [[ -z "${GITHUB_TOKEN}" ]]; then
-  unset GITHUB_TOKEN
-  unset NIX_CONFIG
-fi
-
-if [[ -z "${SOPS_AGE_KEY}" ]]; then
-  unset SOPS_AGE_KEY
+if ! is_yubikey_plugged; then
+  _log "WARNING" "Secret not loaded in environment"
+else
+  export SOPS_AGE_KEY=$(kp show age-home-manager-master -a 'private_key')
+  export NIX_CONFIG="access-tokens = github.com=$(kp show /informatique/github/perso -a 'FINE_GRAINED:Nix_Flake_Update')"
+  export GITHUB_TOKEN=$(kp show /informatique/github/perso -a 'FINE_GRAINED:Nix_Flake_Update')
 fi
 
 # vim: ft=bash

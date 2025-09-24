@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2155
 
 source_up_if_exists
 
 # TMUXP VARIABLES
 export TMUXP_SESSION_NAME="pub-tofu-gitlab-repo"
-
-dotenv_if_exists ".env.local"
 
 # vim: ft=bash
