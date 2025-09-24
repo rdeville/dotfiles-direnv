@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2155
 
 source_up_if_exists
 
 # TMUXP VARIABLES
-export TMUXP_SESSION_NAME=pub-dot-awesome
+export TMUXP_SESSION_NAME="pub-dot-awesome"
 
 # vim: ft=bash

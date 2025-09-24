@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-source_up_if_exists
-
-# TMUXP VARIABLES
-export TMUXP_SESSION_NAME="pri-tofu-authentik-group" # TODO SET TMUXP_SESSION_NAME !!
-
-# vim: ft=bash

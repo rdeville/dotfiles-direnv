@@ -1,23 +1,25 @@
 #!/usr/bin/env bash
-# shellcheck disable=2155
+# shellcheck disable=SC2155
 
 source_up_if_exists
 
 # TMUXP VARIABLES
 export TMUXP_SESSION_NAME="pri-grunt-git-repos"
 
-export SOPS_AGE_KEY=$(kp show gpg/age -a PRIVATE_KEY)
+if ! is_yubi_plugged; then
+  _log "WARNING" "Secret not loaded in environment"
+else
+  export TF_VAR_GITHUB_TOKEN_PERSO=$(kp show /informatique/github/perso -a FINE_GRAINED:Deploy_Git_R_Deville)
+  export TF_VAR_GITHUB_TOKEN_ORG_PRIVATE=$(kp show /informatique/github/perso -a FINE_GRAINED:Deploy_Git_R_Deville_Private)
+  export TF_VAR_GITHUB_TOKEN_ORG_PUBLIC=$(kp show /informatique/github/perso -a FINE_GRAINED:Deploy_Git_R_Deville_Public)
+  export TF_VAR_GITLAB_TOKEN=$(kp show /informatique/gitlab/gitlab -a ACCESS_TOKEN:git-deploy)
+  export TF_VAR_FRAMAGIT_TOKEN=$(kp show /informatique/gitlab/framagit -a ACCESS_TOKEN:git-deploy)
 
-export TF_VAR_GITHUB_TOKEN_PERSO=$(kp show /informatique/github/perso -a FINE_GRAINED:Deploy_Git_R_Deville)
-export TF_VAR_GITHUB_TOKEN_ORG_PRIVATE=$(kp show /informatique/github/perso -a FINE_GRAINED:Deploy_Git_R_Deville_Private)
-export TF_VAR_GITHUB_TOKEN_ORG_PUBLIC=$(kp show /informatique/github/perso -a FINE_GRAINED:Deploy_Git_R_Deville_Public)
-export TF_VAR_GITLAB_TOKEN=$(kp show /informatique/gitlab/gitlab -a ACCESS_TOKEN:git-deploy)
-export TF_VAR_FRAMAGIT_TOKEN=$(kp show /informatique/gitlab/framagit -a ACCESS_TOKEN:git-deploy)
-
-export TF_VAR_BACKEND_MINIO_BUCKET=$(kp show /ordinateur/darth-plagueis/ak-sk-minio-git-repos -a BUCKET_NAME)
-export TF_VAR_BACKEND_MINIO_ENDPOINT=$(kp show /ordinateur/darth-plagueis/ak-sk-minio-git-repos -a URL)
-export TF_VAR_BACKEND_MINIO_ACCESS_KEY=$(kp show /ordinateur/darth-plagueis/ak-sk-minio-git-repos -a UserName)
-export TF_VAR_BACKEND_MINIO_SECRET_KEY=$(kp show /ordinateur/darth-plagueis/ak-sk-minio-git-repos -a Password)
+  export TF_VAR_BACKEND_MINIO_BUCKET=$(kp show /ordinateur/darth-plagueis/ak-sk-minio-git-repos -a BUCKET_NAME)
+  export TF_VAR_BACKEND_MINIO_ENDPOINT=$(kp show /ordinateur/darth-plagueis/ak-sk-minio-git-repos -a URL)
+  export TF_VAR_BACKEND_MINIO_ACCESS_KEY=$(kp show /ordinateur/darth-plagueis/ak-sk-minio-git-repos -a UserName)
+  export TF_VAR_BACKEND_MINIO_SECRET_KEY=$(kp show /ordinateur/darth-plagueis/ak-sk-minio-git-repos -a Password)
+fi
 
 export TERRAGRUNT_DOWNLOAD_DIR="${XDG_CACHE_HOME:-"${HOME}/.cache"}/terragrunt/"
 

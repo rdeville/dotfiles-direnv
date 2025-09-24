@@ -6,7 +6,7 @@ SCRIPTPATH="$(
 	pwd -P
 )"
 SCRIPTNAME="$(basename "$0")"
-ROOT_DIR=$(realpath "${SCRIPTPATH}/../")
+ROOT_DIR=$(git rev-parse --show-toplevel)
 
 init_logger() {
 	local log_file="${XDG_CACHE_HOME:-${HOME}/.cache}/snippets/_log.sh"
@@ -37,14 +37,17 @@ init_logger() {
 check_dest_exists() {
 	_log "DEBUG" "check_dest_exists()"
 	local src="${1}"
-	local dst="${1/${SCRIPTPATH}/${HOME}}"
-	if [[ -e "${dst}" ]] && [[ -f "${dst}" ]]; then
+	local dst="${1/${ROOT_DIR}/${HOME}}"
+	dst=${dst//envrc/.envrc}
+	if [[ -d $(dirname "${dst}") && -f "${dst}" ]]; then
 		_log "INFO" "Dest file **${dst/${HOME}/\~}** exists."
+	elif [[ -d "$(dirname "${dst}")" && ! -f "${dst}" ]]; then
+		_log "WARNING" "Directory for dest file **${dst/${HOME}/\~}** exists, will setup symlink"
+		ln -s "${src}" "${dst}"
 	else
-		_log "ERROR" "${dst}"
 		_log "ERROR" "Dest file **${dst/${HOME}/\~}** does not exists."
 		_log "ERROR" "Source file **${src/${HOME}/\~}** will be deleted."
-		_log "ERROR" "rm -f **${src/${HOME}/\~}**"
+		rm -f "${src}"
 	fi
 }
 
@@ -54,7 +57,10 @@ process_dir() {
 	for node in "${dir}"/*; do
 		if [[ -d "${node}" ]]; then
 			process_dir "${node}"
-		elif [[ -f "${node}" ]] && [[ "$(basename "${node}")" == "envrc.local" ]]; then
+		elif [[ -f "${node}" ]] && {
+		  [[ "$(basename "${node}")" == "envrc.local" ]] ||
+		  [[ "$(basename "${node}")" == "envrc" ]]
+		  }; then
 			check_dest_exists "${node}"
 		fi
 	done
