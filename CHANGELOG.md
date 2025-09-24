@@ -1,6 +1,14 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.20 (2025-09-24)
+
+### 🩹 Patch
+
+  * ⚡️ Improve setup script and clean repo (!27) by Romain Deville ([`65d2095`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/65d2095288996f7245d03712d4d56e0d39c5414e))
+  * ⚡️(envrc): Use setup.sh to clean file and improve used ones by Romain Deville ([`ab1f969`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/ab1f96986ffe7143d067e71f70c0f82b60d4a319)) 🔏
+  * ⚡️(scripts): Improve setup script with lock management, remove tools dir by Romain Deville ([`25ba735`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/25ba735a8c6167dc19b15111c84b4ab4e43441b6)) 🔏
+
 ## v0.2.19 (2025-09-17)
 
 ### 🩹 Patch
