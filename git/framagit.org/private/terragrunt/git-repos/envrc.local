@@ -6,7 +6,7 @@ source_up_if_exists
 # TMUXP VARIABLES
 export TMUXP_SESSION_NAME="pri-grunt-git-repos"
 
-if ! is_yubi_plugged; then
+if ! is_yubikey_plugged; then
   _log "WARNING" "Secret not loaded in environment"
 else
   export TF_VAR_GITHUB_TOKEN_PERSO=$(kp show /informatique/github/perso -a FINE_GRAINED:Deploy_Git_R_Deville)

@@ -6,7 +6,7 @@ source_up_if_exists
 # TMUXP VARIABLES
 export TMUXP_SESSION_NAME="pri-k8s-lab"
 
-if ! is_yubi_plugged; then
+if ! is_yubikey_plugged; then
   _log "WARNING" "Secret not loaded in environment"
 else
   export SOPS_AGE_KEY=$(kp show /infra/age@k8s -a PRIVATE_KEY)
