@@ -1,6 +1,13 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.21 (2025-09-24)
+
+### 🩹 Patch
+
+  * 🐛(envrc): Fix wrong function call (!28) by Romain Deville ([`a687d9a`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/a687d9a460df796979d2095241598cd38aaa6598))
+  * 🔧(envrc): Fix wrong function call by Romain Deville ([`b3f7164`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/b3f7164a1d8513747fa6470b8427b44ce323f41e)) 🔏
+
 ## v0.2.20 (2025-09-24)
 
 ### 🩹 Patch
