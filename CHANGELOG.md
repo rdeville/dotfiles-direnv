@@ -1,6 +1,13 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.22 (2025-09-28)
+
+### 🩹 Patch
+
+  * 🔧 Update all direnv files and remove unused ones (!29) by Romain Deville ([`fbdd5fb`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/fbdd5fbc2860f02827960c4e2e019a7714d9fece))
+  * 🔧 Update all direnv files and remove unused ones by Romain Deville ([`a4c08b3`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/a4c08b3fea27b09e96ffd3d3882ee085d6096a19)) 🔏
+
 ## v0.2.21 (2025-09-24)
 
 ### 🩹 Patch
