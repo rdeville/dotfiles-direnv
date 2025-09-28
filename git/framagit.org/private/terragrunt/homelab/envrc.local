@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2155
 
 source_up_if_exists
 
 # TMUXP VARIABLES
-export TMUXP_SESSION_NAME="pub-dot-tmux"
+export TMUXP_SESSION_NAME="pro-ter-lab"
 
 # vim: ft=bash

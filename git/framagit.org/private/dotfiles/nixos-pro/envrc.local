@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2155
+
+source_up_if_exists
+
+# TMUXP VARIABLES
+export TMUXP_SESSION_NAME=priv-dot-nixos-pro
+
+if ! is_yubikey_plugged; then
+  _log "WARNING" "Secret not loaded in environment"
+else
+  export SOPS_AGE_KEY=$(kp show age-home-manager-master -a 'private_key')
+  export NIX_CONFIG="access-tokens = github.com=$(kp show /informatique/github/perso -a 'FINE_GRAINED:Nix_Flake_Update')"
+  export GITHUB_TOKEN=$(kp show /informatique/github/perso -a 'FINE_GRAINED:Nix_Flake_Update')
+fi
+
+
+# vim: ft=bash
