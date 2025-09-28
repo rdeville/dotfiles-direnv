@@ -1,253 +1,260 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.23 (2025-09-28)
+
+### 🩹 Patch
+
+  * 🔧 Update modified envrc.local files (!30) by Romain Deville ([`d76da86`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/d76da86c427801f90ae20d185e5e6404a2cce59a))
+  * 🔧 Update modified envrc.local files by Romain Deville ([`787049f`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/787049f46f94bbfa3163805a761377fb74e210ae)) 🔏
+
 ## v0.2.22 (2025-09-28)
 
 ### 🩹 Patch
 
-  * 🔧 Update all direnv files and remove unused ones (!29) by Romain Deville ([`fbdd5fb`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/fbdd5fbc2860f02827960c4e2e019a7714d9fece))
-  * 🔧 Update all direnv files and remove unused ones by Romain Deville ([`a4c08b3`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/a4c08b3fea27b09e96ffd3d3882ee085d6096a19)) 🔏
+  * 🔧 Update all direnv files and remove unused ones (!29) by Romain Deville ([`fbdd5fb`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/fbdd5fbc2860f02827960c4e2e019a7714d9fece))
+  * 🔧 Update all direnv files and remove unused ones by Romain Deville ([`a4c08b3`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/a4c08b3fea27b09e96ffd3d3882ee085d6096a19)) 🔏
 
 ## v0.2.21 (2025-09-24)
 
 ### 🩹 Patch
 
-  * 🐛(envrc): Fix wrong function call (!28) by Romain Deville ([`a687d9a`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/a687d9a460df796979d2095241598cd38aaa6598))
-  * 🔧(envrc): Fix wrong function call by Romain Deville ([`b3f7164`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/b3f7164a1d8513747fa6470b8427b44ce323f41e)) 🔏
+  * 🐛(envrc): Fix wrong function call (!28) by Romain Deville ([`a687d9a`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/a687d9a460df796979d2095241598cd38aaa6598))
+  * 🔧(envrc): Fix wrong function call by Romain Deville ([`b3f7164`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/b3f7164a1d8513747fa6470b8427b44ce323f41e)) 🔏
 
 ## v0.2.20 (2025-09-24)
 
 ### 🩹 Patch
 
-  * ⚡️ Improve setup script and clean repo (!27) by Romain Deville ([`65d2095`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/65d2095288996f7245d03712d4d56e0d39c5414e))
-  * ⚡️(envrc): Use setup.sh to clean file and improve used ones by Romain Deville ([`ab1f969`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/ab1f96986ffe7143d067e71f70c0f82b60d4a319)) 🔏
-  * ⚡️(scripts): Improve setup script with lock management, remove tools dir by Romain Deville ([`25ba735`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/25ba735a8c6167dc19b15111c84b4ab4e43441b6)) 🔏
+  * ⚡️ Improve setup script and clean repo (!27) by Romain Deville ([`65d2095`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/65d2095288996f7245d03712d4d56e0d39c5414e))
+  * ⚡️(envrc): Use setup.sh to clean file and improve used ones by Romain Deville ([`ab1f969`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/ab1f96986ffe7143d067e71f70c0f82b60d4a319)) 🔏
+  * ⚡️(scripts): Improve setup script with lock management, remove tools dir by Romain Deville ([`25ba735`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/25ba735a8c6167dc19b15111c84b4ab4e43441b6)) 🔏
 
 ## v0.2.19 (2025-09-17)
 
 ### 🩹 Patch
 
-  * 🔧 Update and commit envrc.local (!26) by Romain Deville ([`26041b2`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/26041b251313d8af4d3ce0fcfb8e153e1ea110f3))
-  * 🔧 Update and commit envrc.local by Romain Deville ([`30ba7f3`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/30ba7f38632eb5b6952871097c84ec077fa4b811)) 🔏
+  * 🔧 Update and commit envrc.local (!26) by Romain Deville ([`26041b2`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/26041b251313d8af4d3ce0fcfb8e153e1ea110f3))
+  * 🔧 Update and commit envrc.local by Romain Deville ([`30ba7f3`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/30ba7f38632eb5b6952871097c84ec077fa4b811)) 🔏
 
 ## v0.2.18 (2025-09-16)
 
 ### 🩹 Patch
 
-  * ⬆️ Upgrade devbox.lock by Romain Deville ([`091d627`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/091d627b74ffd45a05a904e65db2de28451e568f)) 🔏
-  * 🔧 Update envrc.local files (!25) by Romain Deville ([`3dd6351`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/3dd6351153c4166da8d05dccfc35eaac951dc2be))
-  * 🔧(devbox): Update pre-commit command by Romain Deville ([`08eeae9`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/08eeae96fa3ddd75d8f1bbd1a42d8b42531f8a38)) 🔏
-  * 🔧 Update all envrc.local files by Romain Deville ([`a98737a`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/a98737a0d228ac4fb32d7df58bbfc2a3e070861d)) 🔏
+  * ⬆️ Upgrade devbox.lock by Romain Deville ([`091d627`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/091d627b74ffd45a05a904e65db2de28451e568f)) 🔏
+  * 🔧 Update envrc.local files (!25) by Romain Deville ([`3dd6351`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/3dd6351153c4166da8d05dccfc35eaac951dc2be))
+  * 🔧(devbox): Update pre-commit command by Romain Deville ([`08eeae9`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/08eeae96fa3ddd75d8f1bbd1a42d8b42531f8a38)) 🔏
+  * 🔧 Update all envrc.local files by Romain Deville ([`a98737a`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/a98737a0d228ac4fb32d7df58bbfc2a3e070861d)) 🔏
 
 ### 🔊 Others
 
-  * 🔨(devbox): Make init_hook executable by Romain Deville ([`327e55f`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/327e55f423eb3d8999f247dde7d225efed5dc36b)) 🔏
+  * 🔨(devbox): Make init_hook executable by Romain Deville ([`327e55f`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/327e55f423eb3d8999f247dde7d225efed5dc36b)) 🔏
 
 ## v0.2.17 (2025-07-27)
 
 ### 🩹 Patch
 
-  * 🔧 Add and update envrc files (!24) by Romain Deville ([`f804095`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/f804095c8985d342bb0caf9dd74df31e72c607a9))
-  * 🔧 Add and update envrc files by Romain Deville ([`d297e51`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/d297e51da01180c8c1f853f40d3d2861971b5f40)) 🔏
+  * 🔧 Add and update envrc files (!24) by Romain Deville ([`f804095`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/f804095c8985d342bb0caf9dd74df31e72c607a9))
+  * 🔧 Add and update envrc files by Romain Deville ([`d297e51`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/d297e51da01180c8c1f853f40d3d2861971b5f40)) 🔏
 
 ## v0.2.16 (2025-03-17)
 
 ### 🩹 Patch
 
-  * ⬆️ Upgrade devbox.lock by Romain Deville ([`d237d36`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/d237d360610b66eb932ac12aa04ff6be5ac2a331)) 🔏
-  * 🔧 Update envrc.local files (clean old one, commit new ones) (!22) by Romain Deville ([`1e2e3b1`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/1e2e3b12f2fc766c0326ad74a3420b3b77ab34e2))
-  * 🔧 Update dotgit sync configuration by Romain Deville ([`95f726a`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/95f726ae047b7fc1d4645aa6fe0a1e98183e7f3c)) 🔏
-  * 🔧 Update envrc.local files (clean old one, commit new ones) by Romain Deville ([`43b87ef`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/43b87efc1bdd0cb7c8af33e876fc1a29078772ef)) 🔏
+  * ⬆️ Upgrade devbox.lock by Romain Deville ([`d237d36`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/d237d360610b66eb932ac12aa04ff6be5ac2a331)) 🔏
+  * 🔧 Update envrc.local files (clean old one, commit new ones) (!22) by Romain Deville ([`1e2e3b1`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/1e2e3b12f2fc766c0326ad74a3420b3b77ab34e2))
+  * 🔧 Update dotgit sync configuration by Romain Deville ([`95f726a`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/95f726ae047b7fc1d4645aa6fe0a1e98183e7f3c)) 🔏
+  * 🔧 Update envrc.local files (clean old one, commit new ones) by Romain Deville ([`43b87ef`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/43b87efc1bdd0cb7c8af33e876fc1a29078772ef)) 🔏
 
 ### 🔊 Others
 
-  * 👷 Update Gitlab CI from DGS template by Romain Deville ([`ae0942c`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/ae0942c938f25b00cbb81c47da6717d55f9bf13f)) 🔏
-  * 📝 Add COPYRIGHT from DGS template by Romain Deville ([`715ea61`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/715ea618578f6d2f15eb6749ec64cde34258f8c4)) 🔏
-  * 📝 Update CONTRIBUTING from DGS template by Romain Deville ([`a976d91`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/a976d91479d243c7b4d5af7757becd9679df589f)) 🔏
-  * 📝 Update CODE_OF_CONDUCT from DGS template by Romain Deville ([`eb0da7d`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/eb0da7df274f479227eec7e354aa0344a2d88ce9)) 🔏
-  * 📝 Update README from DGS template by Romain Deville ([`ff86b34`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/ff86b34e430600dedd9c9968c7e87a6cc79319c8)) 🔏
-  * 🔥 Remove licenses by Romain Deville ([`5ade4e4`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/5ade4e4c30c65e2eb4314176e18ed9f866fbe3ad)) 🔏
-  * 🔨 Update .envrc from DGS template by Romain Deville ([`d260c18`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/d260c18ce0951931774e111bc2cb9bf23ed5cdf8)) 🔏
-  * 🔨 Update devbox config from DGS template by Romain Deville ([`97012e6`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/97012e60ad48abfbca7b3f79fd761c5f8ce5bdd4)) 🔏
-  * 🔨 Update pre-commit configuration from DGS template by Romain Deville ([`409ad36`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/409ad3665abb3dc43c4f0ee91d1b4eb4fce78742)) 🔏
+  * 👷 Update Gitlab CI from DGS template by Romain Deville ([`ae0942c`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/ae0942c938f25b00cbb81c47da6717d55f9bf13f)) 🔏
+  * 📝 Add COPYRIGHT from DGS template by Romain Deville ([`715ea61`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/715ea618578f6d2f15eb6749ec64cde34258f8c4)) 🔏
+  * 📝 Update CONTRIBUTING from DGS template by Romain Deville ([`a976d91`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/a976d91479d243c7b4d5af7757becd9679df589f)) 🔏
+  * 📝 Update CODE_OF_CONDUCT from DGS template by Romain Deville ([`eb0da7d`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/eb0da7df274f479227eec7e354aa0344a2d88ce9)) 🔏
+  * 📝 Update README from DGS template by Romain Deville ([`ff86b34`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/ff86b34e430600dedd9c9968c7e87a6cc79319c8)) 🔏
+  * 🔥 Remove licenses by Romain Deville ([`5ade4e4`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/5ade4e4c30c65e2eb4314176e18ed9f866fbe3ad)) 🔏
+  * 🔨 Update .envrc from DGS template by Romain Deville ([`d260c18`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/d260c18ce0951931774e111bc2cb9bf23ed5cdf8)) 🔏
+  * 🔨 Update devbox config from DGS template by Romain Deville ([`97012e6`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/97012e60ad48abfbca7b3f79fd761c5f8ce5bdd4)) 🔏
+  * 🔨 Update pre-commit configuration from DGS template by Romain Deville ([`409ad36`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/409ad3665abb3dc43c4f0ee91d1b4eb4fce78742)) 🔏
 
 ## v0.2.15 (2025-02-08)
 
 ### 🩹 Patch
 
-  * 🔧 Commit all updated direnv config (!21) by Romain Deville ([`1ef0b1c`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/1ef0b1ccf5d429244af6124b04296e5a9792afe7))
-  * 🔧 Commit all updated direnv config by Romain Deville ([`40dbad2`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/40dbad209e429dc7d3ed0970604079e070f31586)) 🔏
-  * 🔧 Update all direnv config (!20) by Romain Deville ([`24ee134`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/24ee134bac4ee846a5b33f27c77063ee74f02707))
-  * 🔧 Update all direnv config by Romain Deville ([`1e16605`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/1e166050355f56277f20402f1e13ceb647d04129)) 🔏
+  * 🔧 Commit all updated direnv config (!21) by Romain Deville ([`1ef0b1c`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/1ef0b1ccf5d429244af6124b04296e5a9792afe7))
+  * 🔧 Commit all updated direnv config by Romain Deville ([`40dbad2`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/40dbad209e429dc7d3ed0970604079e070f31586)) 🔏
+  * 🔧 Update all direnv config (!20) by Romain Deville ([`24ee134`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/24ee134bac4ee846a5b33f27c77063ee74f02707))
+  * 🔧 Update all direnv config by Romain Deville ([`1e16605`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/1e166050355f56277f20402f1e13ceb647d04129)) 🔏
 
 ## v0.2.14 (2025-01-03)
 
 ### 🩹 Patch
 
-  * 🔧 Update all direnv configs (!19) by Romain Deville ([`a5302c2`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/a5302c26db2965fb29459b2330abd45ae9045345))
-  * 🔧 Update all direnv configs by Romain Deville ([`db15283`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/db15283a4762c4c236cda071b800d2702b3eb8a1)) 🔏
-  * 🔧 Update some envrc.local by Romain Deville ([`5d67192`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/5d67192d7dacb81d00d2728753e1815a2c82f87a)) 🔏
-  * 🔧 Update all direnv config (!18) by Romain Deville ([`3d0085b`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/3d0085b81a5efe7d0354b065ad4a767adbc2b890))
-  * 🔧 Update all direnv config by Romain Deville ([`81d1082`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/81d108211047929584c8449918786ab0d52c430d)) 🔏
+  * 🔧 Update all direnv configs (!19) by Romain Deville ([`a5302c2`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/a5302c26db2965fb29459b2330abd45ae9045345))
+  * 🔧 Update all direnv configs by Romain Deville ([`db15283`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/db15283a4762c4c236cda071b800d2702b3eb8a1)) 🔏
+  * 🔧 Update some envrc.local by Romain Deville ([`5d67192`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/5d67192d7dacb81d00d2728753e1815a2c82f87a)) 🔏
+  * 🔧 Update all direnv config (!18) by Romain Deville ([`3d0085b`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/3d0085b81a5efe7d0354b065ad4a767adbc2b890))
+  * 🔧 Update all direnv config by Romain Deville ([`81d1082`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/81d108211047929584c8449918786ab0d52c430d)) 🔏
 
 ## v0.2.13 (2024-10-07)
 
 ### 🩹 Patch
 
-  * 🔧 Update direnv config (!16) by Romain Deville ([`94f69ca`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/94f69ca73271795d9ded82db6a740f01865b62ea))
-  * 🔧 Update direnv config by Romain Deville ([`285592d`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/285592d9f1375867031d87751ff2b92712e8b775)) 🔏
+  * 🔧 Update direnv config (!16) by Romain Deville ([`94f69ca`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/94f69ca73271795d9ded82db6a740f01865b62ea))
+  * 🔧 Update direnv config by Romain Deville ([`285592d`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/285592d9f1375867031d87751ff2b92712e8b775)) 🔏
 
 ## v0.2.12 (2024-09-13)
 
 ### 🩹 Patch
 
-  * 🔧 Update envrc.local config (!15) by Romain Deville ([`722f245`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/722f24516f726c77d54c19549cb7d8ae04cfe0bb))
-  * 🔧 Update envrc.local config by Romain Deville ([`cd4e969`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/cd4e9695b3837686a097b7539bb2c889d4c9ef49)) 🔏
+  * 🔧 Update envrc.local config (!15) by Romain Deville ([`722f245`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/722f24516f726c77d54c19549cb7d8ae04cfe0bb))
+  * 🔧 Update envrc.local config by Romain Deville ([`cd4e969`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/cd4e9695b3837686a097b7539bb2c889d4c9ef49)) 🔏
 
 ## v0.2.11 (2024-09-12)
 
 ### 🩹 Patch
 
-  * 🔧 Add public terraform github user envrc.local (!14) by Romain Deville ([`4975c1e`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/4975c1e4a3f488e1ac62451e1437bbc47186c1cd))
-  * 🔧 Add public terraform github user envrc.local by Romain Deville ([`f4fc739`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/f4fc7398127278bfa9d83ed375789405a31dd54c)) 🔏
+  * 🔧 Add public terraform github user envrc.local (!14) by Romain Deville ([`4975c1e`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/4975c1e4a3f488e1ac62451e1437bbc47186c1cd))
+  * 🔧 Add public terraform github user envrc.local by Romain Deville ([`f4fc739`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/f4fc7398127278bfa9d83ed375789405a31dd54c)) 🔏
 
 ## v0.2.10 (2024-09-11)
 
 ### 🩹 Patch
 
-  * 🔧 Add public terraform module github teams envrc.local (!13) by Romain Deville ([`09b11ea`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/09b11ea95551d30570489c451ce1d761afcb70fe))
-  * 🔧 Add public terraform module github teams envrc.local by Romain Deville ([`90b9e29`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/90b9e2930f0cf368b669a324f1523a098099b53d)) 🔏
+  * 🔧 Add public terraform module github teams envrc.local (!13) by Romain Deville ([`09b11ea`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/09b11ea95551d30570489c451ce1d761afcb70fe))
+  * 🔧 Add public terraform module github teams envrc.local by Romain Deville ([`90b9e29`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/90b9e2930f0cf368b669a324f1523a098099b53d)) 🔏
 
 ## v0.2.9 (2024-09-08)
 
 ### 🩹 Patch
 
-  * 🔧 Update envrc.local configs (!12) by Romain Deville ([`0797174`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/07971748750a1458dd400e380f3f5557db4272c2))
-  * 🔧 Update envrc.local configs by Romain Deville ([`cefcefc`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/cefcefc13a679faf385247d61c4e47a69ccd5f8f)) 🔏
+  * 🔧 Update envrc.local configs (!12) by Romain Deville ([`0797174`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/07971748750a1458dd400e380f3f5557db4272c2))
+  * 🔧 Update envrc.local configs by Romain Deville ([`cefcefc`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/cefcefc13a679faf385247d61c4e47a69ccd5f8f)) 🔏
 
 ## v0.2.8 (2024-09-07)
 
 ### 🩹 Patch
 
-  * 🔧 Update envrc.local configs (!11) by Romain Deville ([`881869c`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/881869c6623a0d1aa480869433f2bf4c0a512e53))
-  * 🔧 Update envrc.local configs by Romain Deville ([`79aad4c`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/79aad4c67c1a2ede70627ee8ec016fcd46019b5e)) 🔏
+  * 🔧 Update envrc.local configs (!11) by Romain Deville ([`881869c`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/881869c6623a0d1aa480869433f2bf4c0a512e53))
+  * 🔧 Update envrc.local configs by Romain Deville ([`79aad4c`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/79aad4c67c1a2ede70627ee8ec016fcd46019b5e)) 🔏
 
 ## v0.2.7 (2024-08-27)
 
 ### 🩹 Patch
 
-  * ⬆️ Update templated files from dotgit-sync (!10) by Romain Deville ([`6fbf4a7`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/6fbf4a7a7e706b6918344e664ea503f77446d6db))
-  * ⬆️ Update templated files from dotgit-sync by Dotgit Sync [bot] ([`1d550f5`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/1d550f58546b1e53f157025785b6473e4f8d791d))
-  * 🔧 Update an envrc.local config file by Romain Deville ([`7d05ff9`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/7d05ff9e3b0d4717619e32e4136edd4b0e9f3a93)) 🔏
+  * ⬆️ Update templated files from dotgit-sync (!10) by Romain Deville ([`6fbf4a7`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/6fbf4a7a7e706b6918344e664ea503f77446d6db))
+  * ⬆️ Update templated files from dotgit-sync by Dotgit Sync [bot] ([`1d550f5`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/1d550f58546b1e53f157025785b6473e4f8d791d))
+  * 🔧 Update an envrc.local config file by Romain Deville ([`7d05ff9`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/7d05ff9e3b0d4717619e32e4136edd4b0e9f3a93)) 🔏
 
 ### 🔊 Others
 
-  * 👷 Update Gitlab CI from DGS template by Romain Deville ([`c7aa02c`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/c7aa02ce8c8697ac5198aebef7ec76905fd924f5)) 🔏
+  * 👷 Update Gitlab CI from DGS template by Romain Deville ([`c7aa02c`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/c7aa02ce8c8697ac5198aebef7ec76905fd924f5)) 🔏
 
 ## v0.2.6 (2024-08-26)
 
 ### 🩹 Patch
 
-  * 🔧 Batch update: remove tmux, source_up first by Romain Deville ([`9c91726`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/9c91726c1d46555ca8f7d487730873e7ae4e70df)) 🔏
+  * 🔧 Batch update: remove tmux, source_up first by Romain Deville ([`9c91726`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/9c91726c1d46555ca8f7d487730873e7ae4e70df)) 🔏
 
 ### 🔊 Others
 
-  * 🔨 Add tools script to batch update (and apply it) (!9) by Romain Deville ([`190acc4`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/190acc46d385b0e87cdcb0fe468cf16a60537c88))
-  * 🔨 Add tools script to batch update by Romain Deville ([`0cf83df`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/0cf83df141001fdf7487f3dae9dee329f0509613)) 🔏
+  * 🔨 Add tools script to batch update (and apply it) (!9) by Romain Deville ([`190acc4`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/190acc46d385b0e87cdcb0fe468cf16a60537c88))
+  * 🔨 Add tools script to batch update by Romain Deville ([`0cf83df`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/0cf83df141001fdf7487f3dae9dee329f0509613)) 🔏
 
 ## v0.2.5 (2024-08-26)
 
 ### 🩹 Patch
 
-  * ⬆️ Update templated files from dotgit-sync (!8) by Romain Deville ([`b426a65`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/b426a65db404dd841130b1a37c8daba7c06ca972))
-  * ⬆️ Update templated files from dotgit-sync by Dotgit Sync [bot] ([`5ff93d4`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/5ff93d4b4b123a06fdb1668b488caa90922131f4))
+  * ⬆️ Update templated files from dotgit-sync (!8) by Romain Deville ([`b426a65`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/b426a65db404dd841130b1a37c8daba7c06ca972))
+  * ⬆️ Update templated files from dotgit-sync by Dotgit Sync [bot] ([`5ff93d4`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/5ff93d4b4b123a06fdb1668b488caa90922131f4))
 
 ### 🔊 Others
 
-  * 💚 Update CI Workflow rules (!7) by Romain Deville ([`3927ba3`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/3927ba38befb0a5e70386595f81caed92647890d))
-  * 💚 Update CI Workflow rules by Romain Deville ([`bdd039e`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/bdd039e0e5fb31bb12633270f079f459df9a2560)) 🔏
+  * 💚 Update CI Workflow rules (!7) by Romain Deville ([`3927ba3`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/3927ba38befb0a5e70386595f81caed92647890d))
+  * 💚 Update CI Workflow rules by Romain Deville ([`bdd039e`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/bdd039e0e5fb31bb12633270f079f459df9a2560)) 🔏
 
 ## v0.2.4 (2024-08-25)
 
 ### 🩹 Patch
 
-  * 🔧 Add new .envrc.local config (!6) by Romain Deville ([`7fb2e48`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/7fb2e48486ab30f40404f0e0754651a11434cfed))
-  * 🔧 Add new .envrc.local config by Romain Deville ([`355d862`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/355d86276c9badc95fe458a59866e496f424113c)) 🔏
+  * 🔧 Add new .envrc.local config (!6) by Romain Deville ([`7fb2e48`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/7fb2e48486ab30f40404f0e0754651a11434cfed))
+  * 🔧 Add new .envrc.local config by Romain Deville ([`355d862`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/355d86276c9badc95fe458a59866e496f424113c)) 🔏
 
 ## v0.2.3 (2024-08-23)
 
 ### 🩹 Patch
 
-  * ⬆️ Update templated files from dotgit-sync (!5) by Romain Deville ([`51e40ff`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/51e40ff3e822f294af87f6beb013aafa1c13c421))
-  * ⬆️ Update templated files from dotgit-sync by Dotgit Sync [bot] ([`318087f`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/318087f73d497224b4c569bcaae3bc25f9284a40))
+  * ⬆️ Update templated files from dotgit-sync (!5) by Romain Deville ([`51e40ff`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/51e40ff3e822f294af87f6beb013aafa1c13c421))
+  * ⬆️ Update templated files from dotgit-sync by Dotgit Sync [bot] ([`318087f`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/318087f73d497224b4c569bcaae3bc25f9284a40))
 
 ## v0.2.2 (2024-08-18)
 
 ### 🩹 Patch
 
-  * 🔧 Add pub/dot/nvim envrc.local (!4) by Romain Deville ([`e7c4a5c`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/e7c4a5c04b6e2b8608e7c11fa7125c6564db83ea))
-  * 🔧 Add pub/dot/nvim envrc.local by Romain Deville ([`f518327`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/f5183278850b0ffa011ea839f7a0a5abc902aa91)) 🔏
+  * 🔧 Add pub/dot/nvim envrc.local (!4) by Romain Deville ([`e7c4a5c`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/e7c4a5c04b6e2b8608e7c11fa7125c6564db83ea))
+  * 🔧 Add pub/dot/nvim envrc.local by Romain Deville ([`f518327`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/f5183278850b0ffa011ea839f7a0a5abc902aa91)) 🔏
 
 ## v0.2.1 (2024-08-17)
 
 ### 🩹 Patch
 
-  * 🔧 Update envrc.local (!3) by Romain Deville ([`45c634c`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/45c634c9f5bfef468cc270f9427154e279dca25d))
-  * 🔧 Update envrc.local by Romain Deville ([`7952d41`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/7952d4118009dadec239b54d75d67d6c84cf56d6)) 🔏
+  * 🔧 Update envrc.local (!3) by Romain Deville ([`45c634c`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/45c634c9f5bfef468cc270f9427154e279dca25d))
+  * 🔧 Update envrc.local by Romain Deville ([`7952d41`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/7952d4118009dadec239b54d75d67d6c84cf56d6)) 🔏
 
 ## v0.2.0 (2024-08-17)
 
 ### ✨ Minor
 
-  * ✨ Add script to clean old .envrc.local files by Romain Deville ([`2b6ffd4`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/2b6ffd414606264d3c405cab174d6cac35cbe364)) 🔏
+  * ✨ Add script to clean old .envrc.local files by Romain Deville ([`2b6ffd4`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/2b6ffd414606264d3c405cab174d6cac35cbe364)) 🔏
 
 ### 🩹 Patch
 
-  * ⚡️ Upgrade with DGS and improve data files (!2) by Romain Deville ([`264e270`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/264e270f21280e690d812cc016c8e0ad99db45b2))
-  * 🔧 Add semantic release config from DGS template by Romain Deville ([`8acb51e`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/8acb51eb984b133482d0ae5f46d0023255ec8301)) 🔏
-  * 🔧 Add markdownlint config from DGS template by Romain Deville ([`d49fed5`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/d49fed5dd1999cdb30713c464b4b0058e698ed1b)) 🔏
-  * 🔧 Add commitlint config from DGS template by Romain Deville ([`8100c01`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/8100c011c7aa804659d3824898bae50a21f0fad4)) 🔏
-  * 🔧 Add cspell configuration from DGS template by Romain Deville ([`e4e711a`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/e4e711aeaca6a7c30718a17063f9f4bb50b63c3e)) 🔏
-  * 🔧 Add editorconfig from DGS template by Romain Deville ([`ef84a68`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/ef84a68791d43ef72f6bf8033415748dd489bae3)) 🔏
-  * 🔧 Add dotgit sync configuration by Romain Deville ([`e5c2e66`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/e5c2e66b41462e0759b47d3f24fc343675d69786)) 🔏
-  * 🔧 Update envrc.local config by Romain Deville ([`b97fd28`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/b97fd28484e1630dd6f301971659b09ce709aa61)) 🔏
+  * ⚡️ Upgrade with DGS and improve data files (!2) by Romain Deville ([`264e270`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/264e270f21280e690d812cc016c8e0ad99db45b2))
+  * 🔧 Add semantic release config from DGS template by Romain Deville ([`8acb51e`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/8acb51eb984b133482d0ae5f46d0023255ec8301)) 🔏
+  * 🔧 Add markdownlint config from DGS template by Romain Deville ([`d49fed5`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/d49fed5dd1999cdb30713c464b4b0058e698ed1b)) 🔏
+  * 🔧 Add commitlint config from DGS template by Romain Deville ([`8100c01`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/8100c011c7aa804659d3824898bae50a21f0fad4)) 🔏
+  * 🔧 Add cspell configuration from DGS template by Romain Deville ([`e4e711a`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/e4e711aeaca6a7c30718a17063f9f4bb50b63c3e)) 🔏
+  * 🔧 Add editorconfig from DGS template by Romain Deville ([`ef84a68`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/ef84a68791d43ef72f6bf8033415748dd489bae3)) 🔏
+  * 🔧 Add dotgit sync configuration by Romain Deville ([`e5c2e66`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/e5c2e66b41462e0759b47d3f24fc343675d69786)) 🔏
+  * 🔧 Update envrc.local config by Romain Deville ([`b97fd28`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/b97fd28484e1630dd6f301971659b09ce709aa61)) 🔏
 
 ### 🔊 Others
 
-  * 👷 Add Gitlab CI from DGS template by Romain Deville ([`dbb805b`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/dbb805b7f7df343d46f5f2c8059a93eb620281d1)) 🔏
-  * 📄 Update licenses from DGS by Romain Deville ([`8b548f5`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/8b548f5a11f1365d85eec509b9836d7c3f76f78b)) 🔏
-  * 📝 Add CODE_OF_CONDUCT from DGS by Romain Deville ([`41b1bcb`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/41b1bcb6a5a0e69b76b14a533bb0157e8022aaf8)) 🔏
-  * 📝 Update README from DGS by Romain Deville ([`59e67e1`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/59e67e1f5326e372acc6163fe604b63f1dfbdf5e)) 🔏
-  * 🔥 Remove now useless files (envrc.local, symlinks) by Romain Deville ([`726bfea`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/726bfea9273580d423c1a42d89ac347efc5ae6b5)) 🔏
-  * 🔨 Add devbox config from DGS template by Romain Deville ([`924660a`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/924660a560bc95ce6e123c915a764266d7d5eb4e)) 🔏
-  * 🔨 Add pre-commit configuration from DGS template by Romain Deville ([`d13324f`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/d13324f536fb6c6b15ac9937956b2cebdfcdec5c)) 🔏
-  * 🔨 Update .envrc from DGS by Romain Deville ([`d58edd3`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/d58edd3264f12ed9f9d626c2b7300b2aa2243d1d)) 🔏
-  * 🙈 Update gitignore from DGS by Romain Deville ([`b08e018`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/b08e01898503db6008571661c24a197771a09c97)) 🔏
+  * 👷 Add Gitlab CI from DGS template by Romain Deville ([`dbb805b`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/dbb805b7f7df343d46f5f2c8059a93eb620281d1)) 🔏
+  * 📄 Update licenses from DGS by Romain Deville ([`8b548f5`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/8b548f5a11f1365d85eec509b9836d7c3f76f78b)) 🔏
+  * 📝 Add CODE_OF_CONDUCT from DGS by Romain Deville ([`41b1bcb`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/41b1bcb6a5a0e69b76b14a533bb0157e8022aaf8)) 🔏
+  * 📝 Update README from DGS by Romain Deville ([`59e67e1`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/59e67e1f5326e372acc6163fe604b63f1dfbdf5e)) 🔏
+  * 🔥 Remove now useless files (envrc.local, symlinks) by Romain Deville ([`726bfea`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/726bfea9273580d423c1a42d89ac347efc5ae6b5)) 🔏
+  * 🔨 Add devbox config from DGS template by Romain Deville ([`924660a`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/924660a560bc95ce6e123c915a764266d7d5eb4e)) 🔏
+  * 🔨 Add pre-commit configuration from DGS template by Romain Deville ([`d13324f`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/d13324f536fb6c6b15ac9937956b2cebdfcdec5c)) 🔏
+  * 🔨 Update .envrc from DGS by Romain Deville ([`d58edd3`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/d58edd3264f12ed9f9d626c2b7300b2aa2243d1d)) 🔏
+  * 🙈 Update gitignore from DGS by Romain Deville ([`b08e018`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/b08e01898503db6008571661c24a197771a09c97)) 🔏
 
 ## v0.1.0 (2024-08-17)
 
 ### ✨ Minor
 
-  * ✨ Upgrade bootstrap to setup by Romain Deville ([`ca9ff9c`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/ca9ff9c9766d523d73a800c19f97a2bc629bb00b)) 🔏
+  * ✨ Upgrade bootstrap to setup by Romain Deville ([`ca9ff9c`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/ca9ff9c9766d523d73a800c19f97a2bc629bb00b)) 🔏
 
 ### 🩹 Patch
 
-  * 🔧 Add .envrc of the repo by Romain Deville ([`5635b8a`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/5635b8a46ca6d41e0fc5043f9895f65f3f0cc013)) 🔏
-  * 🔧 Update git-repo_data envrc by Romain Deville ([`eaa46ca`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/eaa46ca0fd4b432320dfc82d14ffa6fa25ce5d4b)) 🔏
-  * 🔧 Add neomutt envrc by Romain Deville ([`c9eb27f`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/c9eb27f4660c07472679a081494cd8123b4f28b1)) 🔏
-  * 🔧 Add new config files by Romain Deville ([`9f4fca6`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/9f4fca65efa18adde551a300c071b05a487e1b55)) 🔏
-  * 🔧 Add envrc config files by Romain Deville ([`7a8df11`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/7a8df1128b07a5af9a618e2de3e37c547078225b)) 🔏
-  * 🔧 Add envrc.ini config by Romain Deville ([`2d38866`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/2d3886677fc82424a6a8651f3dfc4ec2ab10dc47)) 🔏
-  * 🔧 Add envrc.ini data by Romain Deville ([`884bce5`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/884bce5108d672570a0260cae1b94f54500ff672)) 🔏
-  * 🔧 Add config by Romain Deville ([`d085fe5`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/d085fe563db6e9948256ba030a7aed8e07e6ca95)) 🔏
+  * 🔧 Add .envrc of the repo by Romain Deville ([`5635b8a`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/5635b8a46ca6d41e0fc5043f9895f65f3f0cc013)) 🔏
+  * 🔧 Update git-repo_data envrc by Romain Deville ([`eaa46ca`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/eaa46ca0fd4b432320dfc82d14ffa6fa25ce5d4b)) 🔏
+  * 🔧 Add neomutt envrc by Romain Deville ([`c9eb27f`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/c9eb27f4660c07472679a081494cd8123b4f28b1)) 🔏
+  * 🔧 Add new config files by Romain Deville ([`9f4fca6`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/9f4fca65efa18adde551a300c071b05a487e1b55)) 🔏
+  * 🔧 Add envrc config files by Romain Deville ([`7a8df11`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/7a8df1128b07a5af9a618e2de3e37c547078225b)) 🔏
+  * 🔧 Add envrc.ini config by Romain Deville ([`2d38866`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/2d3886677fc82424a6a8651f3dfc4ec2ab10dc47)) 🔏
+  * 🔧 Add envrc.ini data by Romain Deville ([`884bce5`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/884bce5108d672570a0260cae1b94f54500ff672)) 🔏
+  * 🔧 Add config by Romain Deville ([`d085fe5`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/d085fe563db6e9948256ba030a7aed8e07e6ca95)) 🔏
 
 ### 🔊 Others
 
-  * ♻️ Upgrade from envrc.ini to new format envrc.local by Romain Deville ([`0e8f056`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/0e8f056be795bfd808a563278bb1e3681f0d472a)) 🔏
-  * 🙈 Add basic .gitignore by Romain Deville ([`efa55a5`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/efa55a559a96c548fb11c629368da435a8d9875c)) 🔏
+  * ♻️ Upgrade from envrc.ini to new format envrc.local by Romain Deville ([`0e8f056`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/0e8f056be795bfd808a563278bb1e3681f0d472a)) 🔏
+  * 🙈 Add basic .gitignore by Romain Deville ([`efa55a5`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/efa55a559a96c548fb11c629368da435a8d9875c)) 🔏
 
 ## v0.0.0 (2024-08-17)
 
 ### 🔊 Others
 
-  * 🎉 Initial Commit by Romain Deville ([`46a5077`](https://framagit.org/rdeville-private/dotfiles/direnv/-/commit/46a5077e3e41669a10d0f6c150ce5ca66dd1fc4a)) 🔏
+  * 🎉 Initial Commit by Romain Deville ([`46a5077`](https://framagit.org/rdeville-private/dotfiles/data-direnv/-/commit/46a5077e3e41669a10d0f6c150ce5ca66dd1fc4a)) 🔏
